@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/cyberpunk-ui/cyberpunk-vue/issues"
   },
-  "homepage": "https://github.com/cyberpunk-ui/cyberpunk-vue#readme"
+  "homepage": "https://github.com/cyberpunk-ui/cyberpunk-vue#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
