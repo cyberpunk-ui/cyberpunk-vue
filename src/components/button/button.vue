@@ -1,5 +1,5 @@
 <template>
-  
+  <button class="c-button">测试按钮</button>
 </template>
 
 <script>
@@ -8,6 +8,8 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .c-button {
+    background-color: red;
+  }
 </style>

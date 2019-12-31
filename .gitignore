@@ -63,3 +63,7 @@ typings/
 # IDE
 .idea/
 .vscode/
+
+# project
+.cache/
+/dist/
