@@ -17,7 +17,7 @@
 
 <style lang="scss" scoped>
   .icon {
-    width: 1.4em; height: 1.4em;
+    width: 1.3em; height: 1.3em;
     vertical-align: -0.3em;
     fill: currentColor;
     overflow: hidden;

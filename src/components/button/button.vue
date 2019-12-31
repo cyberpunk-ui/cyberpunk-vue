@@ -2,9 +2,7 @@
   <button class="c-button" :class="[iconPosition]" @click="$emit('click')">
     <c-icon v-if="icon && !loading" :type="icon" class="c-button-icon"></c-icon>
     <c-icon v-if="loading" type="loading" class="c-button-loading-icon"></c-icon>
-    <span class="c-button-content">
-      <slot></slot>
-    </span>
+    <slot class="c-button-content"></slot>
   </button>
 </template>
 
@@ -64,12 +62,12 @@
     }
 
     .c-button-loading-icon {
-      animation: loadingSpin 1.2s infinite linear;
+      animation: spin 1.2s infinite linear;
     }
 
   }
 
-  @keyframes loadingSpin {
+  @keyframes spin {
     0% {
       transform: rotate(0);
     }
