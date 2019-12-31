@@ -23,5 +23,8 @@
   "homepage": "https://github.com/cyberpunk-ui/cyberpunk-vue#readme",
   "dependencies": {
     "vue": "^2.6.11"
+  },
+  "alias": {
+    "vue" : "./node_modules/vue/dist/vue.common.js"
   }
 }
