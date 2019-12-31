@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Cyberpunk-ui base vue.js</title>
+  <style>
+    * {box-sizing: border-box; padding: 0;margin: 0;}
+    section {padding: 20px 20px}
+    section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
+  </style>
 </head>
-<body>
+<body style="background-color: #000;">
   <div id="app">
-    <c-button>测试</c-button>
+    <section>
+      <h4>Button 按钮</h4>
+      <c-button>测试</c-button>
+    </section>
   </div>
   <script src="./src/app.js"></script>
 </body>
