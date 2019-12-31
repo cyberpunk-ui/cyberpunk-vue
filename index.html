@@ -13,9 +13,14 @@
   <div id="app">
     <section>
       <h4>Button 按钮</h4>
-      <c-button>测试</c-button>
+      <c-button>基本按钮</c-button>
+      <c-button icon="leftarrow">图标按钮</c-button>
+      <c-button icon="Rightarrow" icon-position="right">右侧图标</c-button>
+      <c-button icon="set" loading>加载动画</c-button>
+      <c-button icon="success" @click="onClick">点击事件</c-button>
     </section>
   </div>
   <script src="./src/app.js"></script>
+  <script src="./src/style/iconfont.js"></script>
 </body>
 </html>
