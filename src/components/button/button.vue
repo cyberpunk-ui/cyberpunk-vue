@@ -9,8 +9,10 @@
 </template>
 
 <script>
+  import Icon from '../icon/icon';
   export default {
     name: "c-button",
+    components: {'c-icon': Icon},
     props: {
        icon: {
          type: String,
@@ -51,6 +53,7 @@
       background-color: darken($primary-color, 8%);
     }
     &.left {
+      c-button-loading-icon,
       .c-button-icon {
         float: left;
       }
@@ -59,6 +62,7 @@
       }
     }
     &.right {
+      c-button-loading-icon,
       .c-button-icon {
         float: right;
       }

@@ -4,7 +4,9 @@
   "description": "cyberpunk-ui base vue.js",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html --no-cache"
+    "start": "parcel index.html --no-cache",
+    "test": "parcel build test/* --no-minify && karma start --single-run",
+    "test-dev": "parcel watch test/* --no-cache & karma start"
   },
   "repository": {
     "type": "git",
@@ -33,7 +35,17 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.1.0",
+    "chai": "^4.2.0",
+    "karma": "^4.4.1",
+    "karma-chai": "^0.1.0",
+    "karma-chai-spies": "^0.1.4",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sinon-chai": "^2.0.2",
+    "mocha": "^6.2.2",
     "sass": "^1.24.0",
+    "sinon": "^8.0.2",
+    "sinon-chai": "^3.4.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
