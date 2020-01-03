@@ -53,7 +53,7 @@
       background-color: darken($primary-color, 8%);
     }
     &.left {
-      c-button-loading-icon,
+      .c-button-loading-icon,
       .c-button-icon {
         float: left;
       }
@@ -62,7 +62,7 @@
       }
     }
     &.right {
-      c-button-loading-icon,
+      .c-button-loading-icon,
       .c-button-icon {
         float: right;
       }
