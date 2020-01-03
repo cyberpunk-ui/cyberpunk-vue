@@ -10,7 +10,7 @@ $black-color: #000;
 
 /* Global style */
 $base-font-size: 14px;
-
+$base-text-space: 0.05em;
 
 /* Button style */
 $button-padding: 0.4em 1em;
@@ -18,6 +18,8 @@ $button-text-space: 0.1em;
 $button-font-weight: 500;
 
 /* Input style */
+$input-background-color: #191A20;
+
 $input-large-height: 40px;
 $input-default-height: 36px;
 $input-small-height: 32px;

@@ -7,6 +7,7 @@
     * {box-sizing: border-box; padding: 0;margin: 0;}
     section {padding: 20px 20px}
     section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
+    section div{ margin-bottom: 22px; }
   </style>
 </head>
 <body style="background-color: #000;">
@@ -28,10 +29,19 @@
     </section>
     <section>
       <h4>Input 文本框</h4>
-      <c-input placeholder="large尺寸" size="large"></c-input>
-      <c-input placeholder="默认尺寸"></c-input>
-      <c-input placeholder="small尺寸" size="small"></c-input>
-      <c-input placeholder="mini尺寸" size="mini"></c-input>
+      <div>
+        <c-input placeholder="Large尺寸" size="large"></c-input>
+        <c-input placeholder="默认尺寸"></c-input>
+        <c-input placeholder="Small尺寸" size="small"></c-input>
+        <c-input placeholder="Mini尺寸" size="mini"></c-input>
+      </div>
+      <div>
+        <c-input placeholder="请输入禁用内容" disabled></c-input>
+        <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
+        <c-input placeholder="请输入只读内容" readonly></c-input>
+        <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
+        <c-input placeholder="请输入内容" error></c-input>
+      </div>
     </section>
   </div>
   <script src="./src/app.js"></script>

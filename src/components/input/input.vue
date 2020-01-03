@@ -3,6 +3,8 @@
     class="c-input"
     :placeholder="placeholder"
     :class="size"
+    :disabled="disabled"
+    :readonly="readonly"
   />
 </template>
 
@@ -20,6 +22,14 @@
       size: {
         type: String,
       },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      readonly: {
+        type: Boolean,
+        default: false,
+      },
     },
   }
 </script>
@@ -31,18 +41,23 @@
     border: 0;
     margin: 0;
     box-shadow: inset 0 -1px 0 0 rgba(black, 0.5);
-    background: rgba(grey, 0.5);
+    background: $input-background-color;
     line-height: $input-default-height;
     font-size: $input-default-font-size;
-    transition: box-shadow 0.4s ease;
+    transition: all 0.4s ease;
     padding: 0 10px;
     color: rgba(white, 0.9);
-
+    letter-spacing: $base-text-space;
+    font-weight: 500;
     &:focus {
       box-shadow: inset 0 -2px 0 0 #fdee06;
       outline: none;
     }
+    &:hover {
+      background: lighten($input-background-color, 10%);
+    }
 
+    // size.
     &.large {
       line-height: $input-large-height;
       font-size: $input-large-font-size;
@@ -57,6 +72,25 @@
       line-height: $input-mini-height;
       font-size: $input-mini-font-size;
       padding: $input-mini-padding;
+    }
+
+    // disabled.
+    &[disabled],
+    &[readonly] {
+      cursor: not-allowed;
+      color: darken($secondary-color, 20%);
+      &::placeholder {
+        color: darken($secondary-color, 35%);
+      }
+    }
+    &[disabled]:hover,
+    &[readonly]:hover {
+      background: darken($secondary-color, 45%);
+    }
+
+    // readonly.
+    &[readonly]:focus {
+      box-shadow: inset 0 -2px 0 0 $secondary-color;
     }
   }
 </style>
