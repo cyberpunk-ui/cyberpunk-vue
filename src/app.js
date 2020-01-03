@@ -15,6 +15,9 @@ new Vue({
   methods: {
     onClick: ()=> {
       alert('触发点击事件')
-    }
+    },
+    onInputChange: (e)=> {
+      console.log(e.target.value);
+    },
   }
 });

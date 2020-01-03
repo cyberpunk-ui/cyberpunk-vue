@@ -5,6 +5,7 @@
     :class="size"
     :disabled="disabled"
     :readonly="readonly"
+    @change="$emit('change', $event)"
   />
 </template>
 
