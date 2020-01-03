@@ -78,19 +78,6 @@
     &[disabled],
     &[readonly] {
       cursor: not-allowed;
-      color: darken($secondary-color, 20%);
-      &::placeholder {
-        color: darken($secondary-color, 35%);
-      }
-    }
-    &[disabled]:hover,
-    &[readonly]:hover {
-      background: darken($secondary-color, 45%);
-    }
-
-    // readonly.
-    &[readonly]:focus {
-      box-shadow: inset 0 -2px 0 0 $secondary-color;
     }
   }
 </style>
