@@ -16,8 +16,17 @@ new Vue({
     onClick: ()=> {
       alert('触发点击事件')
     },
+    onInput: (e)=> {
+      console.log(e.target.value);
+    },
     onInputChange: (e)=> {
       console.log(e.target.value);
+    },
+    onFocus: (e)=> {
+      console.log(e);
+    },
+    onBlur: (e)=> {
+      console.log(e);
     },
   }
 });

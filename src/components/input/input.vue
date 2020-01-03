@@ -1,11 +1,15 @@
 <template>
   <input
     class="c-input"
+    :value="value"
     :placeholder="placeholder"
     :class="size"
     :disabled="disabled"
     :readonly="readonly"
     @change="$emit('change', $event)"
+    @focus="$emit('focus', $event)"
+    @input="$emit('input', $event)"
+    @blur="$emit('blur', $event)"
   />
 </template>
 
@@ -17,6 +21,9 @@
       //   type: String,
       //   default: 'text',
       // },
+      value: {
+        type: String | Number,
+      },
       placeholder: {
         type: String,
       },

@@ -31,7 +31,7 @@
       <h4>Input 文本框</h4>
       <div>
         <c-input placeholder="Large尺寸" size="large"></c-input>
-        <c-input placeholder="默认尺寸" @change="onInputChange"></c-input>
+        <c-input placeholder="默认尺寸"></c-input>
         <c-input placeholder="Small尺寸" size="small"></c-input>
         <c-input placeholder="Mini尺寸" size="mini"></c-input>
       </div>
@@ -40,6 +40,12 @@
         <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
         <c-input placeholder="请输入只读内容" readonly></c-input>
         <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
+      </div>
+      <div>
+        <c-input placeholder="Input事件" @input="onInput"></c-input>
+        <c-input placeholder="Change事件" @change="onInputChange"></c-input>
+        <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
+        <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
       </div>
     </section>
   </div>
