@@ -49,8 +49,28 @@ describe('[Input]', () => {
     afterEach(() => {
       vm.$destroy();
     });
-    it('test change/input/focus/blur event.', function () {
-      ['change','input', 'focus', 'blur'].forEach((eventName) => {
+    it('test input & v-model.', function () {
+      // 创建input实例并挂载
+      vm = new Constructor().$mount();
+      // 创建模拟方法
+      const callback = sinon.fake();
+      // 初始化change的方法
+      vm.$on('input', callback);
+      // 创建一个input事件对象作为传参
+      const event = new Event('input');
+      // 使用defineProperty添加value，模拟v-model
+      Object.defineProperty(event, 'target', {
+        value: {value: 'test v-model & input'},
+        enumerable: true,
+      });
+      // 触发事件
+      let inputElement = vm.$el;
+      inputElement.dispatchEvent(event);
+      // 期望change方法被触发，且第一个参数是event.target.value
+      expect(callback).to.have.been.calledWith('test v-model & input');
+    });
+    it('test change/focus/blur event.', function () {
+      ['change', 'focus', 'blur'].forEach((eventName) => {
         // 创建input实例并挂载
         vm = new Constructor().$mount();
         // 创建模拟方法

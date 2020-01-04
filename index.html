@@ -47,6 +47,10 @@
         <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
         <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
       </div>
+      <div>
+        <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
+        <span style="color: white">{{vModelValue}}</span>
+      </div>
     </section>
     <section>
       <h4>Grid 栅格</h4>

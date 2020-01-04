@@ -8,7 +8,7 @@
     :readonly="readonly"
     @change="$emit('change', $event)"
     @focus="$emit('focus', $event)"
-    @input="$emit('input', $event)"
+    @input="$emit('input', $event.target.value)"
     @blur="$emit('blur', $event)"
   />
 </template>

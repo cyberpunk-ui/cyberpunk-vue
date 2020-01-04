@@ -16,6 +16,16 @@ Vue.use(CCol);
 
 new Vue({
   el: '#app',
+  data(){
+    return {
+      vModelValue: '',
+    }
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.vModelValue += '测试v-model';
+    }, 1000)
+  },
   methods: {
     onClick: ()=> {
       alert('触发点击事件')
