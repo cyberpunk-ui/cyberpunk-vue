@@ -5,9 +5,17 @@
   <title>Cyberpunk-ui base vue.js</title>
   <style>
     * {box-sizing: border-box; padding: 0;margin: 0;}
-    section {padding: 20px 20px}
+    section {padding: 0px 20px 0}
     section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
-    section div{ margin-bottom: 22px; }
+    section .block{ margin-bottom: 22px; }
+    section .grid { background: rgba(255,255,255,.1); min-height: 50px }
+    section .grid div.c-col {
+      background-color: #40D4FA;
+      border: 1px solid white;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+    }
   </style>
 </head>
 <body style="background-color: #000;">
@@ -29,61 +37,61 @@
     </section>
     <section>
       <h4>Input 文本框</h4>
-      <div>
+      <div class="block">
         <c-input placeholder="Large尺寸" size="large"></c-input>
         <c-input placeholder="默认尺寸"></c-input>
         <c-input placeholder="Small尺寸" size="small"></c-input>
         <c-input placeholder="Mini尺寸" size="mini"></c-input>
       </div>
-      <div>
+      <div class="block">
         <c-input placeholder="请输入禁用内容" disabled></c-input>
         <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
         <c-input placeholder="请输入只读内容" readonly></c-input>
         <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
       </div>
-      <div>
+      <div class="block">
         <c-input placeholder="Input事件" @input="onInput"></c-input>
         <c-input placeholder="Change事件" @change="onInputChange"></c-input>
         <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
         <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
       </div>
-      <div>
+      <div class="block">
         <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
         <span style="color: white">{{vModelValue}}</span>
       </div>
     </section>
     <section>
       <h4>Grid 栅格</h4>
-      <div>
-        <c-row>
-          <c-col></c-col>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col>24</c-col>
         </c-row>
       </div>
-      <div>
-        <c-row>
-          <c-col></c-col>
-          <c-col></c-col>
-          <c-col></c-col>
-          <c-col></c-col>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col>6</c-col>
+          <c-col>6</c-col>
+          <c-col>6</c-col>
+          <c-col>6</c-col>
         </c-row>
       </div>
-      <div>
-        <c-row>
-          <c-col></c-col>
-          <c-col></c-col>
-          <c-col></c-col>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col>8</c-col>
+          <c-col>8</c-col>
+          <c-col>8</c-col>
         </c-row>
       </div>
-      <div>
-        <c-row>
-          <c-col></c-col>
-          <c-col></c-col>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col>12</c-col>
+          <c-col>12</c-col>
         </c-row>
       </div>
-      <div>
-        <c-row>
-          <c-col span="18"></c-col>
-          <c-col span="6"></c-col>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col span="2">2</c-col>
+          <c-col span="22">22</c-col>
         </c-row>
       </div>
 

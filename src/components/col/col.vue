@@ -1,5 +1,5 @@
 <template>
-  <div class="c-col">
+  <div class="c-col" :class="[span && `col-${span}`]">
     <slot></slot>
   </div>
 </template>
@@ -8,6 +8,9 @@
   export default {
     name: "c-col",
     props: {
+      span: {
+        type: [Number, String],
+      }
     },
   }
 </script>
@@ -16,6 +19,14 @@
   @import '../../style/theme';
 
   .c-col {
+    width: 100%;
 
+    $col-prefix: 'col-';
+    @for $i from 1 through 24{
+      &.#{$col-prefix}#{$i} {
+        width: $i / 24 * 100%;
+      }
+    }
   }
+
 </style>

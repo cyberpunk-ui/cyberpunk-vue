@@ -1,5 +1,5 @@
 <template>
-  <div class="c-row">
+  <div class="c-row" :style="{padding: `0 -${gutter}px`,}">
     <slot></slot>
   </div>
 </template>
@@ -8,6 +8,9 @@
   export default {
     name: "c-row",
     props: {
+      gutter: {
+        type: [String, Number]
+      }
     },
   }
 </script>
@@ -16,6 +19,6 @@
   @import '../../style/theme';
 
   .c-row {
-
+    display: flex;
   }
 </style>
