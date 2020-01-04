@@ -3,11 +3,15 @@ import CButton from './components/button'
 import CIcon from "./components/icon";
 import CButtonGroup from "./components/button-group";
 import CInput from "./components/input";
+import CRow from "./components/row";
+import CCol from "./components/col";
 
 Vue.use(CButton);
 Vue.use(CIcon);
 Vue.use(CButtonGroup);
 Vue.use(CInput);
+Vue.use(CRow);
+Vue.use(CCol);
 
 
 new Vue({
