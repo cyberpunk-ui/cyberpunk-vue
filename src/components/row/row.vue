@@ -1,5 +1,5 @@
 <template>
-  <div class="c-row" :style="{padding: `0 -${gutter}px`,}">
+  <div class="c-row" :style="{margin: `0 ${-gutter / 2}px`,}">
     <slot></slot>
   </div>
 </template>
@@ -9,8 +9,13 @@
     name: "c-row",
     props: {
       gutter: {
-        type: [String, Number]
+        type: [String, Number],
       }
+    },
+    mounted(){
+      this.$children.forEach(vm => {
+        vm.gutter = this.gutter;
+      })
     },
   }
 </script>
@@ -20,5 +25,6 @@
 
   .c-row {
     display: flex;
+
   }
 </style>

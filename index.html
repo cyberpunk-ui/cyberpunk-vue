@@ -8,8 +8,8 @@
     section {padding: 0px 20px 0}
     section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
     section .block{ margin-bottom: 22px; }
-    section .grid { background: rgba(255,255,255,.1); min-height: 50px }
-    section .grid div.c-col {
+    section .grid { background: rgba(255,255,255,.2); min-height: 50px }
+    section .grid div.c-col-wrapper {
       background-color: #40D4FA;
       border: 1px solid white;
       text-align: center;
@@ -92,6 +92,13 @@
         <c-row gutter="20">
           <c-col span="2">2</c-col>
           <c-col span="22">22</c-col>
+        </c-row>
+      </div>
+      <div class="block grid">
+        <c-row gutter="20">
+          <c-col span="10">10</c-col>
+          <c-col span="2" offset="1">2 offset-1</c-col>
+          <c-col span="10" offset="1">10 offset-1</c-col>
         </c-row>
       </div>
 
