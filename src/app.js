@@ -31,10 +31,10 @@ new Vue({
       alert('触发点击事件')
     },
     onInput: (e)=> {
-      console.log(e.target.value);
+      console.log(e);
     },
     onInputChange: (e)=> {
-      console.log(e.target.value);
+      console.log(e);
     },
     onFocus: (e)=> {
       console.log(e);
