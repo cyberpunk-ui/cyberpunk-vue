@@ -1,7 +1,7 @@
 <template>
-  <div class="c-header">
+  <header class="c-header">
     <slot></slot>
-  </div>
+  </header>
 </template>
 
 <script>

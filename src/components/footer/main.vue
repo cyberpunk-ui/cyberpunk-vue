@@ -1,7 +1,7 @@
 <template>
-  <div class="c-footer">
+  <footer class="c-footer">
     <slot></slot>
-  </div>
+  </footer>
 </template>
 
 <script>
