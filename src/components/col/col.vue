@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="c-col"
-    :class="[span && `col-${span}`, offset && `offset-${offset}`, ]"
-    :style="{padding: `0 ${gutter / 2}px`}"
-  >
+  <div class="c-col" :class="colClasses" :style="colStyles">
     <div class="c-col-wrapper">
       <slot></slot>
     </div>
@@ -26,6 +22,33 @@
         type: [Number, String],
       },
     },
+    computed: {
+      colClasses() {
+        const {span, offset} = this;
+        const createClasses = this.createClasses;
+        return [
+          ...createClasses(span, 'span'),
+          ...createClasses(offset, 'offset'),
+        ];
+      },
+      colStyles() {
+        return {padding: `0 ${this.gutter / 2}px`};
+      },
+    },
+    methods: {
+      createClasses(value, prefix='') {
+        if (!value) return [];
+        let array = [];
+        if (typeof value === 'object') {
+          value.span && array.push(`col-${prefix}${value.span}`);
+          value.offset && array.push(`col-${prefix}${value.offset}`);
+        } else {
+          prefix === 'span' && array.push(`col-${value.span}`);
+          prefix === 'offset' && array.push(`offset-${value.offset}`);
+        }
+        return array;
+      }
+    }
   }
 </script>
 

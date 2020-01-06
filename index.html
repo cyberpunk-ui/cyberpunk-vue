@@ -5,20 +5,17 @@
   <title>Cyberpunk-ui base vue.js</title>
   <style>
     * {box-sizing: border-box; padding: 0;margin: 0;}
+    body {background-color: #000;}
     section {padding: 0px 20px 0}
     section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
     section .block{ margin-bottom: 22px; }
     section .grid { background: rgba(255,255,255,.2); min-height: 50px }
-    section .grid div.c-col-wrapper {
-      background-color: #40D4FA;
-      border: 1px solid white;
-      text-align: center;
-      line-height: 50px;
-      color: white;
-    }
+    section .grid .grid-content {text-align: center;height: 50px;color: white;}
+    section .grid .grid-content.bg-color {background-color: #99A9BF;}
+    section .grid .grid-content.bg-color-light {background-color: #D3DCE6;}
   </style>
 </head>
-<body style="background-color: #000;">
+<body>
   <div id="app">
     <section>
       <h4>Button 按钮</h4>
@@ -64,44 +61,51 @@
       <h4>Grid 栅格</h4>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col>24</c-col>
+          <c-col><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col>6</c-col>
-          <c-col>6</c-col>
-          <c-col>6</c-col>
-          <c-col>6</c-col>
+          <c-col><div class="grid-content bg-color-light"></div></c-col>
+          <c-col><div class="grid-content bg-color"></div></c-col>
+          <c-col><div class="grid-content bg-color-light"></div></c-col>
+          <c-col><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col>8</c-col>
-          <c-col>8</c-col>
-          <c-col>8</c-col>
+          <c-col><div class="grid-content bg-color-light"></div></c-col>
+          <c-col><div class="grid-content bg-color"></div></c-col>
+          <c-col><div class="grid-content bg-color-light"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col>12</c-col>
-          <c-col>12</c-col>
+          <c-col><div class="grid-content bg-color-light"></div></c-col>
+          <c-col><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col span="2">2</c-col>
-          <c-col span="22">22</c-col>
+          <c-col span="2"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col span="22"><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col span="10">10</c-col>
-          <c-col span="2" offset="1">2 offset-1</c-col>
-          <c-col span="10" offset="1">10 offset-1</c-col>
+          <c-col span="10"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col span="2" offset="1"><div class="grid-content bg-color"></div></c-col>
+          <c-col span="10" offset="1"><div class="grid-content bg-color-light"></c-col>
         </c-row>
       </div>
-
+      <div class="block grid">
+        <c-row :gutter="20">
+          <c-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-color"></div></c-col>
+          <c-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-color"></div></c-col>
+        </c-row>
+      </div>
     </section>
   </div>
   <script src="./src/app.js"></script>

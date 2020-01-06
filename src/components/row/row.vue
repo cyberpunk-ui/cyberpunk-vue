@@ -1,5 +1,5 @@
 <template>
-  <div class="c-row" :style="{margin: `0 ${-gutter / 2}px`,}">
+  <div class="c-row" :style="rowStyles">
     <slot></slot>
   </div>
 </template>
@@ -10,6 +10,18 @@
     props: {
       gutter: {
         type: [String, Number],
+      }
+    },
+    computed: {
+      rowStyles() {
+        const {gutter} = this;
+        this.$children.forEach(vm => {
+          vm.gutter = this.gutter;
+        });
+        return {
+          marginLeft: `${-gutter / 2}px`,
+          marginRight: `${-gutter / 2}px`,
+        }
       }
     },
     mounted(){
