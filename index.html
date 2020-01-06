@@ -18,43 +18,21 @@
 <body>
   <div id="app">
     <section>
-      <h4>Button 按钮</h4>
-      <c-button>基本按钮</c-button>
-      <c-button icon="leftarrow">图标按钮</c-button>
-      <c-button icon="Rightarrow" icon-position="right">右侧图标</c-button>
-      <c-button icon="set" loading>加载动画</c-button>
-      <c-button icon="set" loading icon-position="right">右侧加载</c-button>
-      <c-button icon="success" @click="onClick">点击事件</c-button>
-      <c-button-group>
-        <c-button>首页</c-button>
-        <c-button>上一页</c-button>
-        <c-button>下一页</c-button>
-        <c-button>尾页</c-button>
-      </c-button-group>
-    </section>
-    <section>
-      <h4>Input 文本框</h4>
+      <h4>Layout 布局</h4>
       <div class="block">
-        <c-input placeholder="Large尺寸" size="large"></c-input>
-        <c-input placeholder="默认尺寸"></c-input>
-        <c-input placeholder="Small尺寸" size="small"></c-input>
-        <c-input placeholder="Mini尺寸" size="mini"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="请输入禁用内容" disabled></c-input>
-        <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
-        <c-input placeholder="请输入只读内容" readonly></c-input>
-        <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="Input事件" @input="onInput"></c-input>
-        <c-input placeholder="Change事件" @change="onInputChange"></c-input>
-        <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
-        <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
-        <span style="color: white">{{vModelValue}}</span>
+        <c-container>
+          <c-header>header</c-header>
+          <c-main>main</c-main>
+          <c-footer>footer</c-footer>
+        </c-container>
+        <c-container>
+          <c-aside>aside</c-aside>
+          <c-container>
+            <c-header>header</c-header>
+            <c-main>main</c-main>
+            <c-footer>footer</c-footer>
+          </c-container>
+        </c-container>
       </div>
     </section>
     <section>
@@ -93,6 +71,48 @@
         </c-row>
       </div>
     </section>
+    <section>
+      <h4>Input 文本框</h4>
+      <div class="block">
+        <c-input placeholder="Large尺寸" size="large"></c-input>
+        <c-input placeholder="默认尺寸"></c-input>
+        <c-input placeholder="Small尺寸" size="small"></c-input>
+        <c-input placeholder="Mini尺寸" size="mini"></c-input>
+      </div>
+      <div class="block">
+        <c-input placeholder="请输入禁用内容" disabled></c-input>
+        <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
+        <c-input placeholder="请输入只读内容" readonly></c-input>
+        <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
+      </div>
+      <div class="block">
+        <c-input placeholder="Input事件" @input="onInput"></c-input>
+        <c-input placeholder="Change事件" @change="onInputChange"></c-input>
+        <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
+        <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
+      </div>
+      <div class="block">
+        <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
+        <span style="color: white">{{vModelValue}}</span>
+      </div>
+    </section>
+    <section>
+      <h4>Button 按钮</h4>
+      <c-button>基本按钮</c-button>
+      <c-button icon="leftarrow">图标按钮</c-button>
+      <c-button icon="Rightarrow" icon-position="right">右侧图标</c-button>
+      <c-button icon="set" loading>加载动画</c-button>
+      <c-button icon="set" loading icon-position="right">右侧加载</c-button>
+      <c-button icon="success" @click="onClick">点击事件</c-button>
+      <c-button-group>
+        <c-button>首页</c-button>
+        <c-button>上一页</c-button>
+        <c-button>下一页</c-button>
+        <c-button>尾页</c-button>
+      </c-button-group>
+    </section>
+
+
   </div>
   <script src="./src/app.js"></script>
   <script src="./src/style/iconfont.js"></script>
