@@ -43,8 +43,8 @@
           value.span && array.push(`col-${prefix}${value.span}`);
           value.offset && array.push(`col-${prefix}${value.offset}`);
         } else {
-          prefix === 'span' && array.push(`col-${value.span}`);
-          prefix === 'offset' && array.push(`offset-${value.offset}`);
+          prefix === 'span' && array.push(`col-${value}`);
+          prefix === 'offset' && array.push(`offset-${value}`);
         }
         return array;
       }
