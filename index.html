@@ -9,8 +9,8 @@
     section {padding: 0px 20px 0}
     section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
     section .block{ margin-bottom: 22px; }
-    section .grid { background: rgba(255,255,255,.2); min-height: 50px }
-    section .grid .grid-content {text-align: center;height: 50px;color: white;}
+    section .grid { background: rgba(255,255,255,.2); min-height: 50px; }
+    section .grid .grid-content {  width: 100%; text-align: center;height: 50px; color: white;}
     section .grid .grid-content.bg-color {background-color: #99A9BF;}
     section .grid .grid-content.bg-color-light {background-color: #D3DCE6;}
   </style>
@@ -65,45 +65,31 @@
         </c-row>
       </div>
       <div class="block grid">
-        <c-row gutter="20">
-          <c-col><div class="grid-content bg-color-light"></div></c-col>
-          <c-col><div class="grid-content bg-color"></div></c-col>
-          <c-col><div class="grid-content bg-color-light"></div></c-col>
-          <c-col><div class="grid-content bg-color"></div></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col><div class="grid-content bg-color-light"></div></c-col>
-          <c-col><div class="grid-content bg-color"></div></c-col>
-          <c-col><div class="grid-content bg-color-light"></div></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col span="2"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col span="22"><div class="grid-content bg-color"></div></c-col>
+        <c-row  gutter="20">
+          <c-col span="8"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col span="8"><div class="grid-content bg-color"></div></c-col>
+          <c-col span="8"><div class="grid-content bg-color-light"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
           <c-col span="10"><div class="grid-content bg-color-light"></div></c-col>
           <c-col span="2" offset="1"><div class="grid-content bg-color"></div></c-col>
-          <c-col span="10" offset="1"><div class="grid-content bg-color-light"></c-col>
+          <c-col span="10" offset="1"><div class="grid-content bg-color-light"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
-        <c-row gutter="20" align="right">
+        <c-row  gutter="20" align="right">
           <c-col span="12"><div class="grid-content bg-color-light"></div></c-col>
           <c-col span="4"><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
-        <c-row :gutter="20">
-          <c-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-color"></div></c-col>
-          <c-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-color"></div></c-col>
+        <c-row gutter="20">
+          <c-col :xs="{span: 24}" sm="12" :md="4" :lg="{span:2, offset: '1'}" :xl="6" :xxl="8"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col :xs="{span: 24}" sm="12" :md="8" :lg="{span:8, offset: '1'}" :xl="6" :xxl="4"><div class="grid-content bg-color"></div></c-col>
+          <c-col :xs="{span: 24}" sm="12" :md="8" :lg="{span:8, offset: '1'}" :xl="6" :xxl="4"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col :xs="{span: 24}" sm="12" :md="4" :lg="{span:2, offset: '1'}" :xl="6" :xxl="8"><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
     </section>

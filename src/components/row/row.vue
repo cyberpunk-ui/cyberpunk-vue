@@ -21,9 +21,6 @@
     computed: {
       rowStyles() {
         const {gutter} = this;
-        this.$children.forEach(vm => {
-          vm.gutter = this.gutter;
-        });
         return {
           marginLeft: `${-gutter / 2}px`,
           marginRight: `${-gutter / 2}px`,
@@ -38,7 +35,7 @@
     },
     mounted(){
       this.$children.forEach(vm => {
-        vm.gutter = this.gutter;
+        vm.gutter = this.gutter || 0;
       })
     },
   }
@@ -49,7 +46,7 @@
 
   .c-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
      &.align-left {
        justify-content: flex-start;
      }
