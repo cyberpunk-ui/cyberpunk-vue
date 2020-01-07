@@ -14,6 +14,6 @@
   @import '../../style/theme';
 
   .c-main {
-
+    flex: 1;
   }
 </style>

@@ -13,8 +13,9 @@
     section .grid .grid-content {  width: 100%; text-align: center;height: 50px; color: white;}
     section .grid .grid-content.bg-color {background-color: #99A9BF;}
     section .grid .grid-content.bg-color-light {background-color: #D3DCE6;}
-    section .layout header, footer{background-color: #99A9BF;}
-    section .layout main, aside{background-color: #D3DCE6;}
+    section .layout header, footer{background-color: #99A9BF; line-height: 40px; text-align: center;}
+    section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
+    section .layout aside{background-color: #80889c;}
   </style>
 </head>
 <body>
@@ -23,18 +24,40 @@
       <h4>Layout 布局</h4>
       <div class="block layout">
         <c-layout>
-          <c-header>header</c-header>
+          <c-header height="40">header</c-header>
           <c-main>main</c-main>
-          <c-footer>footer</c-footer>
+          <c-footer height="40">footer</c-footer>
         </c-layout>
       </div>
       <div class="block layout">
         <c-layout>
           <c-aside>aside</c-aside>
           <c-layout>
-            <c-header>header</c-header>
+            <c-header height="40">header</c-header>
             <c-main>main</c-main>
-            <c-footer>footer</c-footer>
+            <c-footer height="40">footer</c-footer>
+          </c-layout>
+        </c-layout>
+      </div>
+      <div class="block layout">
+        <c-layout>
+          <c-header height="40">header</c-header>
+          <c-layout>
+            <c-aside>aside</c-aside>
+            <c-main>main</c-main>
+          </c-layout>
+          <c-footer height="40">footer</c-footer>
+        </c-layout>
+      </div>
+      <div class="block layout">
+        <c-layout>
+          <c-header height="40">header</c-header>
+          <c-layout>
+            <c-aside>aside</c-aside>
+            <c-layout>
+              <c-main>main</c-main>
+              <c-footer height="40">footer</c-footer>
+            </c-layout>
           </c-layout>
         </c-layout>
       </div>

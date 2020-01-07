@@ -1,12 +1,29 @@
 <template>
-  <main class="c-layout">
+  <div class="c-layout" :class="layoutClass">
     <slot></slot>
-  </main>
+  </div>
 </template>
 
 <script>
   export default {
     name: "CLayout",
+    data(){
+      return {
+        layoutClass: {
+          vertical: false
+        },
+      }
+    },
+    mounted: function () {
+      this.$children.forEach(vm => {
+        switch (vm.$options.name) {
+          case 'CHeader':
+          case 'CFooter':
+            this.layoutClass.vertical = true;
+            break;
+        }
+      })
+    }
   }
 </script>
 
@@ -14,6 +31,11 @@
   @import '../../style/theme';
 
   .c-layout {
-
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    &.vertical {
+      flex-direction: column;
+    }
   }
 </style>
