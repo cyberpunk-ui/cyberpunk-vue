@@ -1,19 +1,19 @@
 <template>
-  <main class="c-container">
+  <main class="c-layout">
     <slot></slot>
   </main>
 </template>
 
 <script>
   export default {
-    name: "CContainer",
+    name: "CLayout",
   }
 </script>
 
 <style lang="scss" scoped>
   @import '../../style/theme';
 
-  .c-container {
+  .c-layout {
 
   }
 </style>

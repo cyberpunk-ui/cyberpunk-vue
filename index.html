@@ -13,26 +13,30 @@
     section .grid .grid-content {  width: 100%; text-align: center;height: 50px; color: white;}
     section .grid .grid-content.bg-color {background-color: #99A9BF;}
     section .grid .grid-content.bg-color-light {background-color: #D3DCE6;}
+    section .layout header, footer{background-color: #99A9BF;}
+    section .layout main, aside{background-color: #D3DCE6;}
   </style>
 </head>
 <body>
   <div id="app">
     <section>
       <h4>Layout 布局</h4>
-      <div class="block">
-        <c-container>
+      <div class="block layout">
+        <c-layout>
           <c-header>header</c-header>
           <c-main>main</c-main>
           <c-footer>footer</c-footer>
-        </c-container>
-        <c-container>
+        </c-layout>
+      </div>
+      <div class="block layout">
+        <c-layout>
           <c-aside>aside</c-aside>
-          <c-container>
+          <c-layout>
             <c-header>header</c-header>
             <c-main>main</c-main>
             <c-footer>footer</c-footer>
-          </c-container>
-        </c-container>
+          </c-layout>
+        </c-layout>
       </div>
     </section>
     <section>
