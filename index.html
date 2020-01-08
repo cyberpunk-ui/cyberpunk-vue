@@ -21,6 +21,14 @@
 <body>
   <div id="app">
     <section>
+      <h4>Message 全局提示</h4>
+      <div class="block layout">
+        <c-button icon="rising1" @click="onMessage('top')">顶部提示</c-button>
+        <c-button icon="rising1" @click="onMessage('center')">居中提示</c-button>
+        <c-button icon="falling" @click="onMessage('bottom')">底部提示</c-button>
+      </div>
+    </section>
+    <section>
       <h4>Layout 布局</h4>
       <div class="block layout">
         <c-layout>

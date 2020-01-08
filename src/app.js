@@ -10,6 +10,7 @@ import CLayout from "./components/layout";
 import CMain from "./components/main";
 import CHeader from "./components/header";
 import CFooter from "./components/footer";
+import CMessage from "./components/message";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -22,7 +23,7 @@ Vue.use(CAside);
 Vue.use(CHeader);
 Vue.use(CMain);
 Vue.use(CFooter);
-
+Vue.use(CMessage);
 
 new Vue({
   el: '#app',
@@ -51,6 +52,12 @@ new Vue({
     },
     onBlur: (e)=> {
       console.log(e);
+    },
+    onMessage(position){
+      this.$message({
+        message: '测试一下',
+        position,
+      })
     },
   }
 });
