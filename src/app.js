@@ -55,8 +55,14 @@ new Vue({
     },
     onMessage(position){
       this.$message({
-        message: '测试一下',
+        message: '保存成功',
         position,
+        autoClose:false,
+        closeButton: {
+          callback: (message) =>  {
+            console.log(message)
+          } 
+        }
       })
     },
   }

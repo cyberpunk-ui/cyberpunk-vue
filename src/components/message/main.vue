@@ -1,8 +1,16 @@
 <template>
   <div class="c-message-wrapper" :class="messageClass">
     <div class="c-message">
-      <slot></slot>
+      <template>
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html="$slots.default[0]"></div>
+      </template>
+      <span class="close" @click="onCloseMessage" >
+        <span v-if="closeButton.text">{{closeButton.text}}</span>
+        <c-icon v-else type="close"></c-icon>
+      </span>
     </div>
+
   </div>
 </template>
 
@@ -16,6 +24,28 @@
           return ['top', 'bottom', 'center'].indexOf(value) !== -1;
         }
       },
+      autoClose: {
+        type: [Boolean, String],
+        default: 3,
+        validator(value) {
+          return value === false || typeof value === 'number';
+        }
+      },
+      enableHtml: {
+        type: Boolean,
+        default: false,
+      },
+      closeButton: {
+        type: Object,
+        default () {
+          return {
+            text: '', callback: undefined
+          }
+        }
+      },
+    },
+    mounted() {
+      this.execAutoClose();
     },
     computed: {
       messageClass() {
@@ -27,6 +57,19 @@
         this.$el.remove();
         this.$emit('close');
         this.$destroy();
+      },
+      onCloseMessage(){
+        this.close();
+        if (this.closeButton && typeof this.closeButton.callback === 'function') {
+          this.closeButton.callback(this)
+        }
+      },
+      execAutoClose() {
+        if (this.autoClose) {
+          setTimeout(()=> {
+            this.close();
+          }, this.autoClose * 1000)
+        }
       },
     }
   }
@@ -60,9 +103,17 @@
     }
     .c-message {
       background-color: $grey-color;
-      color: $secondary-color;
+      color: $white-color;
+
       border-bottom: 1px solid $secondary-color;
       padding: $message-padding;
+      display: flex;
+      .close {
+        cursor: pointer;
+        height: 100%;
+        color: $secondary-color;
+        margin: 0 -10px 0 12px;
+      }
     }
   }
 
