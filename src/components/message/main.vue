@@ -20,12 +20,13 @@
     props: {
       position: {
         type: String,
+        default: 'top',
         validator(value) {
           return ['top', 'bottom', 'center'].indexOf(value) !== -1;
         }
       },
       autoClose: {
-        type: [Boolean, String],
+        type: [Boolean, Number],
         default: 3,
         validator(value) {
           return value === false || typeof value === 'number';
@@ -39,7 +40,7 @@
         type: Object,
         default () {
           return {
-            text: '', callback: undefined
+            text: '关闭', callback: undefined
           }
         }
       },
