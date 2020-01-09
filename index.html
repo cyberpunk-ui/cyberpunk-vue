@@ -21,8 +21,18 @@
 <body>
   <div id="app">
     <section>
+      <h4>Tabs 标签页</h4>
+      <div class="block">
+        <c-tabs activeKey="1" @change="onTabChange">
+          <c-tab-pane tab="key1" key="1">Content 1</c-tab-pane>
+          <c-tab-pane tab="key2" key="2">Content 2</c-tab-pane>
+          <c-tab-pane tab="key3" key="3">Content 3</c-tab-pane>
+        </c-tabs>
+      </div>
+    </section>
+    <section>
       <h4>Message 全局提示</h4>
-      <div class="block layout">
+      <div class="block">
         <c-button icon="rising1" @click="onMessage('top')">顶部提示</c-button>
         <c-button icon="reduce" @click="onMessage('center')">居中提示</c-button>
         <c-button icon="falling" @click="onMessage('bottom')">底部提示</c-button>

@@ -11,6 +11,8 @@ import CMain from "./components/main";
 import CHeader from "./components/header";
 import CFooter from "./components/footer";
 import CMessage from "./components/message";
+import CTabs from "./components/tabs";
+import CTabPane from "./components/tab-pane";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -24,6 +26,8 @@ Vue.use(CHeader);
 Vue.use(CMain);
 Vue.use(CFooter);
 Vue.use(CMessage);
+Vue.use(CTabs);
+Vue.use(CTabPane);
 
 new Vue({
   el: '#app',
@@ -51,6 +55,9 @@ new Vue({
       console.log(e);
     },
     onBlur: (e)=> {
+      console.log(e);
+    },
+    onTabChange: (e)=> {
       console.log(e);
     },
     onMessage(position){
