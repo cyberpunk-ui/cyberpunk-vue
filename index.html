@@ -25,9 +25,22 @@
       <h4>Tabs 标签页</h4>
       <div class="block tabs">
         <c-tabs activeKey="1" @change="onTabChange">
-          <c-tab-pane tab="key1" key="1">Content 1</c-tab-pane>
-          <c-tab-pane tab="key2" key="2">Content 2</c-tab-pane>
-          <c-tab-pane tab="key3" key="3">Content 3</c-tab-pane>
+          <c-tabs-head>
+            <c-tabs-item name="tabs1">
+              <c-icon name="setting"></c-icon>Tab1
+            </c-tabs-item>
+            <c-tabs-item name="tabs2" disabled>
+              <c-icon name="setting"></c-icon>Tab2
+            </c-tabs-item>
+            <c-tabs-item name="tabs3">
+              <c-icon name="setting"></c-icon>Tab3
+            </c-tabs-item>
+          </c-tabs-head>
+          <c-tabs-body>
+            <c-tabs-pane name="tabs1">tab1</c-tabs-pane>
+            <c-tabs-pane name="tabs2">tab2</c-tabs-pane>
+            <c-tabs-pane name="tabs3">tab3</c-tabs-pane>
+          </c-tabs-body>
         </c-tabs>
       </div>
     </section>

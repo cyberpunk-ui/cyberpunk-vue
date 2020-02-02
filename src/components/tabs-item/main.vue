@@ -1,12 +1,12 @@
 <template>
-  <div class="c-tab-pane">
+  <div class="c-tabs-item">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: "CTabPane",
+    name: "CTabsItem",
     props: {
 
     },
@@ -22,7 +22,7 @@
 <style lang="scss" scoped>
   @import '../../style/theme';
 
-  .c-tab-pane {
+  .c-tabs-item {
 
   }
 </style>

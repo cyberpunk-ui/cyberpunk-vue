@@ -12,7 +12,10 @@ import CHeader from "./components/header";
 import CFooter from "./components/footer";
 import CMessage from "./components/message";
 import CTabs from "./components/tabs";
-import CTabPane from "./components/tab-pane";
+import CTabsPane from "./components/tabs-pane";
+import CTabsHead from "./components/tabs-head";
+import CTabsItem from "./components/tabs-item";
+import CTabsBody from "./components/tabs-body";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -27,7 +30,10 @@ Vue.use(CMain);
 Vue.use(CFooter);
 Vue.use(CMessage);
 Vue.use(CTabs);
-Vue.use(CTabPane);
+Vue.use(CTabsPane);
+Vue.use(CTabsHead);
+Vue.use(CTabsItem);
+Vue.use(CTabsBody);
 
 new Vue({
   el: '#app',
