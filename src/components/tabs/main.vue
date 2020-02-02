@@ -8,7 +8,7 @@
   export default {
     name: "c-tabs",
     props: {
-
+      activeName: String,
     },
     computed: {
 

@@ -16,13 +16,14 @@
     section .layout header, footer{background-color: #99A9BF; line-height: 40px; text-align: center;}
     section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
     section .layout aside{background-color: #80889c;}
+    section .tabs{color: white;}
   </style>
 </head>
 <body>
   <div id="app">
     <section>
       <h4>Tabs 标签页</h4>
-      <div class="block">
+      <div class="block tabs">
         <c-tabs activeKey="1" @change="onTabChange">
           <c-tab-pane tab="key1" key="1">Content 1</c-tab-pane>
           <c-tab-pane tab="key2" key="2">Content 2</c-tab-pane>
