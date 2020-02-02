@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "c-icon",
+    name: "CIcon",
     props: {
        type: {
          type: String,

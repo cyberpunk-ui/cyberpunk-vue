@@ -11,7 +11,7 @@
 <script>
   import Icon from '../icon/icon';
   export default {
-    name: "c-button",
+    name: "CButton",
     components: {'c-icon': Icon},
     props: {
        icon: {

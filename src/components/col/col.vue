@@ -18,7 +18,7 @@
   };
 
   export default {
-    name: "c-col",
+    name: "CCol",
     data() {
       return {
         gutter: 0,

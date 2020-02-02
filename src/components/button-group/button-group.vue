@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "c-button-group",
+    name: "CButtonGroup",
   }
 </script>
 

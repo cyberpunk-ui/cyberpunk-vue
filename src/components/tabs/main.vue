@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "c-tabs",
+    name: "CTabs",
     props: {
       activeName: String,
     },

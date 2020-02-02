@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    name: "c-input",
+    name: "CInput",
     props: {
       // htmlType: {
       //   type: String,
