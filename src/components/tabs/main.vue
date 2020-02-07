@@ -32,8 +32,11 @@
       }
     },
     created(){
-      this.$emit('update:selected', 'xxx')
+      this.$emit('update:selected', '这是this')
     },
+    mounted() {
+      this.eventBus.$emit('update:selected', this.activeName)
+    }
   }
 </script>
 

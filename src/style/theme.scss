@@ -1,6 +1,8 @@
 /* Global Color */
 $primary-color: #FCF702;
+$primary-dark-color: darken($primary-color, 5%);
 $secondary-color: #02F0FF;
+$secondary-dark-color: darken($secondary-color, 5%);
 $purple-color: #FD4DEE;
 $orange-color: #FD974F;
 $pink-color: #F9B6F9;
@@ -8,6 +10,7 @@ $red-color: #EC3957;
 $white-color: #FCF7FD;
 $black-color: #000;
 $grey-color: #2E2E32;
+$grey-light-color: #445259;
 
 /* Global style */
 $base-font-size: 14px;
@@ -38,4 +41,8 @@ $input-mini-padding: 0 6px;
 
 /* Message style */
 $message-padding: 12px 24px;
+
+/* Tabs style */
+$tabs-item-font-size: 14px;
+$tabs-item-padding: 0.4em 0.8em;
 

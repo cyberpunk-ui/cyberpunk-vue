@@ -16,7 +16,7 @@
     section .layout header, footer{background-color: #99A9BF; line-height: 40px; text-align: center;}
     section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
     section .layout aside{background-color: #80889c;}
-    section .tabs{color: white;}
+    section .tabs{color: white; width: 600px;}
   </style>
 </head>
 <body>
@@ -24,7 +24,7 @@
     <section>
       <h4>Tabs 标签页</h4>
       <div class="block tabs">
-        <c-tabs :active-name="activeName" :selected.sync="onTabChange">
+        <c-tabs :active-name.sync="selectedTab" @update:selected="onTabChange">
           <c-tabs-head>
             <template slot="actions">
               <c-button icon="set">设置</c-button>

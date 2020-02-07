@@ -40,7 +40,7 @@ new Vue({
   data(){
     return {
       vModelValue: '',
-      activeName: 'tabs1',
+      selectedTab: 'tabs1',
     }
   },
   mounted() {
@@ -65,7 +65,7 @@ new Vue({
       console.log(e);
     },
     onTabChange: (activeName)=> {
-      console.log(activeName)
+      // console.log('123',activeName)
     },
     onMessage(position){
       this.$message({

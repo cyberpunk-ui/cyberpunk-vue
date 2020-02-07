@@ -1,7 +1,9 @@
 <template>
   <div class="c-tabs-head">
     <slot></slot>
-    <slot name="actions"></slot>
+    <div class="actions-wrapper">
+      <slot name="actions"></slot>
+    </div>
   </div>
 </template>
 
@@ -10,7 +12,6 @@
     name: "CTabsHead",
     inject: ['eventBus'],
     created() {
-      console.log(this.eventBus);
     }
   }
 </script>
@@ -19,6 +20,11 @@
   @import '../../style/theme';
 
   .c-tabs-head {
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & .actions-wrapper{
+      margin-left: auto;
+    }
   }
 </style>

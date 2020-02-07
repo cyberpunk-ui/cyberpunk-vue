@@ -1,5 +1,5 @@
 <template>
-  <div class="c-tabs-item" @click="xxx">
+  <div class="c-tabs-item" @click="onClick" :class="{'active': active}">
     <slot></slot>
   </div>
 </template>
@@ -18,13 +18,18 @@
         required: true,
       }
     },
+    data() {
+      return {
+        active: false,
+      }
+    },
     created() {
       this.eventBus.$on('update:selected', (name) => {
-        console.log('item',name)
+        this.active = name === this.name
       })
     },
     methods: {
-      xxx(){
+      onClick(){
         this.eventBus.$emit('update:selected', this.name)
       }
     }
@@ -35,6 +40,19 @@
   @import '../../style/theme';
 
   .c-tabs-item {
-
+    display: block;
+    font-size: $tabs-item-font-size;
+    padding: $tabs-item-padding;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: $grey-light-color;
+    &:hover {
+      color: $black-color;
+      background-color: $primary-dark-color;
+    }
+    &.active {
+      color: $black-color;
+      background-color: $primary-color;
+    }
   }
 </style>

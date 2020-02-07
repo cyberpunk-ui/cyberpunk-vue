@@ -17,6 +17,8 @@
   @import '../../style/theme';
 
   .c-tabs-item {
+    padding: 12px;
+    border: 1px solid $grey-light-color;
 
   }
 </style>
