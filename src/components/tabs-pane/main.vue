@@ -1,5 +1,5 @@
 <template>
-  <div class="c-tabs-pane" :class="{active}">
+  <div class="c-tabs-pane" :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
   export default {
     name: "CTabsPane",
+    inject: ['eventBus'],
     data() {
       return {
         active: false,
@@ -18,7 +19,13 @@
         required: true,
       }
     },
-    inject: ['eventBus'],
+    computed: {
+      classes() {
+        return {
+          active: this.active
+        }
+      },
+    },
     created() {
       this.eventBus.$on('update:selected', (name) => {
         this.active = name === this.name
