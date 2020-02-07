@@ -8,7 +8,10 @@
   export default {
     name: "CTabsPane",
     props: {
-
+      name: {
+        type: String,
+        required: true,
+      }
     },
     computed: {
 

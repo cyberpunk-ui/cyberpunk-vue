@@ -8,13 +8,20 @@
   export default {
     name: "CTabs",
     props: {
-      activeName: String,
+      activeName: {
+        type: String,
+        required: true,
+      },
+      direction: {
+        type: String,
+        default: 'horizontal',
+        validator(value) {
+          return ['horizontal', 'vertical'].indexOf(value) >= 0
+        }
+      }
     },
-    computed: {
-
-    },
-    mounted(){
-
+    created(){
+      this.$emit('update:selected', 'xxx')
     },
   }
 </script>

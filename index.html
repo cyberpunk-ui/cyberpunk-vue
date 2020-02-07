@@ -24,16 +24,19 @@
     <section>
       <h4>Tabs 标签页</h4>
       <div class="block tabs">
-        <c-tabs activeKey="1" @change="onTabChange">
+        <c-tabs :activeName="activeName" :selected.sync="onTabChange">
           <c-tabs-head>
+            <template slot="actions">
+              <c-button icon="set">设置</c-button>
+            </template>
             <c-tabs-item name="tabs1">
-              <c-icon name="setting"></c-icon>Tab1
+              <c-icon type="editor"></c-icon>Tab1
             </c-tabs-item>
             <c-tabs-item name="tabs2" disabled>
-              <c-icon name="setting"></c-icon>Tab2
+              <c-icon type="data"></c-icon>Tab2
             </c-tabs-item>
             <c-tabs-item name="tabs3">
-              <c-icon name="setting"></c-icon>Tab3
+              <c-icon type="history"></c-icon>Tab3
             </c-tabs-item>
           </c-tabs-head>
           <c-tabs-body>

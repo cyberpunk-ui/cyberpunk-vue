@@ -8,13 +8,14 @@
   export default {
     name: "CTabsItem",
     props: {
-
-    },
-    computed: {
-
-    },
-    mounted(){
-
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      name: {
+        type: String,
+        required: true,
+      }
     },
   }
 </script>

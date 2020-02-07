@@ -1,6 +1,7 @@
 <template>
   <div class="c-tabs-head">
     <slot></slot>
+    <slot name="actions"></slot>
   </div>
 </template>
 
@@ -8,12 +9,6 @@
   export default {
     name: "CTabsHead",
     props: {
-
-    },
-    computed: {
-
-    },
-    mounted(){
 
     },
   }
