@@ -8,9 +8,10 @@
 <script>
   export default {
     name: "CTabsHead",
-    props: {
-
-    },
+    inject: ['eventBus'],
+    created() {
+      console.log(this.eventBus);
+    }
   }
 </script>
 

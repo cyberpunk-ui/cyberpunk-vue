@@ -1,5 +1,5 @@
 <template>
-  <div class="c-tabs-item">
+  <div class="c-tabs-item" @click="xxx">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
   export default {
     name: "CTabsItem",
+    inject: ['eventBus'],
     props: {
       disabled: {
         type: Boolean,
@@ -17,6 +18,16 @@
         required: true,
       }
     },
+    created() {
+      this.eventBus.$on('update:selected', (name) => {
+        console.log('item',name)
+      })
+    },
+    methods: {
+      xxx(){
+        this.eventBus.$emit('update:selected', this.name)
+      }
+    }
   }
 </script>
 

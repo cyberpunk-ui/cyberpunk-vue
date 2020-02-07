@@ -13,11 +13,11 @@
         required: true,
       }
     },
-    computed: {
-
-    },
-    mounted(){
-
+    inject: ['eventBus'],
+    created() {
+      this.eventBus.$on('update:selected', (name) => {
+        console.log('pane', name)
+      })
     },
   }
 </script>

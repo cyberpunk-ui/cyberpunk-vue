@@ -7,15 +7,9 @@
 <script>
   export default {
     name: "CTabsBody",
-    props: {
-
-    },
-    computed: {
-
-    },
-    mounted(){
-
-    },
+    inject: ['eventBus'],
+    created() {
+    }
   }
 </script>
 
