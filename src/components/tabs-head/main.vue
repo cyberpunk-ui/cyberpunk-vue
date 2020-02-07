@@ -11,8 +11,6 @@
   export default {
     name: "CTabsHead",
     inject: ['eventBus'],
-    created() {
-    }
   }
 </script>
 

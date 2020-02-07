@@ -13,13 +13,6 @@
         type: String,
         required: true,
       },
-      direction: {
-        type: String,
-        default: 'horizontal',
-        validator(value) {
-          return ['horizontal', 'vertical'].indexOf(value) >= 0
-        }
-      }
     },
     data(){
       return {

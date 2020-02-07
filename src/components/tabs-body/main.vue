@@ -8,8 +8,6 @@
   export default {
     name: "CTabsBody",
     inject: ['eventBus'],
-    created() {
-    }
   }
 </script>
 
