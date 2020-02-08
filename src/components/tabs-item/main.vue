@@ -1,5 +1,5 @@
 <template>
-  <div class="c-tabs-item" @click="onClick" :class="classes">
+  <div class="c-tabs-item" @click="onClick" :class="classes" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -8,25 +8,27 @@
   export default {
     name: "CTabsItem",
     inject: ['eventBus'],
+    data() {
+      return {
+        active: false,
+      }
+    },
     props: {
       disabled: {
         type: Boolean,
         default: false,
       },
       name: {
-        type: String,
+        type: String | Number,
         required: true,
       }
     },
-    data() {
-      return {
-        active: false,
-      }
-    },
     created() {
-      this.eventBus.$on('update:selected', (name) => {
-        this.active = name === this.name
-      })
+      if (this.eventBus) {
+        this.eventBus.$on('update:selected', (name) => {
+          this.active = name === this.name
+        })
+      }
     },
     computed: {
       classes() {
@@ -39,7 +41,8 @@
     methods: {
       onClick(){
         if (this.disabled) return;
-        this.eventBus.$emit('update:selected', this.name)
+        this.eventBus && this.eventBus.$emit('update:selected', this.name, this)
+        this.$emit('click', this)
       }
     }
   }

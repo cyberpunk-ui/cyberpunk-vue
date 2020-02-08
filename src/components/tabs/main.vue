@@ -9,7 +9,7 @@
   export default {
     name: "CTabs",
     props: {
-      activeName: {
+      selected: {
         type: String,
         required: true,
       },
@@ -33,8 +33,8 @@
       this.$children.forEach((vm)=>{
         if (vm.$options.name === 'CTabsHead') {
           vm.$children.forEach((childVm) => {
-            if (childVm.$options.name === 'CTabsItem' && childVm.name === this.activeName) {
-              this.eventBus.$emit('update:selected', this.activeName, childVm)
+            if (childVm.$options.name === 'CTabsItem' && childVm.name === this.selected) {
+              this.eventBus.$emit('update:selected', this.selected, childVm)
             }
           })
         }
