@@ -24,11 +24,21 @@
         eventBus: this.eventBus
       }
     },
-    created(){
-      this.$emit('update:selected', '这是this')
-    },
     mounted() {
-      this.eventBus.$emit('update:selected', this.activeName)
+      if(this.$children.length === 0) {
+        console && console.warn &&
+        console.warn('c-tabs component should contain c-tabs-head & c-tabs-body, Please complete.')
+      }
+
+      this.$children.forEach((vm)=>{
+        if (vm.$options.name === 'CTabsHead') {
+          vm.$children.forEach((childVm) => {
+            if (childVm.$options.name === 'CTabsItem' && childVm.name === this.activeName) {
+              this.eventBus.$emit('update:selected', this.activeName, childVm)
+            }
+          })
+        }
+      })
     }
   }
 </script>
