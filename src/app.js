@@ -16,6 +16,7 @@ import CTabsPane from "./components/tabs-pane";
 import CTabsHead from "./components/tabs-head";
 import CTabsItem from "./components/tabs-item";
 import CTabsBody from "./components/tabs-body";
+import CPopover from "./components/popover";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -34,6 +35,7 @@ Vue.use(CTabsPane);
 Vue.use(CTabsHead);
 Vue.use(CTabsItem);
 Vue.use(CTabsBody);
+Vue.use(CPopover);
 
 new Vue({
   el: '#app',
