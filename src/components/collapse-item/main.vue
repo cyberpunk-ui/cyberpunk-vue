@@ -2,7 +2,7 @@
   <div class="c-collapse-item">
     <div class="title" @click="toggle">
       {{title}}
-      <span class="trigger">
+      <span class="trigger" :class="{'active': isShow}">
         <c-icon type="arrow-down"></c-icon>
       </span>
     </div>
@@ -66,6 +66,10 @@
         position: absolute;
         right: 12px;
         font-size: 18px;
+        transition: all 0.3s;
+        &.active {
+          transform: rotate(180deg);
+        }
       }
     }
     &:last-child > .title {
