@@ -17,21 +17,22 @@
     section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
     section .layout aside{background-color: #80889c;}
     section .tabs{color: white; width: 600px;}
+    section .collapse{ width: 600px; }
   </style>
 </head>
 <body>
   <div id="app">
     <section>
       <h4>Collapse 折叠面板</h4>
-      <div class="block">
+      <div class="block collapse">
         <c-collapse v-model="activeCollapseNames" @change="handleCollapseChange">
-          <c-collapse-item title="item1" name="1">
+          <c-collapse-item title="标题1" name="1">
             面板内容1
           </c-collapse-item>
-          <c-collapse-item title="item2" name="2">
+          <c-collapse-item title="标题2" name="2">
             面板内容2
           </c-collapse-item>
-          <c-collapse-item title="item3" name="2">
+          <c-collapse-item title="标题3" name="2">
             面板内容3
           </c-collapse-item>
         </c-collapse>
