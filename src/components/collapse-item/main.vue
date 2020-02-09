@@ -31,28 +31,17 @@
       }
     },
     mounted () {
-      this.eventBus && this.eventBus.$on('update:selected', (name) => {
-        if (name !== this.name) {
-          this.close();
-        } else {
-          this.open();
-        }
+      this.eventBus && this.eventBus.$on('update:selected', (names) => {
+        this.isShow = names.indexOf(this.name) >= 0
       })
     },
     methods: {
       toggle(){
         if (this.isShow) {
-          this.isShow = false
+          this.eventBus && this.eventBus.$emit('update:removeSelected', this.name)
         } else {
-          this.isShow = true;
-          this.eventBus && this.eventBus.$emit('update:selected', this.name)
+          this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
         }
-      },
-      close(){
-        this.isShow = false
-      },
-      open(){
-        this.isShow = true
       },
     }
   }

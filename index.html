@@ -25,7 +25,7 @@
     <section>
       <h4>Collapse 折叠面板</h4>
       <div class="block collapse">
-        <c-collapse accordion :selected.sync="selectedCollapse">
+        <c-collapse :accordion="isAccordion" :selected.sync="selectedCollapse">
           <c-collapse-item title="标题1" name="1">
             面板内容1
           </c-collapse-item>
