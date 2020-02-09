@@ -12,6 +12,9 @@
       accordion: {
         type: Boolean,
         default: false,
+      },
+      value: {
+        type: String,
       }
     },
     data(){
@@ -26,6 +29,9 @@
         }
       }
     },
+    mounted() {
+      this.eventBus.$emit('update:selected', this.value)
+    }
   }
 </script>
 

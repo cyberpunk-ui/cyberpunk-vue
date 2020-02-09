@@ -6,7 +6,7 @@
         <c-icon type="arrow-down"></c-icon>
       </span>
     </div>
-    <div class="content" v-if="open">
+    <div class="content" v-if="isShow">
       <slot></slot>
     </div>
   </div>
@@ -21,30 +21,38 @@
         type: String,
         required: true,
       },
+      name: {
+        type: String | Number,
+      },
     },
     data(){
       return {
-        open: false,
+        isShow: false,
       }
     },
     mounted () {
-      this.eventBus && this.eventBus.$on('update:selected', (vm) => {
-        if (vm !== this) {
+      this.eventBus && this.eventBus.$on('update:selected', (name) => {
+        if (name !== this.name) {
           this.close();
+        } else {
+          this.open();
         }
       })
     },
     methods: {
       toggle(){
-        if (this.open) {
-          this.open = false
+        if (this.isShow) {
+          this.isShow = false
         } else {
-          this.open = true;
-          this.eventBus && this.eventBus.$emit('update:selected', this)
+          this.isShow = true;
+          this.eventBus && this.eventBus.$emit('update:selected', this.name)
         }
       },
       close(){
-        this.open = false
+        this.isShow = false
+      },
+      open(){
+        this.isShow = true
       },
     }
   }
