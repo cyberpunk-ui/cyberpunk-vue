@@ -1,12 +1,12 @@
 <template>
   <div class="c-collapse-item">
-    <div class="title">
+    <div class="title" @click="open = !open">
       {{title}}
       <span class="trigger">
         <c-icon type="arrow-down"></c-icon>
       </span>
     </div>
-    <div class="content">
+    <div class="content" v-if="open">
       <slot></slot>
     </div>
   </div>
@@ -23,7 +23,12 @@
       name: {
         type: String | Number,
       },
-    }
+    },
+    data(){
+      return {
+        open: false,
+      }
+    },
   }
 </script>
 
