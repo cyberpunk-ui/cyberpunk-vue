@@ -1,6 +1,6 @@
 <template>
   <div class="c-collapse-item">
-    <div class="title" @click="open = !open">
+    <div class="title" @click="toggle">
       {{title}}
       <span class="trigger">
         <c-icon type="arrow-down"></c-icon>
@@ -15,13 +15,11 @@
 <script>
   export default {
     name: "CCollapseItem",
-    props:{
+    inject: ['eventBus'],
+    props: {
       title: {
         type: String,
         required: true,
-      },
-      name: {
-        type: String | Number,
       },
     },
     data(){
@@ -29,6 +27,26 @@
         open: false,
       }
     },
+    mounted () {
+      this.eventBus && this.eventBus.$on('update:selected', (vm) => {
+        if (vm !== this) {
+          this.close();
+        }
+      })
+    },
+    methods: {
+      toggle(){
+        if (this.open) {
+          this.open = false
+        } else {
+          this.open = true;
+          this.eventBus && this.eventBus.$emit('update:selected', this)
+        }
+      },
+      close(){
+        this.open = false
+      },
+    }
   }
 </script>
 
