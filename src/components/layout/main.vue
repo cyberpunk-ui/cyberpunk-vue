@@ -17,7 +17,7 @@
     mounted: function () {
       this.$children.forEach(vm => {
         switch (vm.$options.name) {
-          case 'CCollapseItem':
+          case 'CHeader':
           case 'CFooter':
             this.layoutClass.vertical = true;
             break;
