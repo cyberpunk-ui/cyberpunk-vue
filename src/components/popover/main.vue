@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" ref="popover">
+  <div class="c-popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
          :class="{[`position-${position}`]:true}">
       <slot name="content" :close="close"></slot>
@@ -123,7 +123,7 @@
 <style scoped lang="scss">
   $border-color: #333;
   $border-radius: 4px;
-  .popover {
+  .c-popover {
     display: inline-block;
     vertical-align: top;
     position: relative;
