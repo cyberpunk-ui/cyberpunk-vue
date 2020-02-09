@@ -17,6 +17,8 @@ import CTabsHead from "./components/tabs-head";
 import CTabsItem from "./components/tabs-item";
 import CTabsBody from "./components/tabs-body";
 import CPopover from "./components/popover";
+import CCollapse from "./components/collapse";
+import CCollapseItem from "./components/collapse-item";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -36,6 +38,8 @@ Vue.use(CTabsHead);
 Vue.use(CTabsItem);
 Vue.use(CTabsBody);
 Vue.use(CPopover);
+Vue.use(CCollapse);
+Vue.use(CCollapseItem);
 
 new Vue({
   el: '#app',
@@ -43,6 +47,7 @@ new Vue({
     return {
       vModelValue: '',
       selectedTab: 'tabs1',
+      activeCollapseNames: 'item1',
     }
   },
   mounted() {
@@ -68,6 +73,8 @@ new Vue({
     },
     onTabChange: (activeName)=> {
       // console.log('123',selected)
+    },
+    handleCollapseChange: ()=> {
     },
     onMessage(position){
       this.$message({

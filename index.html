@@ -22,6 +22,22 @@
 <body>
   <div id="app">
     <section>
+      <h4>Collapse 折叠面板</h4>
+      <div class="block">
+        <c-collapse v-model="activeCollapseNames" @change="handleCollapseChange">
+          <c-collapse-item title="item1" name="1">
+            面板内容1
+          </c-collapse-item>
+          <c-collapse-item title="item2" name="2">
+            面板内容2
+          </c-collapse-item>
+          <c-collapse-item title="item3" name="2">
+            面板内容3
+          </c-collapse-item>
+        </c-collapse>
+      </div>
+    </section>
+    <section>
       <h4>Popover 弹出框</h4>
       <div class="block">
         <c-popover>
