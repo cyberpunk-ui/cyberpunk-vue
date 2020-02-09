@@ -13,7 +13,7 @@
         type: Boolean,
         default: false,
       },
-      value: {
+      selected: {
         type: String,
       }
     },
@@ -30,7 +30,10 @@
       }
     },
     mounted() {
-      this.eventBus.$emit('update:selected', this.value)
+      this.eventBus.$emit('update:selected', this.selected);
+      this.eventBus.$on('update:selected', (name) => {
+        this.$emit('update:selected', name)
+      })
     }
   }
 </script>

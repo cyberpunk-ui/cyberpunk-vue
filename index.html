@@ -17,7 +17,7 @@
     section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
     section .layout aside{background-color: #80889c;}
     section .tabs{color: white; width: 600px;}
-    section .collapse{ width: 600px; }
+    section .collapse{color: white; width: 600px; }
   </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
     <section>
       <h4>Collapse 折叠面板</h4>
       <div class="block collapse">
-        <c-collapse accordion value="2">
+        <c-collapse accordion :selected.sync="selectedCollapse">
           <c-collapse-item title="标题1" name="1">
             面板内容1
           </c-collapse-item>

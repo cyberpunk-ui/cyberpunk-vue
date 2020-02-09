@@ -47,7 +47,7 @@ new Vue({
     return {
       vModelValue: '',
       selectedTab: 'tabs1',
-      activeCollapseNames: 'item1',
+      selectedCollapse: '2',
     }
   },
   mounted() {
