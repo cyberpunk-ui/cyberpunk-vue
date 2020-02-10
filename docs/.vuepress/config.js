@@ -1,5 +1,6 @@
 module.exports = {
   title: 'Cyberpunk Vue',
+  base: '/cyberpunk-vue/',
   description: 'an dark mode first UI library',
   theme: 'default-prefers-color-scheme',
   themeConfig: {
