@@ -19,6 +19,7 @@ import CTabsBody from "./components/tabs-body";
 import CPopover from "./components/popover";
 import CCollapse from "./components/collapse";
 import CCollapseItem from "./components/collapse-item";
+import CCascader from "./components/cascader";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -40,6 +41,7 @@ Vue.use(CTabsBody);
 Vue.use(CPopover);
 Vue.use(CCollapse);
 Vue.use(CCollapseItem);
+Vue.use(CCascader);
 
 new Vue({
   el: '#app',

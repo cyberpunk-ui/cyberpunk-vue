@@ -23,6 +23,14 @@
 <body>
   <div id="app">
     <section>
+      <h4>Cascader 级联选择器</h4>
+      <div class="block cascader">
+        <c-cascader>
+          <c-button>级联选择器</c-button>
+        </c-cascader>
+      </div>
+    </section>
+    <section>
       <h4>Collapse 折叠面板</h4>
       <div class="block collapse">
         <c-collapse :accordion="isAccordion" :selected.sync="selectedCollapse">
@@ -219,8 +227,6 @@
         <c-button>尾页</c-button>
       </c-button-group>
     </section>
-
-
   </div>
   <script src="./src/app.js"></script>
   <script src="./src/style/iconfont.js"></script>
