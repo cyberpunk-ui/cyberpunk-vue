@@ -1,6 +1,5 @@
 module.exports = {
   title: 'Cyberpunk Vue',
-  base: '/cyberpunk-vue/',
   description: 'an dark mode first UI library',
   theme: 'default-prefers-color-scheme',
   themeConfig: {
@@ -17,6 +16,7 @@ module.exports = {
         ]
       },
       { text: '博客', link: 'https://ylzon.com' },
+      { text: 'GitHub', link: 'https://github.com/cyberpunk-ui/cyberpunk-vue' },
     ],
     sidebar: [
       {
