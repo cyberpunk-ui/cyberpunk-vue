@@ -77,7 +77,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/theme';
+  @import '../../style/var';
   @import '../../style/animation';
 
   .c-message-wrapper {

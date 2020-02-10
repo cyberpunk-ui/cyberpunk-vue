@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/theme';
+  @import '../../style/var';
 
   .c-tabs {
 

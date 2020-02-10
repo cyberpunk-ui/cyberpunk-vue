@@ -1,19 +1,22 @@
 <template>
-  <main class="c-main">
+  <div class="c-cascader">
     <slot></slot>
-  </main>
+  </div>
 </template>
 
 <script>
   export default {
-    name: "CMain",
+    name: "CCascader",
+    props: {
+
+    },
   }
 </script>
 
 <style lang="scss" scoped>
   @import '../../style/var';
 
-  .c-main {
-    flex: 1;
+  .c-cascader {
+
   }
 </style>

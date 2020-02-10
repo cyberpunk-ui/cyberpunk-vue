@@ -43,7 +43,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/theme';
+  @import '../../style/var';
 
   .c-input {
     border: 0;

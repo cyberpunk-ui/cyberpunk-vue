@@ -29,7 +29,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/theme';
+  @import '../../style/var';
 
   .c-button {
     position: relative;

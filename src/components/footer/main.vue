@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/theme';
+  @import '../../style/var';
 
   .c-footer {
     flex-shrink: 0;
