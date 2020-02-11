@@ -37,8 +37,9 @@ Vue.component(Button.name, Button);
 ```
 
 ## Thanks
-* [Hamish Williams](https://codepen.io/HamishMW)
 * [Shehab Eltawel](https://codepen.io/shehab-eltawel)
+* [Hamish Williams](https://codepen.io/HamishMW)
+* [Ru Work](https://codepen.io/ru_work)
 * [Element UI](https://github.com/ElemeFE/element)
 * [Ant Design Vue](https://github.com/vueComponent/ant-design-vue)
 * [Cyberpunk 2077](https://www.cyberpunk.net/us/zh-cn/pre-order)

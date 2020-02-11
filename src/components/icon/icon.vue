@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import '../../style/iconfont';
   export default {
     name: "CIcon",
     props: {
@@ -17,7 +18,8 @@
 
 <style lang="scss" scoped>
   .icon {
-    width: 1.3em; height: 1.3em;
+    width: 1.3em;
+    height: 1.3em;
     vertical-align: -0.3em;
     fill: currentColor;
     overflow: hidden;

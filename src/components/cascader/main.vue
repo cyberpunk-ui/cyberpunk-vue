@@ -36,6 +36,8 @@
     position: relative;
     .popover {
       position: absolute;
+      top: 100%;
+      left: 0;
     }
   }
 </style>
