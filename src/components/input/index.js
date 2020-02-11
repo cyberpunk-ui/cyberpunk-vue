@@ -1,4 +1,4 @@
-import CInput from './input';
+import CInput from "./input";
 
 /* istanbul ignore next */
 CInput.install = function(Vue) {

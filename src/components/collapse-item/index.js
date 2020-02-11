@@ -1,4 +1,4 @@
-import CCollapseItem from './main';
+import CCollapseItem from "./main";
 
 /* istanbul ignore next */
 CCollapseItem.install = function(Vue) {

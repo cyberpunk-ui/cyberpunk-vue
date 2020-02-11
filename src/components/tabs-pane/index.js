@@ -1,4 +1,4 @@
-import CTabsPane from './main';
+import CTabsPane from "./main";
 
 /* istanbul ignore next */
 CTabsPane.install = function(Vue) {

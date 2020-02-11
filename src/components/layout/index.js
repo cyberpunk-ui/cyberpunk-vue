@@ -1,4 +1,4 @@
-import CLayout from './main';
+import CLayout from "./main";
 
 /* istanbul ignore next */
 CLayout.install = function(Vue) {

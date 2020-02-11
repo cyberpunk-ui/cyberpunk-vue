@@ -1,4 +1,4 @@
-import CButtonGroup from './button-group';
+import CButtonGroup from "./button-group";
 
 /* istanbul ignore next */
 CButtonGroup.install = function(Vue) {

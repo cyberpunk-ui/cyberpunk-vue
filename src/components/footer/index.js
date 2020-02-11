@@ -1,4 +1,4 @@
-import CFooter from './main';
+import CFooter from "./main";
 
 /* istanbul ignore next */
 CFooter.install = function(Vue) {

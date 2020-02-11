@@ -1,4 +1,4 @@
-import CPopover from './main';
+import CPopover from "./main";
 
 /* istanbul ignore next */
 CPopover.install = function(Vue) {

@@ -1,6 +1,6 @@
 const expect = chai.expect;
 import Vue from 'vue'
-import TabsItem from '../src/components/tabs-item/main';
+import TabsItem from '../../src/components/tabs-item/main';
 
 
 

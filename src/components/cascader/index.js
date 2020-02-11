@@ -1,4 +1,4 @@
-import CCascader from './main';
+import CCascader from "./main";
 
 /* istanbul ignore next */
 CCascader.install = function(Vue) {

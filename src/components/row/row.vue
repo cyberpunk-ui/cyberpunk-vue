@@ -5,56 +5,54 @@
 </template>
 
 <script>
-  export default {
-    name: "CRow",
-    props: {
-      gutter: {
-        type: [String, Number],
-      },
-      align: {
-        type: String,
-        validator(value) {
-          return ['left', 'center', 'right'].includes(value);
-        }
+export default {
+  name: "CRow",
+  props: {
+    gutter: {
+      type: [String, Number]
+    },
+    align: {
+      type: String,
+      validator(value) {
+        return ["left", "center", "right"].includes(value);
       }
+    }
+  },
+  computed: {
+    rowStyles() {
+      const { gutter } = this;
+      return {
+        marginLeft: `${-gutter / 2}px`,
+        marginRight: `${-gutter / 2}px`
+      };
     },
-    computed: {
-      rowStyles() {
-        const {gutter} = this;
-        return {
-          marginLeft: `${-gutter / 2}px`,
-          marginRight: `${-gutter / 2}px`,
-        }
-      },
-      rowClasses (){
-        const {align} = this;
-        return [
-          align && `align-${align}`
-        ]
-      }
-    },
-    mounted(){
-      this.$children.forEach(vm => {
-        vm.gutter = this.gutter || 0;
-      })
-    },
+    rowClasses() {
+      const { align } = this;
+      return [align && `align-${align}`];
+    }
+  },
+  mounted() {
+    this.$children.forEach(vm => {
+      vm.gutter = this.gutter || 0;
+    });
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-row {
-    display: flex;
-    flex-wrap: wrap;
-     &.align-left {
-       justify-content: flex-start;
-     }
-     &.align-center {
-       justify-content: center;
-     }
-     &.align-right {
-       justify-content: flex-end;
-     }
+.c-row {
+  display: flex;
+  flex-wrap: wrap;
+  &.align-left {
+    justify-content: flex-start;
   }
+  &.align-center {
+    justify-content: center;
+  }
+  &.align-right {
+    justify-content: flex-end;
+  }
+}
 </style>

@@ -8,21 +8,21 @@
 </template>
 
 <script>
-  export default {
-    name: "CTabsHead",
-    inject: ['eventBus'],
-  }
+export default {
+  name: "CTabsHead",
+  inject: ["eventBus"]
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-tabs-head {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    & .actions-wrapper{
-      margin-left: auto;
-    }
+.c-tabs-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  & .actions-wrapper {
+    margin-left: auto;
   }
+}
 </style>

@@ -1,4 +1,4 @@
-import CAside from './main';
+import CAside from "./main";
 
 /* istanbul ignore next */
 CAside.install = function(Vue) {

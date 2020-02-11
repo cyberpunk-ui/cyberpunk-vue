@@ -1,4 +1,4 @@
-import CButton from './button';
+import CButton from "./button";
 
 /* istanbul ignore next */
 CButton.install = function(Vue) {

@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-  <meta charset="UTF-8">
-  <title>Cyberpunk-ui base vue.js</title>
-  <style>
-    * {box-sizing: border-box; padding: 0;margin: 0;}
-    body {background-color: #000; margin-bottom: 50px}
-    section {padding: 0px 20px 0}
-    section h4{color: white; margin: 20px 0; border-bottom: 1px solid white; padding: 12px 0;text-shadow:0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,0px 0px 150px #fa5;}
-    section .block{ margin-bottom: 22px; }
-    section .grid { background: rgba(255,255,255,.2); min-height: 50px; }
-    section .grid .grid-content {  width: 100%; text-align: center;height: 50px; color: white;}
-    section .grid .grid-content.bg-color {background-color: #99A9BF;}
-    section .grid .grid-content.bg-color-light {background-color: #D3DCE6;}
-    section .layout header, footer{background-color: #99A9BF; line-height: 40px; text-align: center;}
-    section .layout main,aside{background-color: #D3DCE6; line-height: 70px; text-align: center;}
-    section .layout aside{background-color: #80889c;}
-    section .tabs{color: white; width: 600px;}
-    section .collapse{color: white; width: 600px; }
-  </style>
-</head>
-<body>
-  <div id="app">
+<template>
+  <div>
     <section>
       <h4>Cascader 级联选择器</h4>
       <div class="block cascader">
@@ -106,7 +84,9 @@
       <div class="block">
         <c-button icon="rising1" @click="onMessage('top')">顶部提示</c-button>
         <c-button icon="reduce" @click="onMessage('center')">居中提示</c-button>
-        <c-button icon="falling" @click="onMessage('bottom')">底部提示</c-button>
+        <c-button icon="falling" @click="onMessage('bottom')"
+          >底部提示</c-button
+        >
       </div>
     </section>
     <section>
@@ -159,31 +139,75 @@
         </c-row>
       </div>
       <div class="block grid">
-        <c-row  gutter="20">
-          <c-col span="8"><div class="grid-content bg-color-light"></div></c-col>
+        <c-row gutter="20">
+          <c-col span="8"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
           <c-col span="8"><div class="grid-content bg-color"></div></c-col>
-          <c-col span="8"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col span="8"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col span="10"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col span="2" offset="1"><div class="grid-content bg-color"></div></c-col>
-          <c-col span="10" offset="1"><div class="grid-content bg-color-light"></div></c-col>
+          <c-col span="10"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
+          <c-col span="2" offset="1"
+            ><div class="grid-content bg-color"></div
+          ></c-col>
+          <c-col span="10" offset="1"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
         </c-row>
       </div>
       <div class="block grid">
-        <c-row  gutter="20" align="right">
-          <c-col span="12"><div class="grid-content bg-color-light"></div></c-col>
+        <c-row gutter="20" align="right">
+          <c-col span="12"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
           <c-col span="4"><div class="grid-content bg-color"></div></c-col>
         </c-row>
       </div>
       <div class="block grid">
         <c-row gutter="20">
-          <c-col :xs="{span: 24}" sm="12" :md="4" :lg="{span:2, offset: '1'}" :xl="6" :xxl="8"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col :xs="{span: 24}" sm="12" :md="8" :lg="{span:8, offset: '1'}" :xl="6" :xxl="4"><div class="grid-content bg-color"></div></c-col>
-          <c-col :xs="{span: 24}" sm="12" :md="8" :lg="{span:8, offset: '1'}" :xl="6" :xxl="4"><div class="grid-content bg-color-light"></div></c-col>
-          <c-col :xs="{span: 24}" sm="12" :md="4" :lg="{span:2, offset: '1'}" :xl="6" :xxl="8"><div class="grid-content bg-color"></div></c-col>
+          <c-col
+            :xs="{ span: 24 }"
+            sm="12"
+            :md="4"
+            :lg="{ span: 2, offset: '1' }"
+            :xl="6"
+            :xxl="8"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
+          <c-col
+            :xs="{ span: 24 }"
+            sm="12"
+            :md="8"
+            :lg="{ span: 8, offset: '1' }"
+            :xl="6"
+            :xxl="4"
+            ><div class="grid-content bg-color"></div
+          ></c-col>
+          <c-col
+            :xs="{ span: 24 }"
+            sm="12"
+            :md="8"
+            :lg="{ span: 8, offset: '1' }"
+            :xl="6"
+            :xxl="4"
+            ><div class="grid-content bg-color-light"></div
+          ></c-col>
+          <c-col
+            :xs="{ span: 24 }"
+            sm="12"
+            :md="4"
+            :lg="{ span: 2, offset: '1' }"
+            :xl="6"
+            :xxl="8"
+            ><div class="grid-content bg-color"></div
+          ></c-col>
         </c-row>
       </div>
     </section>
@@ -197,7 +221,11 @@
       </div>
       <div class="block">
         <c-input placeholder="请输入禁用内容" disabled></c-input>
-        <c-input placeholder="请输入内容" disabled value="禁用状态内容"></c-input>
+        <c-input
+          placeholder="请输入内容"
+          disabled
+          value="禁用状态内容"
+        ></c-input>
         <c-input placeholder="请输入只读内容" readonly></c-input>
         <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
       </div>
@@ -209,7 +237,7 @@
       </div>
       <div class="block">
         <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
-        <span style="color: white">{{vModelValue}}</span>
+        <span style="color: white">{{ vModelValue }}</span>
       </div>
     </section>
     <section>
@@ -228,7 +256,152 @@
       </c-button-group>
     </section>
   </div>
-  <script src="./src/app.js"></script>
-  <script src="./src/style/iconfont.js"></script>
-</body>
-</html>
+</template>
+
+<script>
+export default {
+  name: "demo",
+  data() {
+    return {
+      vModelValue: "",
+      selectedTab: "tabs1",
+      selectedCollapse: ["1", "2"],
+      isAccordion: true,
+      citySource: [
+        {
+          name: "浙江",
+          children: [
+            {
+              name: "杭州",
+              children: [{ name: "上城" }, { name: "下城" }, { name: "江干" }]
+            },
+            {
+              name: "嘉兴",
+              children: [{ name: "南湖" }, { name: "秀洲" }, { name: "嘉善" }]
+            }
+          ]
+        },
+        {
+          name: "福建",
+          children: [
+            {
+              name: "福州",
+              children: [{ name: "鼓楼" }, { name: "台江" }, { name: "仓山" }]
+            }
+          ]
+        },
+        {
+          name: "安徽",
+          children: [
+            {
+              name: "合肥",
+              children: [
+                {
+                  name: "瑶海"
+                },
+                {
+                  name: "庐阳"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.vModelValue += "测试v-model";
+    }, 1000);
+  },
+  methods: {
+    onClick: () => {
+      alert("触发点击事件");
+    },
+    onInput: e => {
+      console.log(e);
+    },
+    onInputChange: e => {
+      console.log(e);
+    },
+    onFocus: e => {
+      console.log(e);
+    },
+    onBlur: e => {
+      console.log(e);
+    },
+    onTabChange: () => {
+      // console.log('123',selected)
+    },
+    handleCollapseChange: () => {},
+    onMessage(position) {
+      this.$message({
+        message: "保存成功",
+        position,
+        autoClose: false,
+        closeButton: {
+          callback: message => {
+            console.log(message);
+          }
+        }
+      });
+    }
+  }
+};
+</script>
+
+<style scoped>
+section {
+  padding: 0 20px 0;
+}
+section h4 {
+  color: white;
+  margin: 20px 0;
+  border-bottom: 1px solid white;
+  padding: 12px 0;
+  text-shadow: 0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,
+    0px 0px 150px #fa5;
+}
+section .block {
+  margin-bottom: 22px;
+}
+section .grid {
+  background: rgba(255, 255, 255, 0.2);
+  min-height: 50px;
+}
+section .grid .grid-content {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  color: white;
+}
+section .grid .grid-content.bg-color {
+  background-color: #99a9bf;
+}
+section .grid .grid-content.bg-color-light {
+  background-color: #d3dce6;
+}
+section .layout header,
+footer {
+  background-color: #99a9bf;
+  line-height: 40px;
+  text-align: center;
+}
+section .layout main,
+aside {
+  background-color: #d3dce6;
+  line-height: 70px;
+  text-align: center;
+}
+section .layout aside {
+  background-color: #80889c;
+}
+section .tabs {
+  color: white;
+  width: 600px;
+}
+section .collapse {
+  color: white;
+  width: 600px;
+}
+</style>

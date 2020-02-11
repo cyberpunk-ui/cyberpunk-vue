@@ -1,4 +1,4 @@
-import CTabsHead from './main';
+import CTabsHead from "./main";
 
 /* istanbul ignore next */
 CTabsHead.install = function(Vue) {
