@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "./node_modules/.bin/vue-cli-service serve",
     "build": "./node_modules/.bin/vue-cli-service build",
-    "test:unit": "./node_modules/.bin/vue-cli-service test:unit",
+    "test": "./node_modules/.bin/vue-cli-service test:unit",
     "lint": "./node_modules/.bin/vue-cli-service lint",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
