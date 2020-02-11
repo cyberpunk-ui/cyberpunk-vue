@@ -1,4 +1,4 @@
-import CRow from './row';
+import CRow from "./row";
 
 /* istanbul ignore next */
 CRow.install = function(Vue) {

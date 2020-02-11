@@ -1,4 +1,4 @@
-import CIcon from './icon';
+import CIcon from "./icon";
 
 /* istanbul ignore next */
 CIcon.install = function(Vue) {

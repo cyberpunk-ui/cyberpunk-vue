@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  export default {
-    name: "CMain",
-  }
+export default {
+  name: "CMain"
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-main {
-    flex: 1;
-  }
+.c-main {
+  flex: 1;
+}
 </style>

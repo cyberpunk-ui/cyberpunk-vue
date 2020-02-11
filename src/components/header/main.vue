@@ -5,28 +5,28 @@
 </template>
 
 <script>
-  export default {
-    name: "CHeader",
-    computed:{
-      headerStyle(){
-        return {
-          height: this.height + 'px',
-        }
-      }
-    },
-    props:{
-      height: {
-        type: [Number, String],
-        default: 60
-      }
+export default {
+  name: "CHeader",
+  computed: {
+    headerStyle() {
+      return {
+        height: this.height + "px"
+      };
+    }
+  },
+  props: {
+    height: {
+      type: [Number, String],
+      default: 60
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-header {
-    flex-shrink: 0;
-  }
+.c-header {
+  flex-shrink: 0;
+}
 </style>

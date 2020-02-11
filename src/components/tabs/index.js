@@ -1,4 +1,4 @@
-import CTabs from './main';
+import CTabs from "./main";
 
 /* istanbul ignore next */
 CTabs.install = function(Vue) {

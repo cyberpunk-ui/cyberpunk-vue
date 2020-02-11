@@ -10,34 +10,34 @@
 </template>
 
 <script>
-  import cascaderItems from './items';
-  export default {
-    name: "CCascader",
-    components: {
-      'cascader-items': cascaderItems
-    },
-    props: {
-      source: {
-        type: Array,
-      }
-    },
-    data() {
-      return {
-        visible: false
-      }
-    },
+import cascaderItems from "./items";
+export default {
+  name: "CCascader",
+  components: {
+    "cascader-items": cascaderItems
+  },
+  props: {
+    source: {
+      type: Array
+    }
+  },
+  data() {
+    return {
+      visible: false
+    };
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-cascader {
-    position: relative;
-    .popover {
-      position: absolute;
-      top: 100%;
-      left: 0;
-    }
+.c-cascader {
+  position: relative;
+  .popover {
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
+}
 </style>

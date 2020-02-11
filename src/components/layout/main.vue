@@ -5,37 +5,37 @@
 </template>
 
 <script>
-  export default {
-    name: "CLayout",
-    data(){
-      return {
-        layoutClass: {
-          vertical: false
-        },
+export default {
+  name: "CLayout",
+  data() {
+    return {
+      layoutClass: {
+        vertical: false
       }
-    },
-    mounted: function () {
-      this.$children.forEach(vm => {
-        switch (vm.$options.name) {
-          case 'CHeader':
-          case 'CFooter':
-            this.layoutClass.vertical = true;
-            break;
-        }
-      })
-    }
+    };
+  },
+  mounted: function() {
+    this.$children.forEach(vm => {
+      switch (vm.$options.name) {
+        case "CHeader":
+        case "CFooter":
+          this.layoutClass.vertical = true;
+          break;
+      }
+    });
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-layout {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    &.vertical {
-      flex-direction: column;
-    }
+.c-layout {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  &.vertical {
+    flex-direction: column;
   }
+}
 </style>

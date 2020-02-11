@@ -1,4 +1,4 @@
-import CHeader from './main';
+import CHeader from "./main";
 
 /* istanbul ignore next */
 CHeader.install = function(Vue) {

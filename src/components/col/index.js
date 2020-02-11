@@ -1,4 +1,4 @@
-import CCol from './col';
+import CCol from "./col";
 
 /* istanbul ignore next */
 CCol.install = function(Vue) {

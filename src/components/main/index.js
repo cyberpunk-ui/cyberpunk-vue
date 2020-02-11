@@ -1,4 +1,4 @@
-import CMain from './main';
+import CMain from "./main";
 
 /* istanbul ignore next */
 CMain.install = function(Vue) {

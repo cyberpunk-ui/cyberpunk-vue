@@ -5,28 +5,28 @@
 </template>
 
 <script>
-  export default {
-    name: "CAside",
-    computed:{
-      asideStyle(){
-        return {
-          width: this.width + 'px',
-        }
-      }
-    },
-    props:{
-      width: {
-        type: [Number, String],
-        default: 300
-      }
+export default {
+  name: "CAside",
+  computed: {
+    asideStyle() {
+      return {
+        width: this.width + "px"
+      };
+    }
+  },
+  props: {
+    width: {
+      type: [Number, String],
+      default: 300
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../style/var';
+@import "../../style/var";
 
-  .c-aside {
-    flex-shrink: 0;
-  }
+.c-aside {
+  flex-shrink: 0;
+}
 </style>

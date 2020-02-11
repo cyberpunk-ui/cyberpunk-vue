@@ -1,4 +1,4 @@
-import CTabsItem from './main';
+import CTabsItem from "./main";
 
 /* istanbul ignore next */
 CTabsItem.install = function(Vue) {
