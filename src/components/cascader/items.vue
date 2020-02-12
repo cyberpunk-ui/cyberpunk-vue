@@ -3,6 +3,7 @@
     <div class="left">
       <div
         class="item"
+        :class="{active: selected && selected[level] && selected[level].name === item.name}"
         v-for="(item,index) in items"
         :key="index"
         @click="onClickItem(item)"
@@ -88,6 +89,7 @@ export default {
       padding: 0.5em 0.8em;
       transition: all 0.2s;
       cursor: pointer;
+      &.active,
       &:hover {
         background-color: $primary-color;
         color: $black-color;

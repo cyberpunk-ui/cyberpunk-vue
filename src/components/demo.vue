@@ -7,9 +7,7 @@
           :source="citySource"
           :selected="selectedCascader"
           @update:selected="selectedCascader = $event"
-        >
-          <c-button>级联选择器</c-button>
-        </c-cascader>
+        ></c-cascader>
       </div>
     </section>
     <section>
