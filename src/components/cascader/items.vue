@@ -9,7 +9,7 @@
         @click="onClickItem(item)"
       >
         {{ item.name }}
-        <span class="arrow" v-if="item.children">
+        <span class="arrow" v-if="rightArrowVisible(item)">
           <c-icon type="arrow-right"></c-icon>
         </span>
       </div>
@@ -41,17 +41,21 @@ export default {
     level: {
       type: Number,
       default: 0
+    },
+    loadData: {
+      type: Function,
     }
   },
   computed: {
-    rightItems() {
-      const currentSelected = this.selected[this.level];
-      if (currentSelected && currentSelected.children) {
-        return currentSelected.children;
-      } else {
-        return null;
+    /* eslint-disable */
+    rightItems () {
+      if (this.selected[this.level]) {
+        let selected = this.items.filter((item) => item.name === this.selected[this.level].name);
+        if (selected && selected[0].children && selected[0].children.length > 0) {
+          return selected[0].children
+        }
       }
-    }
+    },
   },
   methods: {
     onClickItem(item) {
@@ -62,6 +66,9 @@ export default {
     },
     onUpdateSelected(newSelected){
       this.$emit('update:selected', newSelected);
+    },
+    rightArrowVisible(item){
+      return this.loadData ? !item.isLeaf : item.children;
     }
   }
 };

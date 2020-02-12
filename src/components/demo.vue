@@ -4,8 +4,9 @@
       <h4>Cascader 级联选择</h4>
       <div class="block cascader">
         <c-cascader
-          :source="citySource"
+          :source.sync="areaSource"
           :selected.sync="selectedCascader"
+          :load-data="loadCascaderData"
         ></c-cascader>
       </div>
     </section>
@@ -25,35 +26,35 @@
         </c-collapse>
       </div>
     </section>
-    <section>
-      <h4>Popover 弹出框</h4>
-      <div class="block">
-        <c-popover>
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向上弹出</c-button>
-        </c-popover>
-        <c-popover position="bottom">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向下弹出</c-button>
-        </c-popover>
-        <c-popover position="left">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向左弹出</c-button>
-        </c-popover>
-        <c-popover position="right">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向右弹出</c-button>
-        </c-popover>
-      </div>
-    </section>
+<!--    <section>-->
+<!--      <h4>Popover 弹出框</h4>-->
+<!--      <div class="block">-->
+<!--        <c-popover>-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向上弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="bottom">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向下弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="left">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向左弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="right">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向右弹出</c-button>-->
+<!--        </c-popover>-->
+<!--      </div>-->
+<!--    </section>-->
     <section>
       <h4>Tabs 标签页</h4>
       <div class="block tabs">
@@ -263,7 +264,15 @@
   import db from '../assets/area-db';
 
   function ajax(parent_id = 0) {
-    return db.filter(item => item.parent_id === parent_id)
+    return new Promise((resolve, reject) => {
+      setTimeout(()=> {
+        let result = db.filter(item => item.parent_id === parent_id);
+        result.forEach(node => {
+          node.isLeaf = db.filter(item => item.parent_id === node.id).length <= 0;
+        });
+        resolve(result)
+      }, parent_id && 300)
+    })
   }
 
   export default {
@@ -273,10 +282,54 @@
       vModelValue: "",
       selectedTab: "tabs1",
       selectedCollapse: ["1", "2"],
-      selectedCascader: [],
       isAccordion: true,
-      citySource: ajax()
+      selectedCascader: [],
+      areaSource: [
+        {
+          name: "浙江",
+          children: [
+            {
+              name: "杭州",
+              children: [{ name: "上城" }, { name: "下城" }, { name: "江干" }]
+            },
+            {
+              name: "嘉兴",
+              children: [{ name: "南湖" }, { name: "秀洲" }, { name: "嘉善" }]
+            }
+          ]
+        },
+        {
+          name: "福建",
+          children: [
+            {
+              name: "福州",
+              children: [{ name: "鼓楼" }, { name: "台江" }, { name: "仓山" }]
+            }
+          ]
+        },
+        {
+          name: "安徽",
+          children: [
+            {
+              name: "合肥",
+              children: [
+                {
+                  name: "瑶海"
+                },
+                {
+                  name: "庐阳"
+                }
+              ]
+            }
+          ]
+        }
+      ],
     };
+  },
+  created() {
+    ajax().then((result)=>{
+      this.areaSource = result
+    })
   },
   mounted() {
     setTimeout(() => {
@@ -314,6 +367,14 @@
           }
         }
       });
+    },
+    loadCascaderData(node, updateSource){
+      const { id } = node;
+      console.log(id)
+      ajax(id).then((result)=>{
+        console.log('updateSource', result)
+        updateSource(result);
+      })
     }
   }
 };
