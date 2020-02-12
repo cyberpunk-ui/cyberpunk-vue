@@ -2,21 +2,23 @@
   "name": "cyberpunk-vue",
   "version": "0.1.0",
   "description": "cyberpunk-ui base vue.js",
-  "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/vue-cli-service serve --open",
     "build": "./node_modules/.bin/vue-cli-service build",
-    "test": "./node_modules/.bin/vue-cli-service test:unit",
     "lint": "./node_modules/.bin/vue-cli-service lint",
-    "docs:dev": "vuepress dev docs",
+    "deploy": "./deploy.sh",
     "docs:build": "vuepress build docs",
-    "deploy": "./deploy.sh"
+    "docs:dev": "vuepress dev docs",
+    "start": "./node_modules/.bin/vue-cli-service serve --open",
+    "test": "./node_modules/.bin/vue-cli-service test:unit"
   },
+  "main": "index.js",
   "dependencies": {
+    "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vuepress-theme-default-prefers-color-scheme": "^1.0.5"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
     "@vue/cli-plugin-unit-mocha": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
