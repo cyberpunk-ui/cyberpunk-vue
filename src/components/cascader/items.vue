@@ -20,6 +20,7 @@
         :level="level + 1"
         :selected="selected"
         @update:selected="onUpdateSelected"
+        :close="close"
       ></c-cascader-items>
     </div>
   </div>
@@ -44,7 +45,10 @@ export default {
     },
     loadData: {
       type: Function,
-    }
+    },
+    close: {
+      type: Function,
+    },
   },
   computed: {
     /* eslint-disable */
@@ -63,6 +67,10 @@ export default {
       copySelected[this.level] = item;
       copySelected.splice(this.level + 1);
       this.$emit('update:selected', copySelected);
+      const lastItem = copySelected && copySelected[copySelected.length - 1];
+      if (lastItem && lastItem.isLeaf) {
+        this.close();
+      }
     },
     onUpdateSelected(newSelected){
       this.$emit('update:selected', newSelected);

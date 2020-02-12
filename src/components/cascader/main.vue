@@ -12,6 +12,7 @@
         :items="source"
         :loadData="loadData"
         :selected="selected" @update:selected="onUpdateSelected"
+        :close="close"
       ></cascader-items>
     </div>
   </div>
@@ -156,6 +157,7 @@ export default {
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 1;
   }
 }
 </style>
