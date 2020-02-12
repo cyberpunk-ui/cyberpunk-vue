@@ -1,12 +1,11 @@
 <template>
   <div>
     <section>
-      <h4>Cascader 级联选择器</h4>
+      <h4>Cascader 级联选择</h4>
       <div class="block cascader">
         <c-cascader
           :source="citySource"
-          :selected="selectedCascader"
-          @update:selected="selectedCascader = $event"
+          :selected.sync="selectedCascader"
         ></c-cascader>
       </div>
     </section>
