@@ -3,7 +3,11 @@
     <section>
       <h4>Cascader 级联选择器</h4>
       <div class="block cascader">
-        <c-cascader :source="citySource">
+        <c-cascader
+          :source="citySource"
+          :selected="selectedCascader"
+          @update:selected="selectedCascader = $event"
+        >
           <c-button>级联选择器</c-button>
         </c-cascader>
       </div>
@@ -266,6 +270,7 @@ export default {
       vModelValue: "",
       selectedTab: "tabs1",
       selectedCollapse: ["1", "2"],
+      selectedCascader: [],
       isAccordion: true,
       citySource: [
         {

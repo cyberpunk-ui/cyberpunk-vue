@@ -3,9 +3,9 @@
     <div class="left">
       <div
         class="item"
-        v-for="item in items"
-        :key="item.name"
-        @click="leftSelected = item"
+        v-for="(item,index) in items"
+        :key="index"
+        @click="onClickItem(item)"
       >
         {{ item.name }}
         <span class="arrow" v-if="item.children">
@@ -14,7 +14,12 @@
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <c-cascader-items :items="rightItems"></c-cascader-items>
+      <c-cascader-items
+        :items="rightItems"
+        :level="level + 1"
+        :selected="selected"
+        @update:selected="onUpdateSelected"
+      ></c-cascader-items>
     </div>
   </div>
 </template>
@@ -27,20 +32,34 @@ export default {
   props: {
     items: {
       type: Array
+    },
+    selected: {
+      type: Array,
+      default: () => []
+    },
+    level: {
+      type: Number,
+      default: 0
     }
-  },
-  data() {
-    return {
-      leftSelected: null
-    };
   },
   computed: {
     rightItems() {
-      if (this.leftSelected && this.leftSelected.children !== null) {
-        return this.leftSelected.children;
+      const currentSelected = this.selected[this.level];
+      if (currentSelected && currentSelected.children) {
+        return currentSelected.children;
       } else {
         return null;
       }
+    }
+  },
+  methods: {
+    onClickItem(item) {
+      const copySelected = JSON.parse(JSON.stringify(this.selected));
+      copySelected[this.level] = item;
+      this.$emit('update:selected', copySelected);
+    },
+    onUpdateSelected(newSelected){
+      this.$emit('update:selected', newSelected);
     }
   }
 };

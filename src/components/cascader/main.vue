@@ -1,10 +1,10 @@
 <template>
   <div class="c-cascader">
-    <div class="trigger" @click="visible = !visible">
+    <span class="trigger" @click="visible = !visible">
       <slot></slot>
-    </div>
+    </span>
     <div class="popover" v-if="visible">
-      <cascader-items :items="source"></cascader-items>
+      <cascader-items :items="source" :selected="selected" @update:selected="onUpdateSelected"></cascader-items>
     </div>
   </div>
 </template>
@@ -19,12 +19,21 @@ export default {
   props: {
     source: {
       type: Array
+    },
+    selected: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       visible: false
     };
+  },
+  methods: {
+    onUpdateSelected(newSelected){
+      this.$emit('update:selected', newSelected);
+    }
   }
 };
 </script>
