@@ -370,9 +370,7 @@
     },
     loadCascaderData(node, updateSource){
       const { id } = node;
-      console.log(id)
       ajax(id).then((result)=>{
-        console.log('updateSource', result)
         updateSource(result);
       })
     }

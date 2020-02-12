@@ -1,6 +1,6 @@
 <template>
-  <div class="c-cascader">
-    <div class="trigger" @click="visible = !visible">
+  <div class="c-cascader" v-click-outside="close">
+    <div class="trigger" @click="onToggle">
       <span v-if="result" class="result">{{result}}</span>
       <span v-else class="placeholder">请选择</span>
       <span class="arrow" :class="{active: visible}">
@@ -19,10 +19,12 @@
 
 <script>
 import cascaderItems from "./items";
+import ClickOutside from '../../utils/click-outside'
 import Icon from "../icon/icon";
 
 export default {
   name: "CCascader",
+  directives: {ClickOutside},
   components: {
     "cascader-items": cascaderItems,
     "c-icon": Icon,
@@ -45,6 +47,19 @@ export default {
     };
   },
   methods: {
+    open(){
+      this.visible = true
+    },
+    close(){
+      this.visible = false
+    },
+    onToggle(){
+      if (this.visible) {
+        this.close()
+      }else {
+        this.open()
+      }
+    },
     onUpdateSelected(newSelected){
       this.$emit('update:selected', newSelected);
       let lastItem = newSelected[newSelected.length - 1]
@@ -86,9 +101,7 @@ export default {
         this.$emit('update:source', copy)
       };
       if (!lastItem.isLeaf && this.loadData) {
-        this.loadData(lastItem, updateSource) // 回调:把别人传给我的函数调用一下
-        // 调回调的时候传一个函数,这个函数理论应该被调用
-        // this.loadingItem = lastItem
+        this.loadData(lastItem, updateSource)
       }
     }
   },
@@ -104,6 +117,7 @@ export default {
 @import "../../style/var";
 
 .c-cascader {
+  display: inline-block;
   position: relative;
   .trigger {
     position: relative;
@@ -116,6 +130,7 @@ export default {
     letter-spacing: $button-text-space;
     vertical-align: middle;
     min-width: 160px;
+    cursor: pointer;
     .result {
       display: inline-block;
       width: 115px;
