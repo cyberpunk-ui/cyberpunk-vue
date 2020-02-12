@@ -12,6 +12,7 @@
         :items="source"
         :loadData="loadData"
         :selected="selected" @update:selected="onUpdateSelected"
+        :close="close"
       ></cascader-items>
     </div>
   </div>
