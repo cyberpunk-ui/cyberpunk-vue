@@ -3,7 +3,7 @@
     <div class="trigger" @click="visible = !visible">
       <span v-if="result" class="result">{{result}}</span>
       <span v-else class="placeholder">请选择</span>
-      <span class="arrow">
+      <span class="arrow" :class="{active: visible}">
         <c-icon type="arrow-down"></c-icon>
       </span>
     </div>
@@ -81,6 +81,10 @@ export default {
       position: absolute;
       right: 12px;
       background-color: $primary-color;
+      transition: all 0.3s;
+      &.active{
+        transform: rotate(180deg);
+      }
     }
   }
   .popover {

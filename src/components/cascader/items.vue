@@ -82,6 +82,7 @@ export default {
   .left {
     width: 120px;
     padding-top: 0.3em;
+    overflow: auto;
     .item {
       position: relative;
       font-size: 14px;
@@ -101,6 +102,7 @@ export default {
     }
   }
   .right {
+    overflow: auto;
     border-left: 1px solid $grey-light-color;
   }
 }
