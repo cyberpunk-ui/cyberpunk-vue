@@ -4,7 +4,7 @@
   "description": "cyberpunk-ui base vue.js",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/vue-cli-service serve",
+    "start": "./node_modules/.bin/vue-cli-service serve --open",
     "build": "./node_modules/.bin/vue-cli-service build",
     "test": "./node_modules/.bin/vue-cli-service test:unit",
     "lint": "./node_modules/.bin/vue-cli-service lint",
