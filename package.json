@@ -40,14 +40,14 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
+      "plugin:vue/essential"
     ],
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {},
+    "rules": {
+      "quotes": "off"
+    },
     "overrides": [
       {
         "files": [
