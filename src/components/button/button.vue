@@ -102,13 +102,4 @@ export default {
     position: relative;
   }
 }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 </style>

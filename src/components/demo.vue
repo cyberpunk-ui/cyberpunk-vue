@@ -271,7 +271,7 @@
           node.isLeaf = db.filter(item => item.parent_id === node.id).length <= 0;
         });
         resolve(result)
-      }, parent_id && 300)
+      }, parent_id && 2000)
     })
   }
 

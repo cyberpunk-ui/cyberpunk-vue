@@ -9,14 +9,16 @@
         @click="onClickItem(item)"
       >
         {{ item.name }}
-        <span class="arrow" v-if="rightArrowVisible(item)">
-          <c-icon type="arrow-right"></c-icon>
-        </span>
+        <span class="icon" v-if="item.name === loadingItem.name"><c-icon type="loading" class="loading"></c-icon></span>
+        <template v-else>
+          <span class="icon" v-if="rightArrowVisible(item)"><c-icon type="arrow-right"></c-icon></span>
+        </template>
       </div>
     </div>
     <div class="right" v-if="rightItems">
       <c-cascader-items
         :items="rightItems"
+        :loading-item="loadingItem"
         :load-data="loadData"
         :level="level + 1"
         :selected="selected"
@@ -46,6 +48,10 @@ export default {
     },
     loadData: {
       type: Function,
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({})
     },
     close: {
       type: Function,
@@ -95,10 +101,11 @@ export default {
   height: 200px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  white-space: nowrap;
   .left {
-    width: 120px;
     padding-top: 0.3em;
     overflow: auto;
+    min-width: 120px;
     .item {
       position: relative;
       font-size: 14px;
@@ -111,9 +118,13 @@ export default {
         background-color: $primary-color;
         color: $black-color;
       }
-      .arrow {
+      .icon {
         position: absolute;
         right: 6px;
+        top: 3px;
+      }
+      .loading {
+        animation: spin 1.2s infinite linear;
       }
     }
   }

@@ -16,6 +16,14 @@ $grey-light-color: #445259;
 /* Global style */
 $base-font-size: 14px;
 $base-text-space: 0.05em;
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* Button style */
 $button-padding: 0.4em 1em;
@@ -46,4 +54,5 @@ $message-padding: 12px 24px;
 /* Tabs style */
 $tabs-item-font-size: 14px;
 $tabs-item-padding: 0.4em 0.8em;
+
 

@@ -11,6 +11,7 @@
       <cascader-items
         :items="source"
         :load-data="loadData"
+        :loading-item="loadingItem"
         :selected="selected"
         :close="close"
         @update:selected="onUpdateSelected"
@@ -41,11 +42,12 @@ export default {
     },
     loadData: {
       type: Function,
-    }
+    },
   },
   data() {
     return {
-      visible: false
+      visible: false,
+      loadingItem: {}
     };
   },
   methods: {
@@ -96,14 +98,16 @@ export default {
         }
       };
       let updateSource = (result) => {
-        // this.loadingItem = {}
+        this.loadingItem = {}
         let copy = JSON.parse(JSON.stringify(this.source))
         let toUpdate = complex(copy, lastItem.id)
         toUpdate.children = result
         this.$emit('update:source', copy)
       };
       if (!lastItem.isLeaf && this.loadData) {
-        this.loadData(lastItem, updateSource)
+        this.loadData(lastItem, updateSource);
+        this.loadingItem = lastItem;
+        console.log(lastItem)
       }
     }
   },
