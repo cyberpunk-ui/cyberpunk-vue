@@ -8,7 +8,7 @@
     >
       <slot name="content" :close="close"></slot>
     </div>
-    <span ref="triggerWrapper" style="display: inline-block;">
+    <span ref="triggerWrapper" class="trigger-wrapper">
       <slot></slot>
     </span>
   </div>
@@ -46,7 +46,7 @@ export default {
       this.$refs.popover.addEventListener("mouseleave", this.close);
     }
   },
-  destroyed() {
+  beforeDestroy() {
     if (this.trigger === "click") {
       this.$refs.popover.removeEventListener("click", this.onClick);
     } else {
@@ -147,6 +147,9 @@ $border-radius: 4px;
   display: inline-block;
   vertical-align: top;
   position: relative;
+}
+.trigger-wrapper{
+  display: inline-block;
 }
 .content-wrapper {
   position: absolute;

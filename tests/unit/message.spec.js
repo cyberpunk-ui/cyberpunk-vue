@@ -1,73 +1,63 @@
-const expect = chai.expect;
-import Vue from "vue";
-import Message from "../../src/components/message/main";
+import chai, { expect } from "chai";
+import { mount } from "@vue/test-utils";
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import Message from "@/components/message/main";
+chai.use(sinonChai);
 
-Vue.config.productionTip = false;
-Vue.config.devtools = false;
-
-describe("Message", () => {
-  it("create Message body.", () => {
+describe("[Message]", () => {
+  it("create message component.", () => {
     expect(Message).to.be.ok;
   });
 
-  it("autoClose attribute.", done => {
-    let div = document.createElement("div");
-    document.body.appendChild(div);
-    const Constructor = Vue.extend(Message);
-    const vm = new Constructor({
+  it("set autoClose attribute.", done => {
+    const wrapper = mount(Message, {
       propsData: {
-        autoClose: 1
+        autoClose: 0.1
       }
-    }).$mount(div);
-    vm.$on("close", () => {
-      expect(document.body.contains(vm.$el)).to.eq(false);
+    });
+    wrapper.vm.$on("close", () => {
+      expect(document.body.contains(wrapper.vm.$el)).to.eq(false);
       done();
     });
   });
 
-  it("position attribute.", () => {
-    let div = document.createElement("div");
-    document.body.appendChild(div);
-    const Constructor = Vue.extend(Message);
-    const vm = new Constructor({
+  it("set position attribute.", () => {
+    const wrapper = mount(Message, {
       propsData: {
         position: "center"
       }
-    }).$mount(div);
-    const message = vm.$el;
-    expect(message.classList.contains("position-center")).to.equal(true);
-    vm.$destroy();
+    });
+    expect(wrapper.classes()).to.includes('position-center');
   });
 
-  it("closeButton attribute.", () => {
+  it("set closeButton attribute.", () => {
     const callback = sinon.fake();
-    const Constructor = Vue.extend(Message);
-    const vm = new Constructor({
+    const wrapper = mount(Message, {
       propsData: {
         closeButton: {
           text: "关闭",
           callback
         }
       }
-    }).$mount();
-    const closeButton = vm.$el.querySelector(".close");
+    });
+    const closeButton = wrapper.vm.$el.querySelector(".close");
     expect(closeButton.textContent.trim()).to.eq("关闭");
     closeButton.click();
     expect(callback).to.have.been.called;
-    vm.$destroy();
   });
 
-  it("enableHtml attribute.", () => {
-    const Constructor = Vue.extend(Message);
-    const vm = new Constructor({
+  xit("set enableHtml attribute.", () => {
+    const wrapper = mount(Message, {
+      slots: {
+        default: ['<strong id="test">hi</strong>']
+      },
       propsData: {
         enableHtml: true
       }
     });
-    vm.$slots.default = ["<i>测试内容</i>"];
-    vm.$mount();
-    let iTag = vm.$el.querySelector("i");
-    expect(iTag).to.exist;
-    vm.$destroy();
+    // wrapper.vm.$slots.default = ['<strong id="test">hi</strong>']
+
+    // expect(wrapper.find("i").vm).to.exist;
   });
 });

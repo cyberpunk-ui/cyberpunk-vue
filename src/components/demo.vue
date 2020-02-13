@@ -26,35 +26,35 @@
         </c-collapse>
       </div>
     </section>
-<!--    <section>-->
-<!--      <h4>Popover 弹出框</h4>-->
-<!--      <div class="block">-->
-<!--        <c-popover>-->
-<!--          <template slot="content">-->
-<!--            <div>popover内容</div>-->
-<!--          </template>-->
-<!--          <c-button>向上弹出</c-button>-->
-<!--        </c-popover>-->
-<!--        <c-popover position="bottom">-->
-<!--          <template slot="content">-->
-<!--            <div>popover内容</div>-->
-<!--          </template>-->
-<!--          <c-button>向下弹出</c-button>-->
-<!--        </c-popover>-->
-<!--        <c-popover position="left">-->
-<!--          <template slot="content">-->
-<!--            <div>popover内容</div>-->
-<!--          </template>-->
-<!--          <c-button>向左弹出</c-button>-->
-<!--        </c-popover>-->
-<!--        <c-popover position="right">-->
-<!--          <template slot="content">-->
-<!--            <div>popover内容</div>-->
-<!--          </template>-->
-<!--          <c-button>向右弹出</c-button>-->
-<!--        </c-popover>-->
-<!--      </div>-->
-<!--    </section>-->
+    <section>
+      <h4>Popover 弹出框</h4>
+      <div class="block">
+        <c-popover>
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>向上弹出</c-button>
+        </c-popover>
+        <c-popover position="bottom">
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>向下弹出</c-button>
+        </c-popover>
+        <c-popover position="left">
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>向左弹出</c-button>
+        </c-popover>
+        <c-popover position="right">
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <c-button>向右弹出</c-button>
+        </c-popover>
+      </div>
+    </section>
     <section>
       <h4>Tabs 标签页</h4>
       <div class="block tabs">
