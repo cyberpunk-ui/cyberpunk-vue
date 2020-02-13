@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import "../../style/iconfont";
+import "../../utils/iconfont";
 export default {
   name: "CIcon",
   props: {

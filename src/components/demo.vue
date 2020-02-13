@@ -261,7 +261,7 @@
 </template>
 
 <script>
-  import db from '../assets/area-db';
+  import db from '../utils/area-db';
 
   function ajax(parent_id = 0) {
     return new Promise((resolve, reject) => {
