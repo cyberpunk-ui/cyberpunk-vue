@@ -10,9 +10,10 @@
     <div class="popover" v-if="visible">
       <cascader-items
         :items="source"
-        :loadData="loadData"
-        :selected="selected" @update:selected="onUpdateSelected"
+        :load-data="loadData"
+        :selected="selected"
         :close="close"
+        @update:selected="onUpdateSelected"
       ></cascader-items>
     </div>
   </div>

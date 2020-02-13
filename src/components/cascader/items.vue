@@ -17,10 +17,11 @@
     <div class="right" v-if="rightItems">
       <c-cascader-items
         :items="rightItems"
+        :load-data="loadData"
         :level="level + 1"
         :selected="selected"
-        @update:selected="onUpdateSelected"
         :close="close"
+        @update:selected="onUpdateSelected"
       ></c-cascader-items>
     </div>
   </div>
@@ -68,7 +69,7 @@ export default {
       copySelected.splice(this.level + 1);
       this.$emit('update:selected', copySelected);
       const lastItem = copySelected && copySelected[copySelected.length - 1];
-      if (lastItem && lastItem.isLeaf) {
+      if (lastItem && (this.loadData ? lastItem.isLeaf : !lastItem.children)) {
         this.close();
       }
     },
