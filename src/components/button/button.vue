@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../style/var";
+@import "../../style/animation";
 
 .c-button {
   position: relative;

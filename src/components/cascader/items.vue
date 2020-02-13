@@ -91,6 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../style/var";
+@import "../../style/animation";
 
 .c-cascader-items {
   display: flex;
