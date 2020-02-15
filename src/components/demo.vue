@@ -1,6 +1,16 @@
 <template>
   <div>
     <section>
+      <h4>Carousel 轮播组件</h4>
+      <div class="block carousel">
+        <c-carousel>
+          <div><h1>1</h1></div>
+          <div><h1>2</h1></div>
+          <div><h1>3</h1></div>
+        </c-carousel>
+      </div>
+    </section>
+    <section>
       <h4>Cascader 级联选择</h4>
       <div class="block cascader">
         <c-cascader
@@ -276,106 +286,106 @@
   }
 
   export default {
-  name: "demo",
-  data() {
-    return {
-      vModelValue: "",
-      selectedTab: "tabs1",
-      selectedCollapse: ["1", "2"],
-      isAccordion: true,
-      selectedCascader: [],
-      areaSource: [
-        {
-          name: "浙江",
-          children: [
-            {
-              name: "杭州",
-              children: [{ name: "上城" }, { name: "下城" }, { name: "江干" }]
-            },
-            {
-              name: "嘉兴",
-              children: [{ name: "南湖" }, { name: "秀洲" }, { name: "嘉善" }]
-            }
-          ]
-        },
-        {
-          name: "福建",
-          children: [
-            {
-              name: "福州",
-              children: [{ name: "鼓楼" }, { name: "台江" }, { name: "仓山" }]
-            }
-          ]
-        },
-        {
-          name: "安徽",
-          children: [
-            {
-              name: "合肥",
-              children: [
-                {
-                  name: "瑶海"
-                },
-                {
-                  name: "庐阳"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-    };
-  },
-  created() {
-    ajax().then((result)=>{
-      this.areaSource = result
-    })
-  },
-  mounted() {
-    setTimeout(() => {
-      this.vModelValue += "测试v-model";
-    }, 1000);
-  },
-  methods: {
-    onClick: () => {
-      alert("触发点击事件");
-    },
-    onInput: e => {
-      console.log(e);
-    },
-    onInputChange: e => {
-      console.log(e);
-    },
-    onFocus: e => {
-      console.log(e);
-    },
-    onBlur: e => {
-      console.log(e);
-    },
-    onTabChange: () => {
-      // console.log('123',selected)
-    },
-    handleCollapseChange: () => {},
-    onMessage(position) {
-      this.$message({
-        message: "保存成功",
-        position,
-        autoClose: false,
-        closeButton: {
-          callback: message => {
-            console.log(message);
+    name: "demo",
+    data() {
+      return {
+        vModelValue: "",
+        selectedTab: "tabs1",
+        selectedCollapse: ["1", "2"],
+        isAccordion: true,
+        selectedCascader: [],
+        areaSource: [
+          {
+            name: "浙江",
+            children: [
+              {
+                name: "杭州",
+                children: [{ name: "上城" }, { name: "下城" }, { name: "江干" }]
+              },
+              {
+                name: "嘉兴",
+                children: [{ name: "南湖" }, { name: "秀洲" }, { name: "嘉善" }]
+              }
+            ]
+          },
+          {
+            name: "福建",
+            children: [
+              {
+                name: "福州",
+                children: [{ name: "鼓楼" }, { name: "台江" }, { name: "仓山" }]
+              }
+            ]
+          },
+          {
+            name: "安徽",
+            children: [
+              {
+                name: "合肥",
+                children: [
+                  {
+                    name: "瑶海"
+                  },
+                  {
+                    name: "庐阳"
+                  }
+                ]
+              }
+            ]
           }
-        }
-      });
+        ],
+      };
     },
-    loadCascaderData(node, updateSource){
-      const { id } = node;
-      ajax(id).then((result)=>{
-        updateSource(result);
+    created() {
+      ajax().then((result)=>{
+        this.areaSource = result
       })
+    },
+    mounted() {
+      setTimeout(() => {
+        this.vModelValue += "测试v-model";
+      }, 1000);
+    },
+    methods: {
+      onClick: () => {
+        alert("触发点击事件");
+      },
+      onInput: e => {
+        console.log(e);
+      },
+      onInputChange: e => {
+        console.log(e);
+      },
+      onFocus: e => {
+        console.log(e);
+      },
+      onBlur: e => {
+        console.log(e);
+      },
+      onTabChange: () => {
+        // console.log('123',selected)
+      },
+      handleCollapseChange: () => {},
+      onMessage(position) {
+        this.$message({
+          message: "保存成功",
+          position,
+          autoClose: false,
+          closeButton: {
+            callback: message => {
+              console.log(message);
+            }
+          }
+        });
+      },
+      loadCascaderData(node, updateSource){
+        const { id } = node;
+        ajax(id).then((result)=>{
+          updateSource(result);
+        })
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>

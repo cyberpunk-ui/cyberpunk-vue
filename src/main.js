@@ -22,6 +22,7 @@ import CPopover from "./components/popover";
 import CCollapse from "./components/collapse";
 import CCollapseItem from "./components/collapse-item";
 import CCascader from "./components/cascader";
+import CCarousel from "./components/carousel";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -44,6 +45,7 @@ Vue.use(CPopover);
 Vue.use(CCollapse);
 Vue.use(CCollapseItem);
 Vue.use(CCascader);
+Vue.use(CCarousel);
 
 Vue.config.productionTip = false;
 
