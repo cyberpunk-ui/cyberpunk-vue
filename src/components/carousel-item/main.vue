@@ -1,12 +1,12 @@
 <template>
-  <div class="c-carousel">
+  <div class="c-carousel-item">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CCarousel",
+  name: "CCarouselItem",
   props: {
 
   },
@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../style/var";
 
-.c-carousel {
+.c-carousel-item {
 
 }
 </style>

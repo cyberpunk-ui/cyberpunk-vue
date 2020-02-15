@@ -4,9 +4,9 @@
       <h4>Carousel 轮播组件</h4>
       <div class="block carousel">
         <c-carousel>
-          <div><h1>1</h1></div>
-          <div><h1>2</h1></div>
-          <div><h1>3</h1></div>
+          <c-carousel-item><div class="carousel-item"><h1>1</h1></div></c-carousel-item>
+          <c-carousel-item><div class="carousel-item"><h1>2</h1></div></c-carousel-item>
+          <c-carousel-item><div class="carousel-item"><h1>3</h1></div></c-carousel-item>
         </c-carousel>
       </div>
     </section>
@@ -441,5 +441,14 @@ section .tabs {
 section .collapse {
   color: white;
   width: 600px;
+}
+section .carousel .carousel-item {
+  color: white;
+  width: 600px;
+  height: 300px;
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
