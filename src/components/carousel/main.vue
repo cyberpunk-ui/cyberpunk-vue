@@ -18,12 +18,18 @@
         @click="select(n-1)"
       ></span>
     </div>
+    <div class="c-carousel-action">
+      <span class="button" @click="select(selectedIndex - 1)"><c-icon type="arrow-lift"></c-icon></span>
+      <span class="button" @click="select(selectedIndex + 1)"><c-icon type="arrow-right"></c-icon></span>
+    </div>
   </div>
 </template>
 
 <script>
+  import CIcon from '../icon/icon'
   export default {
     name: "CCarousel",
+    components:{ CIcon },
     props: {
       height: {
         type: [String, Number]
@@ -59,16 +65,19 @@
         }
       },
       names(){
-        return this.$children.map(vm => vm.name)
+        return this.items.map(vm => vm.name)
       },
       selectedIndex(){
         return this.names.indexOf(this.selected) || 0
-      }
+      },
+      items(){
+        return this.$children.filter(vm => vm.$options.name ==='CCarouselItem')
+      },
     },
     mounted() {
       this.updateChildren();
       this.playAutomatically();
-      this.childrenLength = this.$children.length
+      this.childrenLength = this.items.length
     },
     updated() {
       this.updateChildren()
@@ -130,13 +139,13 @@
       },
       updateChildren() {
         const selected = this.getSelected()
-        this.$children.forEach(vm => {
+        this.items.forEach(vm => {
           let reverse = this.selectedIndex <= this.lastSelectedIndex;
           if (this.timerId || this.startTouch) {
-            if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+            if (this.lastSelectedIndex === this.items.length - 1 && this.selectedIndex === 0) {
               reverse = false
             }
-            if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+            if (this.lastSelectedIndex === 0 && this.selectedIndex === this.items.length - 1) {
               reverse = true
             }
           }
@@ -178,6 +187,33 @@
         &.active {
           box-shadow: 0 0 4px $secondary-color;
           background-color: $secondary-color;
+        }
+      }
+    }
+    &-action {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+      .button {
+        display: inline-block;
+        width: 44px;
+        line-height: 44px;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 50%;
+        color: rgba(255,255,255,.3);
+        background-color: rgba(0,0,0,0);
+        transition: all .3s;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+          color: rgba(255,255,255,.8);
+          background-color: rgba(0,0,0,.1);
         }
       }
     }
