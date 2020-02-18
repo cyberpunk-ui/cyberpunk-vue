@@ -108,11 +108,13 @@
         const selected = this.getSelected()
         this.$children.forEach(vm => {
           let reverse = this.selectedIndex <= this.lastSelectedIndex;
-          if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
-            reverse = false
-          }
-          if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
-            reverse = true
+          if (this.timerId) {
+            if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+              reverse = false
+            }
+            if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+              reverse = true
+            }
           }
           vm.reverse = reverse
           this.$nextTick(()=> {
