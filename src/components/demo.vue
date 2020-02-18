@@ -437,11 +437,9 @@ section .layout aside {
 }
 section .tabs {
   color: white;
-  width: 600px;
 }
 section .collapse {
   color: white;
-  width: 600px;
 }
 section .carousel .carousel-item {
   color: white;
