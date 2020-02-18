@@ -1,6 +1,6 @@
 <template>
-  <transition name="carousel">
-    <div class="c-carousel-item" v-if="visible">
+  <transition name="carousel" >
+    <div class="c-carousel-item" v-if="visible" :class="{reverse}">
       <slot></slot>
     </div>
   </transition>
@@ -19,6 +19,7 @@ export default {
   data(){
     return {
       selected: undefined,
+      reverse: true,
     }
   },
   computed: {
@@ -32,9 +33,6 @@ export default {
 <style lang="scss" scoped>
   @import "../../style/var";
 
-  .c-carousel-item {
-
-  }
 
   .carousel-enter{
     transform: translateX(100%);
@@ -42,10 +40,18 @@ export default {
   .carousel-leave-to {
     transform: translateX(-100%);
   }
+  .carousel-enter.reverse {
+    transform: translateX(-100%);
+  }
+  .carousel-leave-to.reverse {
+    transform: translateX(100%);
+  }
   .carousel-leave-active {
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
   }
   .carousel-enter-active, .carousel-leave-active {
     transition: all 1s;
