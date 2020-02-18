@@ -1,5 +1,10 @@
 <template>
-  <div class="c-carousel" :style="styles">
+  <div
+    class="c-carousel"
+    :style="styles"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
+  >
     <div class="c-carousel-wrapper">
       <slot></slot>
     </div>
@@ -32,13 +37,18 @@
       },
       interval: {
         type: Number,
-        default: 3000
+        default: 2000
+      },
+      reverseAutoplay: {
+        type: Boolean,
+        default: false
       },
     },
     data(){
       return {
         childrenLength: 0,
-        lastSelectedIndex: undefined
+        lastSelectedIndex: undefined,
+        timerId: undefined
       }
     },
     computed: {
@@ -63,6 +73,12 @@
       this.updateChildren()
     },
     methods: {
+      onMouseEnter(){
+        this.pauseAutomatically();
+      },
+      onMouseLeave(){
+        this.playAutomatically();
+      },
       getSelected(){
         const first = this.$children[0]
         return this.selected || first.name
@@ -72,25 +88,33 @@
         this.$emit('update:selected', this.names[index])
       },
       playAutomatically(){
-        if (this.autoplay) {
+        if (!this.autoplay || this.timerId) { return }
+        let run = () => {
           let index = this.names.indexOf(this.getSelected())
-          let run = () => {
-            // if (index === names.length){ index = 0 }
-            // this.$emit('update:selected', names[index + 1])
-            // index ++
-            let newIndex = index - 1
-            if (newIndex === -1) { newIndex = this.names.length - 1}
-            if (newIndex === this.names.length) {newIndex = 0}
-            this.select(newIndex)
-            setTimeout(run, this.interval)
-          }
-          setTimeout(run, this.interval)
+          let step = this.reverseAutoplay ? -1 : 1
+          let newIndex = index + step
+          if (newIndex === -1) { newIndex = this.names.length + step}
+          if (newIndex === this.names.length) {newIndex = 0}
+          this.select(newIndex)
+          this.timerId = setTimeout(run, this.interval)
         }
+        this.timerId = setTimeout(run, this.interval)
+      },
+      pauseAutomatically(){
+        window.clearTimeout(this.timerId)
+        this.timerId = undefined
       },
       updateChildren() {
         const selected = this.getSelected()
         this.$children.forEach(vm => {
-          vm.reverse = this.selectedIndex <= this.lastSelectedIndex
+          let reverse = this.selectedIndex <= this.lastSelectedIndex;
+          if (this.lastSelectedIndex === this.$children.length - 1 && this.selectedIndex === 0) {
+            reverse = false
+          }
+          if (this.lastSelectedIndex === 0 && this.selectedIndex === this.$children.length - 1) {
+            reverse = true
+          }
+          vm.reverse = reverse
           this.$nextTick(()=> {
             vm.selected = selected
           })
