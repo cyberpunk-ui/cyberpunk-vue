@@ -4,9 +4,11 @@
       <h4>Carousel 轮播组件</h4>
       <div class="block carousel">
         <c-carousel :selected.sync="selectedCarousel" autoplay >
-          <c-carousel-item name="1"><div class="carousel-item"><h1>1</h1></div></c-carousel-item>
-          <c-carousel-item name="2"><div class="carousel-item"><h1>2</h1></div></c-carousel-item>
-          <c-carousel-item name="3"><div class="carousel-item"><h1>3</h1></div></c-carousel-item>
+          <c-carousel-item :name="index" v-for="index in 6" :key="index">
+            <div class="carousel-item">
+              <h1>{{index}}</h1>
+            </div>
+          </c-carousel-item>
         </c-carousel>
       </div>
     </section>
