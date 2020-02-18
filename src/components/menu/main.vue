@@ -5,10 +5,13 @@
 </template>
 
 <script>
-  import items from "@/components/cascader/items"
-
   export default {
     name: "CMenu",
+    provide(){
+      return {
+        root: this
+      }
+    },
     props: {
       selected: {
         type: Array,
@@ -19,10 +22,10 @@
         default: false
       },
     },
-    computed: {
-      items() {
-        return this.$children.filter(vm => vm.$options.name === 'CMenuItem')
-      },
+    data(){
+      return {
+        items: []
+      }
     },
     mounted() {
       this.updateChildren()
@@ -32,6 +35,9 @@
       this.updateChildren()
     },
     methods: {
+      addItem(vm){
+        this.items.push(vm)
+      },
       updateChildren() {
         this.items.forEach(vm => {
           vm.active = this.selected.indexOf(vm.name) >= 0

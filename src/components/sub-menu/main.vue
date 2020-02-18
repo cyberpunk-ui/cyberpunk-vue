@@ -1,10 +1,10 @@
 <template>
   <div class="c-sub-menu">
-    <span class="c-sub-menu-title">
+    <span class="c-sub-menu-title" @click="onTrigger">
       <slot name="title"></slot>
       <span class="c-sub-menu-title-icon"><c-icon type="arrow-down"></c-icon></span>
     </span>
-    <div class="c-sub-menu-popover">
+    <div class="c-sub-menu-popover" v-show="popoverVisible">
       <slot></slot>
     </div>
   </div>
@@ -14,7 +14,18 @@
   import CIcon from '../icon/icon';
   export default {
     name: "CSubMenu",
+    inject: ['root'],
     components: {CIcon},
+    data(){
+      return {
+        popoverVisible: false
+      }
+    },
+    methods:{
+      onTrigger(){
+        this.popoverVisible = !this.popoverVisible
+      }
+    }
   }
 </script>
 
@@ -26,6 +37,7 @@
 
     &-title {
       display: inline-block;
+      vertical-align: top;
       padding: 12px 24px;
       cursor: pointer;
       transition: all 0.3s;

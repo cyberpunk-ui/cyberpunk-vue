@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "CMenuItem",
+  inject: ['root'],
   props: {
     name: {
       type: String,
@@ -21,6 +22,9 @@ export default {
     return {
       active: false
     }
+  },
+  created() {
+    this.root.addItem(this)
   },
   methods: {
     onClick(){
