@@ -1,12 +1,32 @@
 <template>
-  <main class="c-menu-item">
+  <div
+    class="c-menu-item"
+    :class="{active}"
+    @click="onClick"
+  >
     <slot></slot>
-  </main>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "CMenuItem"
+  name: "CMenuItem",
+  props: {
+    name: {
+      type: String,
+      required: true,
+    }
+  },
+  data(){
+    return {
+      active: false
+    }
+  },
+  methods: {
+    onClick(){
+      this.$emit('add:selected', this.name)
+    }
+  }
 };
 </script>
 
@@ -14,6 +34,13 @@ export default {
 @import "../../style/var";
 
 .c-menu-item {
-
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &.active {
+    color: $black-color;
+    background-color: $primary-color;
+    font-weight: $button-font-weight;
+  }
 }
 </style>

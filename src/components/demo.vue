@@ -3,7 +3,7 @@
     <section>
       <h4>Menu 导航组件</h4>
       <div class="block menu">
-        <c-menu :selected="selectedMenu" multiple>
+        <c-menu :selected.sync="selectedMenu" :multiple="false">
           <c-menu-item name="home">首页</c-menu-item>
           <c-menu-item name="about">关于</c-menu-item>
           <c-menu-item name="hire">招聘</c-menu-item>

@@ -1,7 +1,7 @@
 <template>
-  <main class="c-sub-menu">
+  <div class="c-sub-menu">
     <slot></slot>
-  </main>
+  </div>
 </template>
 
 <script>
