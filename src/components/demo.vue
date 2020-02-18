@@ -9,7 +9,12 @@
             <template slot="title">关于</template>
             <c-menu-item name="about1">企业文化</c-menu-item>
             <c-menu-item name="about2">开发团队</c-menu-item>
-            <c-menu-item name="about3">练习电话</c-menu-item>
+            <c-sub-menu>
+              <template slot="title">联系方式</template>
+              <c-menu-item name="qq">QQ</c-menu-item>
+              <c-menu-item name="phone">Phone</c-menu-item>
+              <c-menu-item name="wechat">WeChat</c-menu-item>
+            </c-sub-menu>
           </c-sub-menu>
           <c-menu-item name="hire">招聘</c-menu-item>
         </c-menu>
