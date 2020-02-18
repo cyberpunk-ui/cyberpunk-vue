@@ -50,6 +50,6 @@ export default {
     height: 100%;
   }
   .carousel-enter-active, .carousel-leave-active {
-    transition: all 0.8s ease-in-out;
+    transition: all 0.4s;
   }
 </style>
