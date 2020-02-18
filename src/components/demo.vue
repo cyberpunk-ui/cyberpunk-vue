@@ -3,10 +3,10 @@
     <section>
       <h4>Carousel 轮播组件</h4>
       <div class="block carousel">
-        <c-carousel>
-          <c-carousel-item><div class="carousel-item"><h1>1</h1></div></c-carousel-item>
-          <c-carousel-item><div class="carousel-item"><h1>2</h1></div></c-carousel-item>
-          <c-carousel-item><div class="carousel-item"><h1>3</h1></div></c-carousel-item>
+        <c-carousel selected="1">
+          <c-carousel-item name="1"><div class="carousel-item"><h1>1</h1></div></c-carousel-item>
+          <c-carousel-item name="2"><div class="carousel-item"><h1>2</h1></div></c-carousel-item>
+          <c-carousel-item name="3"><div class="carousel-item"><h1>3</h1></div></c-carousel-item>
         </c-carousel>
       </div>
     </section>
