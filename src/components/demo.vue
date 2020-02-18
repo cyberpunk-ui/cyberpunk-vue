@@ -273,7 +273,7 @@
 </template>
 
 <script>
-  import db from '../utils/area-db';
+  import db from '../../tests/fixtures/area-db';
 
   function ajax(parent_id = 0) {
     return new Promise((resolve, reject) => {
