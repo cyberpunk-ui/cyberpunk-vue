@@ -1,6 +1,16 @@
 <template>
   <div>
     <section>
+      <h4>Menu 导航组件</h4>
+      <div class="block menu">
+        <c-menu :selected="selectedMenu" multiple>
+          <c-menu-item name="home">首页</c-menu-item>
+          <c-menu-item name="about">关于</c-menu-item>
+          <c-menu-item name="hire">招聘</c-menu-item>
+        </c-menu>
+      </div>
+    </section>
+    <section>
       <h4>Carousel 轮播组件</h4>
       <div class="block carousel">
         <c-carousel :selected.sync="selectedCarousel" autoplay >
@@ -295,6 +305,7 @@
         selectedTab: "tabs1",
         selectedCollapse: ["1", "2"],
         selectedCarousel: '1',
+        selectedMenu: ['home'],
         isAccordion: true,
         selectedCascader: [],
         areaSource: [
@@ -368,7 +379,6 @@
       onTabChange: () => {
         // console.log('123',selected)
       },
-      handleCollapseChange: () => {},
       onMessage(position) {
         this.$message({
           message: "保存成功",
