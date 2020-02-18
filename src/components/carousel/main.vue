@@ -14,9 +14,7 @@
         :key="n"
         :class="{active: selectedIndex === n - 1}"
         @click="select(n-1)"
-      >
-        {{n}}
-      </span>
+      ></span>
     </div>
   </div>
 </template>
@@ -130,15 +128,31 @@
   @import "../../style/var";
 
   .c-carousel {
+    position: relative;
     &-wrapper {
       overflow: hidden;
       position: relative;
     }
-    & .dots > span{
-      color: #fff;
-      cursor: pointer;
-      &.active {
-        color: $secondary-color;
+    & .dots {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      > span{
+        display: inline-block;
+        width: 40px;
+        height: 4px;
+        margin: 0 4px;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.6s;
+        &.active {
+          box-shadow: 0 0 4px $secondary-color;
+          background-color: $secondary-color;
+        }
       }
     }
   }
