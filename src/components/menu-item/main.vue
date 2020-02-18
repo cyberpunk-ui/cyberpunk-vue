@@ -42,5 +42,8 @@ export default {
     background-color: $primary-color;
     font-weight: $button-font-weight;
   }
+  &:hover:not(.active){
+    background-color: $grey-light-color;
+  }
 }
 </style>
