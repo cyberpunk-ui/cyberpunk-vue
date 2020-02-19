@@ -6,7 +6,7 @@ cyberpunk-ui base vue.js
 
 ## Documents
 
-* [Docs] https://vue.cyberpunk.ylzon.com
+* [Docs] https://cyber.punkui.com/
 * [Blog] https://ylzon.com
 
 ## TodoList
