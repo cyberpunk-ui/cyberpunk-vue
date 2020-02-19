@@ -1,7 +1,7 @@
 <template>
   <div
     class="c-menu-item"
-    :class="{active}"
+    :class="classes"
     @click="onClick"
   >
     <slot></slot>
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "CMenuItem",
-  inject: ['root'],
+  inject: ['root', 'direction'],
   props: {
     name: {
       type: String,
@@ -25,6 +25,14 @@ export default {
   },
   created() {
     this.root.addItem(this)
+  },
+  computed: {
+    classes() {
+      return {
+        active: this.active,
+        vertical: this.direction === 'vertical'
+      }
+    }
   },
   methods: {
     onClick(){

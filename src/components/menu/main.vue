@@ -1,5 +1,5 @@
 <template>
-  <div class="c-menu">
+  <div class="c-menu" :class="classes">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,8 @@
     name: "CMenu",
     provide(){
       return {
-        root: this
+        root: this,
+        direction: this.direction
       }
     },
     props: {
@@ -21,12 +22,26 @@
         type: Boolean,
         default: false
       },
+      direction: {
+        type: String,
+        default: 'horizontal',
+        validator: (value) => {
+          return ['horizontal', 'vertical'].indexOf(value) >= 0
+        }
+      },
     },
     data(){
       return {
         items: [],
         namePath: [],
         subMenuItems: [],
+      }
+    },
+    computed: {
+      classes() {
+        return {
+          vertical: this.direction === 'vertical'
+        }
       }
     },
     mounted() {
@@ -77,5 +92,8 @@
     color: #fff;
     display: flex;
     background-color: $grey-color;
+    &.vertical {
+      flex-direction: column;
+    }
   }
 </style>
