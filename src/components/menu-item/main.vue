@@ -52,6 +52,10 @@ export default {
   padding: 12px 24px;
   cursor: pointer;
   transition: all 0.3s;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
   &.active {
     color: $black-color;
     background-color: $primary-color;
