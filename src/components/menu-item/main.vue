@@ -2,6 +2,7 @@
   <div
     class="c-menu-item"
     :class="classes"
+    :data-name="name"
     @click="onClick"
   >
     <slot></slot>

@@ -1,5 +1,5 @@
 <template>
-  <div class="c-sub-menu" v-click-outside="close">
+  <div class="c-sub-menu" v-click-outside="close" :data-name="name">
     <span class="c-sub-menu-title" @click="onTrigger" :class="{active, ...classes}">
       <slot name="title"></slot>
       <span
