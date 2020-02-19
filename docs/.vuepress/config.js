@@ -5,6 +5,11 @@ module.exports = {
   themeConfig: {
     defaultTheme: { light: [6, 18], dark: [18, 6] },
     smoothScroll: true,
+    docsRepo: 'cyberpunk-ui/cyberpunk-vue',
+    docsDir: 'docs',
+    editLinks: true,
+    editLinkText: '在GitHub上编辑此页',
+    lastUpdated: '上次更新',
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/' },
@@ -45,11 +50,26 @@ module.exports = {
     }
   },
   plugins: [
+    ['@vuepress/nprogress'],
+    ['@vuepress/back-to-top'],
+    ['@vuepress/active-header-links'],
+    [
+      '@vuepress/last-updated', {
+        transformer: (timestamp, lang) => {
+          const moment = require('moment')
+          moment.locale(lang)
+          return moment(timestamp).fromNow()
+        }
+      }
+    ],
     [
       '@vuepress/google-analytics',
       {
         'ga': 'UA-91622737-2' // UA-00000000-0
       }
-    ]
+    ],
+    ['@vuepress/search', {
+      searchMaxSuggestions: 10
+    }]
   ]
 }
