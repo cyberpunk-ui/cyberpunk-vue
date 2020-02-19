@@ -21,14 +21,14 @@ cyberpunk-ui base vue.js
     * [x] Collapse
     * [x] Cascader
     * [x] Carousel
-    * [ ] Menu (dev...)
-    * [ ] Form
+    * [x] Menu
+    * [ ] Form (dev...)
     * [ ] Page
     * [ ] Table
     * [ ] Upload
     * [ ] Sticky
     * [ ] Datepicker
-    * [ ] Scroll 
+    * [ ] Scroll
 * [ ] Complete unit test case coverage 100%.
 * [ ] Docs
     * [ ] Chinese & English README.md.
