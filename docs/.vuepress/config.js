@@ -43,5 +43,13 @@ module.exports = {
         require('autoprefixer')
       ]
     }
-  }
+  },
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-91622737-2' // UA-00000000-0
+      }
+    ]
+  ]
 }
