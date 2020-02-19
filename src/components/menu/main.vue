@@ -24,7 +24,9 @@
     },
     data(){
       return {
-        items: []
+        items: [],
+        namePath: [],
+        subMenuItems: [],
       }
     },
     mounted() {
@@ -37,6 +39,14 @@
     methods: {
       addItem(vm){
         this.items.push(vm)
+      },
+      addSubMenuItem(vm){
+        this.subMenuItems.push(vm)
+      },
+      closeAllPopover(){
+        this.subMenuItems.forEach(vm => {
+          vm.close()
+        })
       },
       updateChildren() {
         this.items.forEach(vm => {

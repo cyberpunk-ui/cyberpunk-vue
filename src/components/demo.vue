@@ -5,11 +5,11 @@
       <div class="block menu">
         <c-menu :selected.sync="selectedMenu" :multiple="false">
           <c-menu-item name="home">首页</c-menu-item>
-          <c-sub-menu>
+          <c-sub-menu name="about">
             <template slot="title">关于</template>
             <c-menu-item name="about1">企业文化</c-menu-item>
             <c-menu-item name="about2">开发团队</c-menu-item>
-            <c-sub-menu>
+            <c-sub-menu name="contact">
               <template slot="title">联系方式</template>
               <c-menu-item name="qq">QQ</c-menu-item>
               <c-menu-item name="phone">Phone</c-menu-item>

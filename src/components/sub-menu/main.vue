@@ -1,6 +1,6 @@
 <template>
-  <div class="c-sub-menu">
-    <span class="c-sub-menu-title" @click="onTrigger">
+  <div class="c-sub-menu" v-click-outside="close">
+    <span class="c-sub-menu-title" @click="onTrigger" :class="{active}">
       <slot name="title"></slot>
       <span
         class="c-sub-menu-title-icon"
@@ -15,18 +15,43 @@
 
 <script>
   import CIcon from '../icon/icon';
+  import ClickOutside from "@/utils/click-outside"
   export default {
     name: "CSubMenu",
     inject: ['root'],
     components: {CIcon},
+    directives: {ClickOutside},
+    props: {
+      name: {
+        type: String,
+        required: true,
+      }
+    },
     data(){
       return {
         popoverVisible: false
       }
     },
+    created() {
+      this.root.addSubMenuItem(this)
+    },
+    computed: {
+      active() {
+        return this.root.namePath.indexOf(this.name) >= 0
+      }
+    },
     methods:{
+      close(){
+        this.popoverVisible = false
+      },
       onTrigger(){
         this.popoverVisible = !this.popoverVisible
+      },
+      updateNamePath() {
+        this.root.namePath.unshift(this.name)
+        if (this.$parent.updateNamePath){
+          this.$parent.updateNamePath()
+        }
       }
     }
   }
@@ -56,8 +81,11 @@
       }
       &-icon {
         margin-left: 0.7em;
-        transition: all 0.3s;
-        &.active {
+        & .icon {
+          transition: all 0.3s;
+        }
+        &.active .icon{
+          transition: all 0.3s;
           transform: rotate(180deg);
         }
       }
@@ -76,6 +104,13 @@
       left: 100%;
       top: 0;
       margin-left: 4px;
+    }
+    & .c-sub-menu .c-sub-menu-title-icon .icon {
+      transform: rotate(270deg);
+      transition: all 0.3s;
+    }
+    & .c-sub-menu .c-sub-menu-title-icon.active .icon {
+      transform: rotate(90deg);
     }
   }
 </style>
