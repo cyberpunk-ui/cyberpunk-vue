@@ -27,6 +27,7 @@ import CCarouselItem from "./components/carousel-item";
 import CMenu from "./components/menu";
 import CMenuItem from "./components/menu-item";
 import CSubMenu from "./components/sub-menu";
+import CPagination from "./components/pagination";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -54,6 +55,7 @@ Vue.use(CCarouselItem);
 Vue.use(CMenu);
 Vue.use(CMenuItem);
 Vue.use(CSubMenu);
+Vue.use(CPagination);
 
 Vue.config.productionTip = false;
 
