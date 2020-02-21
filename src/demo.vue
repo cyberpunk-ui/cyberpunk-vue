@@ -4,327 +4,328 @@
       <h4>Pagination 分页组件</h4>
       <div class="block pagination">
         <c-pagination
-          :current="currentPage"
+          :current.sync="currentPage"
           :total="total"
           :page-size="pageSize"
-          hide-on-single-page
+          :hide-on-single-page="hideOnSinglePage"
+          @change="onPaginationChange"
         ></c-pagination>
       </div>
     </section>
-    <section>
-      <h4>Menu 导航组件</h4>
-      <div class="block menu">
-        <c-menu
-          :selected.sync="selectedMenu"
-          :multiple="false"
-        >
-          <c-menu-item name="home">Home</c-menu-item>
-          <c-sub-menu name="about">
-            <template slot="title">About</template>
-            <c-menu-item name="about1">About1</c-menu-item>
-            <c-menu-item name="about2">About1</c-menu-item>
-            <c-sub-menu name="contact">
-              <template slot="title">Contact</template>
-              <c-menu-item name="qq">QQ</c-menu-item>
-              <c-menu-item name="phone">Phone</c-menu-item>
-              <c-menu-item name="wechat">WeChat</c-menu-item>
-            </c-sub-menu>
-          </c-sub-menu>
-          <c-menu-item name="hire">Hire</c-menu-item>
-          <c-menu-item name="google"><a href="https://google.com" target="_blank">Google</a></c-menu-item>
-        </c-menu>
-        <c-menu
-          :selected.sync="selectedMenu2"
-          :multiple="false"
-          direction="vertical"
-          style="width: 265px;margin-top: 20px;"
-        >
-          <c-menu-item name="home">Home</c-menu-item>
-          <c-sub-menu name="about">
-            <template slot="title">About</template>
-            <c-menu-item name="about1">About1</c-menu-item>
-            <c-menu-item name="about2">About1</c-menu-item>
-            <c-sub-menu name="contact">
-              <template slot="title">Contact</template>
-              <c-menu-item name="qq">QQ</c-menu-item>
-              <c-menu-item name="phone">Phone</c-menu-item>
-              <c-menu-item name="wechat">WeChat</c-menu-item>
-            </c-sub-menu>
-          </c-sub-menu>
-          <c-menu-item name="hire">Hire</c-menu-item>
-          <c-menu-item name="google"><a href="https://google.com" target="_blank">Google</a></c-menu-item>
-        </c-menu>
-      </div>
-    </section>
-    <section>
-      <h4>Carousel 轮播组件</h4>
-      <div class="block carousel">
-        <c-carousel :selected.sync="selectedCarousel" autoplay >
-          <c-carousel-item :name="index" v-for="index in 6" :key="index">
-            <div class="carousel-item">
-              <h1>{{index}}</h1>
-            </div>
-          </c-carousel-item>
-        </c-carousel>
-      </div>
-    </section>
-    <section>
-      <h4>Cascader 级联选择</h4>
-      <div class="block cascader">
-        <c-cascader
-          :source.sync="areaSource"
-          :selected.sync="selectedCascader"
-          :load-data="loadCascaderData"
-        ></c-cascader>
-      </div>
-    </section>
-    <section>
-      <h4>Collapse 折叠面板</h4>
-      <div class="block collapse">
-        <c-collapse :accordion="isAccordion" :selected.sync="selectedCollapse">
-          <c-collapse-item title="标题1" name="1">
-            面板内容1
-          </c-collapse-item>
-          <c-collapse-item title="标题2" name="2">
-            面板内容2
-          </c-collapse-item>
-          <c-collapse-item title="标题3" name="3">
-            面板内容3
-          </c-collapse-item>
-        </c-collapse>
-      </div>
-    </section>
-    <section>
-      <h4>Popover 弹出框</h4>
-      <div class="block">
-        <c-popover>
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向上弹出</c-button>
-        </c-popover>
-        <c-popover position="bottom">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向下弹出</c-button>
-        </c-popover>
-        <c-popover position="left">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向左弹出</c-button>
-        </c-popover>
-        <c-popover position="right">
-          <template slot="content">
-            <div>popover内容</div>
-          </template>
-          <c-button>向右弹出</c-button>
-        </c-popover>
-      </div>
-    </section>
-    <section>
-      <h4>Tabs 标签页</h4>
-      <div class="block tabs">
-        <c-tabs :selected.sync="selectedTab" @update:selected="onTabChange">
-          <c-tabs-head>
-            <template slot="actions">
-              <c-button icon="set">设置</c-button>
-            </template>
-            <c-tabs-item name="tabs1">
-              <c-icon type="editor"></c-icon>Tab1
-            </c-tabs-item>
-            <c-tabs-item name="tabs2" disabled>
-              <c-icon type="data"></c-icon>Tab2
-            </c-tabs-item>
-            <c-tabs-item name="tabs3">
-              <c-icon type="history"></c-icon>Tab3
-            </c-tabs-item>
-          </c-tabs-head>
-          <c-tabs-body>
-            <c-tabs-pane name="tabs1">tab1</c-tabs-pane>
-            <c-tabs-pane name="tabs2">tab2</c-tabs-pane>
-            <c-tabs-pane name="tabs3">tab3</c-tabs-pane>
-          </c-tabs-body>
-        </c-tabs>
-      </div>
-    </section>
-    <section>
-      <h4>Message 全局提示</h4>
-      <div class="block">
-        <c-button icon="rising1" @click="onMessage('top')">顶部提示</c-button>
-        <c-button icon="reduce" @click="onMessage('center')">居中提示</c-button>
-        <c-button icon="falling" @click="onMessage('bottom')"
-          >底部提示</c-button
-        >
-      </div>
-    </section>
-    <section>
-      <h4>Layout 布局</h4>
-      <div class="block layout">
-        <c-layout>
-          <c-header height="40">header</c-header>
-          <c-main>main</c-main>
-          <c-footer height="40">footer</c-footer>
-        </c-layout>
-      </div>
-      <div class="block layout">
-        <c-layout>
-          <c-aside>aside</c-aside>
-          <c-layout>
-            <c-header height="40">header</c-header>
-            <c-main>main</c-main>
-            <c-footer height="40">footer</c-footer>
-          </c-layout>
-        </c-layout>
-      </div>
-      <div class="block layout">
-        <c-layout>
-          <c-header height="40">header</c-header>
-          <c-layout>
-            <c-aside>aside</c-aside>
-            <c-main>main</c-main>
-          </c-layout>
-          <c-footer height="40">footer</c-footer>
-        </c-layout>
-      </div>
-      <div class="block layout">
-        <c-layout>
-          <c-header height="40">header</c-header>
-          <c-layout>
-            <c-aside>aside</c-aside>
-            <c-layout>
-              <c-main>main</c-main>
-              <c-footer height="40">footer</c-footer>
-            </c-layout>
-          </c-layout>
-        </c-layout>
-      </div>
-    </section>
-    <section>
-      <h4>Grid 栅格</h4>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col><div class="grid-content bg-color"></div></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col span="8"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-          <c-col span="8"><div class="grid-content bg-color"></div></c-col>
-          <c-col span="8"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col span="10"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-          <c-col span="2" offset="1"
-            ><div class="grid-content bg-color"></div
-          ></c-col>
-          <c-col span="10" offset="1"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20" align="right">
-          <c-col span="12"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-          <c-col span="4"><div class="grid-content bg-color"></div></c-col>
-        </c-row>
-      </div>
-      <div class="block grid">
-        <c-row gutter="20">
-          <c-col
-            :xs="{ span: 24 }"
-            sm="12"
-            :md="4"
-            :lg="{ span: 2, offset: '1' }"
-            :xl="6"
-            :xxl="8"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-          <c-col
-            :xs="{ span: 24 }"
-            sm="12"
-            :md="8"
-            :lg="{ span: 8, offset: '1' }"
-            :xl="6"
-            :xxl="4"
-            ><div class="grid-content bg-color"></div
-          ></c-col>
-          <c-col
-            :xs="{ span: 24 }"
-            sm="12"
-            :md="8"
-            :lg="{ span: 8, offset: '1' }"
-            :xl="6"
-            :xxl="4"
-            ><div class="grid-content bg-color-light"></div
-          ></c-col>
-          <c-col
-            :xs="{ span: 24 }"
-            sm="12"
-            :md="4"
-            :lg="{ span: 2, offset: '1' }"
-            :xl="6"
-            :xxl="8"
-            ><div class="grid-content bg-color"></div
-          ></c-col>
-        </c-row>
-      </div>
-    </section>
-    <section>
-      <h4>Input 文本框</h4>
-      <div class="block">
-        <c-input placeholder="Large尺寸" size="large"></c-input>
-        <c-input placeholder="默认尺寸"></c-input>
-        <c-input placeholder="Small尺寸" size="small"></c-input>
-        <c-input placeholder="Mini尺寸" size="mini"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="请输入禁用内容" disabled></c-input>
-        <c-input
-          placeholder="请输入内容"
-          disabled
-          value="禁用状态内容"
-        ></c-input>
-        <c-input placeholder="请输入只读内容" readonly></c-input>
-        <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="Input事件" @input="onInput"></c-input>
-        <c-input placeholder="Change事件" @change="onInputChange"></c-input>
-        <c-input placeholder="Focus事件" @focus="onFocus"></c-input>
-        <c-input placeholder="Blur事件" @focus="onBlur"></c-input>
-      </div>
-      <div class="block">
-        <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>
-        <span style="color: white">{{ vModelValue }}</span>
-      </div>
-    </section>
-    <section>
-      <h4>Button 按钮</h4>
-      <c-button>基本按钮</c-button>
-      <c-button icon="leftarrow">图标按钮</c-button>
-      <c-button icon="Rightarrow" icon-position="right">右侧图标</c-button>
-      <c-button icon="set" loading>加载动画</c-button>
-      <c-button icon="set" loading icon-position="right">右侧加载</c-button>
-      <c-button icon="success" @click="onClick">点击事件</c-button>
-      <c-button-group>
-        <c-button>首页</c-button>
-        <c-button>上一页</c-button>
-        <c-button>下一页</c-button>
-        <c-button>尾页</c-button>
-      </c-button-group>
-    </section>
+<!--    <section>-->
+<!--      <h4>Menu 导航组件</h4>-->
+<!--      <div class="block menu">-->
+<!--        <c-menu-->
+<!--          :selected.sync="selectedMenu"-->
+<!--          :multiple="false"-->
+<!--        >-->
+<!--          <c-menu-item name="home">Home</c-menu-item>-->
+<!--          <c-sub-menu name="about">-->
+<!--            <template slot="title">About</template>-->
+<!--            <c-menu-item name="about1">About1</c-menu-item>-->
+<!--            <c-menu-item name="about2">About1</c-menu-item>-->
+<!--            <c-sub-menu name="contact">-->
+<!--              <template slot="title">Contact</template>-->
+<!--              <c-menu-item name="qq">QQ</c-menu-item>-->
+<!--              <c-menu-item name="phone">Phone</c-menu-item>-->
+<!--              <c-menu-item name="wechat">WeChat</c-menu-item>-->
+<!--            </c-sub-menu>-->
+<!--          </c-sub-menu>-->
+<!--          <c-menu-item name="hire">Hire</c-menu-item>-->
+<!--          <c-menu-item name="google"><a href="https://google.com" target="_blank">Google</a></c-menu-item>-->
+<!--        </c-menu>-->
+<!--        <c-menu-->
+<!--          :selected.sync="selectedMenu2"-->
+<!--          :multiple="false"-->
+<!--          direction="vertical"-->
+<!--          style="width: 265px;margin-top: 20px;"-->
+<!--        >-->
+<!--          <c-menu-item name="home">Home</c-menu-item>-->
+<!--          <c-sub-menu name="about">-->
+<!--            <template slot="title">About</template>-->
+<!--            <c-menu-item name="about1">About1</c-menu-item>-->
+<!--            <c-menu-item name="about2">About1</c-menu-item>-->
+<!--            <c-sub-menu name="contact">-->
+<!--              <template slot="title">Contact</template>-->
+<!--              <c-menu-item name="qq">QQ</c-menu-item>-->
+<!--              <c-menu-item name="phone">Phone</c-menu-item>-->
+<!--              <c-menu-item name="wechat">WeChat</c-menu-item>-->
+<!--            </c-sub-menu>-->
+<!--          </c-sub-menu>-->
+<!--          <c-menu-item name="hire">Hire</c-menu-item>-->
+<!--          <c-menu-item name="google"><a href="https://google.com" target="_blank">Google</a></c-menu-item>-->
+<!--        </c-menu>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Carousel 轮播组件</h4>-->
+<!--      <div class="block carousel">-->
+<!--        <c-carousel :selected.sync="selectedCarousel" autoplay >-->
+<!--          <c-carousel-item :name="index" v-for="index in 6" :key="index">-->
+<!--            <div class="carousel-item">-->
+<!--              <h1>{{index}}</h1>-->
+<!--            </div>-->
+<!--          </c-carousel-item>-->
+<!--        </c-carousel>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Cascader 级联选择</h4>-->
+<!--      <div class="block cascader">-->
+<!--        <c-cascader-->
+<!--          :source.sync="areaSource"-->
+<!--          :selected.sync="selectedCascader"-->
+<!--          :load-data="loadCascaderData"-->
+<!--        ></c-cascader>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Collapse 折叠面板</h4>-->
+<!--      <div class="block collapse">-->
+<!--        <c-collapse :accordion="isAccordion" :selected.sync="selectedCollapse">-->
+<!--          <c-collapse-item title="标题1" name="1">-->
+<!--            面板内容1-->
+<!--          </c-collapse-item>-->
+<!--          <c-collapse-item title="标题2" name="2">-->
+<!--            面板内容2-->
+<!--          </c-collapse-item>-->
+<!--          <c-collapse-item title="标题3" name="3">-->
+<!--            面板内容3-->
+<!--          </c-collapse-item>-->
+<!--        </c-collapse>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Popover 弹出框</h4>-->
+<!--      <div class="block">-->
+<!--        <c-popover>-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向上弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="bottom">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向下弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="left">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向左弹出</c-button>-->
+<!--        </c-popover>-->
+<!--        <c-popover position="right">-->
+<!--          <template slot="content">-->
+<!--            <div>popover内容</div>-->
+<!--          </template>-->
+<!--          <c-button>向右弹出</c-button>-->
+<!--        </c-popover>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Tabs 标签页</h4>-->
+<!--      <div class="block tabs">-->
+<!--        <c-tabs :selected.sync="selectedTab" @update:selected="onTabChange">-->
+<!--          <c-tabs-head>-->
+<!--            <template slot="actions">-->
+<!--              <c-button icon="set">设置</c-button>-->
+<!--            </template>-->
+<!--            <c-tabs-item name="tabs1">-->
+<!--              <c-icon type="editor"></c-icon>Tab1-->
+<!--            </c-tabs-item>-->
+<!--            <c-tabs-item name="tabs2" disabled>-->
+<!--              <c-icon type="data"></c-icon>Tab2-->
+<!--            </c-tabs-item>-->
+<!--            <c-tabs-item name="tabs3">-->
+<!--              <c-icon type="history"></c-icon>Tab3-->
+<!--            </c-tabs-item>-->
+<!--          </c-tabs-head>-->
+<!--          <c-tabs-body>-->
+<!--            <c-tabs-pane name="tabs1">tab1</c-tabs-pane>-->
+<!--            <c-tabs-pane name="tabs2">tab2</c-tabs-pane>-->
+<!--            <c-tabs-pane name="tabs3">tab3</c-tabs-pane>-->
+<!--          </c-tabs-body>-->
+<!--        </c-tabs>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Message 全局提示</h4>-->
+<!--      <div class="block">-->
+<!--        <c-button icon="rising1" @click="onMessage('top')">顶部提示</c-button>-->
+<!--        <c-button icon="reduce" @click="onMessage('center')">居中提示</c-button>-->
+<!--        <c-button icon="falling" @click="onMessage('bottom')"-->
+<!--          >底部提示</c-button-->
+<!--        >-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Layout 布局</h4>-->
+<!--      <div class="block layout">-->
+<!--        <c-layout>-->
+<!--          <c-header height="40">header</c-header>-->
+<!--          <c-main>main</c-main>-->
+<!--          <c-footer height="40">footer</c-footer>-->
+<!--        </c-layout>-->
+<!--      </div>-->
+<!--      <div class="block layout">-->
+<!--        <c-layout>-->
+<!--          <c-aside>aside</c-aside>-->
+<!--          <c-layout>-->
+<!--            <c-header height="40">header</c-header>-->
+<!--            <c-main>main</c-main>-->
+<!--            <c-footer height="40">footer</c-footer>-->
+<!--          </c-layout>-->
+<!--        </c-layout>-->
+<!--      </div>-->
+<!--      <div class="block layout">-->
+<!--        <c-layout>-->
+<!--          <c-header height="40">header</c-header>-->
+<!--          <c-layout>-->
+<!--            <c-aside>aside</c-aside>-->
+<!--            <c-main>main</c-main>-->
+<!--          </c-layout>-->
+<!--          <c-footer height="40">footer</c-footer>-->
+<!--        </c-layout>-->
+<!--      </div>-->
+<!--      <div class="block layout">-->
+<!--        <c-layout>-->
+<!--          <c-header height="40">header</c-header>-->
+<!--          <c-layout>-->
+<!--            <c-aside>aside</c-aside>-->
+<!--            <c-layout>-->
+<!--              <c-main>main</c-main>-->
+<!--              <c-footer height="40">footer</c-footer>-->
+<!--            </c-layout>-->
+<!--          </c-layout>-->
+<!--        </c-layout>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Grid 栅格</h4>-->
+<!--      <div class="block grid">-->
+<!--        <c-row gutter="20">-->
+<!--          <c-col><div class="grid-content bg-color"></div></c-col>-->
+<!--        </c-row>-->
+<!--      </div>-->
+<!--      <div class="block grid">-->
+<!--        <c-row gutter="20">-->
+<!--          <c-col span="8"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--          <c-col span="8"><div class="grid-content bg-color"></div></c-col>-->
+<!--          <c-col span="8"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--        </c-row>-->
+<!--      </div>-->
+<!--      <div class="block grid">-->
+<!--        <c-row gutter="20">-->
+<!--          <c-col span="10"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--          <c-col span="2" offset="1"-->
+<!--            ><div class="grid-content bg-color"></div-->
+<!--          ></c-col>-->
+<!--          <c-col span="10" offset="1"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--        </c-row>-->
+<!--      </div>-->
+<!--      <div class="block grid">-->
+<!--        <c-row gutter="20" align="right">-->
+<!--          <c-col span="12"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--          <c-col span="4"><div class="grid-content bg-color"></div></c-col>-->
+<!--        </c-row>-->
+<!--      </div>-->
+<!--      <div class="block grid">-->
+<!--        <c-row gutter="20">-->
+<!--          <c-col-->
+<!--            :xs="{ span: 24 }"-->
+<!--            sm="12"-->
+<!--            :md="4"-->
+<!--            :lg="{ span: 2, offset: '1' }"-->
+<!--            :xl="6"-->
+<!--            :xxl="8"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--          <c-col-->
+<!--            :xs="{ span: 24 }"-->
+<!--            sm="12"-->
+<!--            :md="8"-->
+<!--            :lg="{ span: 8, offset: '1' }"-->
+<!--            :xl="6"-->
+<!--            :xxl="4"-->
+<!--            ><div class="grid-content bg-color"></div-->
+<!--          ></c-col>-->
+<!--          <c-col-->
+<!--            :xs="{ span: 24 }"-->
+<!--            sm="12"-->
+<!--            :md="8"-->
+<!--            :lg="{ span: 8, offset: '1' }"-->
+<!--            :xl="6"-->
+<!--            :xxl="4"-->
+<!--            ><div class="grid-content bg-color-light"></div-->
+<!--          ></c-col>-->
+<!--          <c-col-->
+<!--            :xs="{ span: 24 }"-->
+<!--            sm="12"-->
+<!--            :md="4"-->
+<!--            :lg="{ span: 2, offset: '1' }"-->
+<!--            :xl="6"-->
+<!--            :xxl="8"-->
+<!--            ><div class="grid-content bg-color"></div-->
+<!--          ></c-col>-->
+<!--        </c-row>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Input 文本框</h4>-->
+<!--      <div class="block">-->
+<!--        <c-input placeholder="Large尺寸" size="large"></c-input>-->
+<!--        <c-input placeholder="默认尺寸"></c-input>-->
+<!--        <c-input placeholder="Small尺寸" size="small"></c-input>-->
+<!--        <c-input placeholder="Mini尺寸" size="mini"></c-input>-->
+<!--      </div>-->
+<!--      <div class="block">-->
+<!--        <c-input placeholder="请输入禁用内容" disabled></c-input>-->
+<!--        <c-input-->
+<!--          placeholder="请输入内容"-->
+<!--          disabled-->
+<!--          value="禁用状态内容"-->
+<!--        ></c-input>-->
+<!--        <c-input placeholder="请输入只读内容" readonly></c-input>-->
+<!--        <c-input placeholder="请输入内容" readonly value="内容只读"></c-input>-->
+<!--      </div>-->
+<!--      <div class="block">-->
+<!--        <c-input placeholder="Input事件" @input="onInput"></c-input>-->
+<!--        <c-input placeholder="Change事件" @change="onInputChange"></c-input>-->
+<!--        <c-input placeholder="Focus事件" @focus="onFocus"></c-input>-->
+<!--        <c-input placeholder="Blur事件" @focus="onBlur"></c-input>-->
+<!--      </div>-->
+<!--      <div class="block">-->
+<!--        <c-input placeholder="v-model属性" v-model="vModelValue"></c-input>-->
+<!--        <span style="color: white">{{ vModelValue }}</span>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Button 按钮</h4>-->
+<!--      <c-button>基本按钮</c-button>-->
+<!--      <c-button icon="leftarrow">图标按钮</c-button>-->
+<!--      <c-button icon="Rightarrow" icon-position="right">右侧图标</c-button>-->
+<!--      <c-button icon="set" loading>加载动画</c-button>-->
+<!--      <c-button icon="set" loading icon-position="right">右侧加载</c-button>-->
+<!--      <c-button icon="success" @click="onClick">点击事件</c-button>-->
+<!--      <c-button-group>-->
+<!--        <c-button>首页</c-button>-->
+<!--        <c-button>上一页</c-button>-->
+<!--        <c-button>下一页</c-button>-->
+<!--        <c-button>尾页</c-button>-->
+<!--      </c-button-group>-->
+<!--    </section>-->
   </div>
 </template>
 
@@ -356,8 +357,9 @@
         isAccordion: true,
         selectedCascader: [],
         currentPage: 1,
-        total: 100,
+        total: 1101,
         pageSize: 10,
+        hideOnSinglePage: false,
         areaSource: [
           {
             name: "浙江",
@@ -428,6 +430,9 @@
       },
       onTabChange: () => {
         // console.log('123',selected)
+      },
+      onPaginationChange: (page, pageSize) => {
+        console.log('page change: ', page, pageSize)
       },
       onMessage(position) {
         this.$message({
