@@ -22,18 +22,20 @@ cyberpunk-ui base vue.js
     * [x] Cascader
     * [x] Carousel
     * [x] Menu
-    * [ ] Form (dev...)
-    * [ ] Page
-    * [ ] Table
+    * [x] Pagination
+    * [ ] Table(dev...)
     * [ ] Upload
     * [ ] Sticky
     * [ ] Datepicker
     * [ ] Scroll
+    * [ ] Form 
 * [ ] Complete unit test case coverage 100%.
+* [ ] Release first version of NPM and Github Package.
 * [ ] Docs
-    * [ ] Chinese & English README.md.
-    * [ ] Completion components document & demo.
-    * [ ] Refactor website style.
+    * [x] Multi-language support for documentation.
+    * [ ] Complete Chinese and English README.
+    * [ ] Complete documentation for all components.
+    * [ ] Optimize the style of the document site.
    
 
 ## Install

@@ -1,7 +1,7 @@
 ---
-title: 介绍
+title: Introduction
 ---
-# 介绍
+# Introduction
 ## Install
 
 ```shell

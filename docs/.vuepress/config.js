@@ -1,71 +1,118 @@
 module.exports = {
   title: 'Cyberpunk Vue',
-  description: 'an dark mode first UI library',
+  description: 'a dark mode-first UI library',
   theme: 'default-prefers-color-scheme',
+  locales: {
+    '/': {
+      lang: 'en-US',
+      title: 'Cyberpunk Vue',
+      description: 'a dark mode-first UI library'
+    },
+    '/zh/': {
+      lang: 'zh-CN',
+      title: 'Cyberpunk Vue',
+      description: 'Vue驱动的黑暗风格UI库'
+    }
+  },
   themeConfig: {
     defaultTheme: { light: [6, 18], dark: [18, 6] },
     smoothScroll: true,
     docsRepo: 'cyberpunk-ui/cyberpunk-vue',
     docsDir: 'docs',
     editLinks: true,
-    editLinkText: '在GitHub上编辑此页',
-    lastUpdated: '上次更新',
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '指南', link: '/guide/' },
-      {
-        text: '生态',
-        items: [
-          { text: 'Cyberpunk UI', link: '/#1' },
-          { text: 'Cyberpunk React', link: '/#2' }
-        ]
-      },
-      { text: '博客', link: 'https://ylzon.com' },
-      { text: 'GitHub', link: 'https://github.com/cyberpunk-ui/cyberpunk-vue' },
-    ],
-    sidebar: [
-      {
-        title: '快速上手',   // 必要的
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 1,    // 可选的, 默认值是 1
-        children: [
-          '/guide/',
-          '/guide/get-started',
-        ]
-      },
-      {
-        title: '组件(1)',
-        collapsable: false,
-        sidebarDepth: 1,
-        children: [
-          '/components/button'
-        ]
-      },
-    ],
     postcss: {
       plugins: [
         require('css-prefers-color-scheme/postcss'),
         require('autoprefixer')
       ]
+    },
+    locales: {
+      '/': {
+        selectText: 'Languages',
+        label: 'English',
+        ariaLabel: 'Languages',
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
+        serviceWorker: {
+          updatePopup: {
+            message: "New content is available.",
+            buttonText: "Refresh"
+          }
+        },
+        algolia: {},
+        nav: [
+          { text: 'Home', link: '/' },
+          { text: 'Guide', link: '/guide/' },
+          { text: 'GitHub', link: 'https://github.com/cyberpunk-ui/cyberpunk-vue' },
+        ],
+        sidebar: [
+          {
+            title: 'Guide',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+              '/guide/',
+              '/guide/get-started',
+            ]
+          },
+          {
+            title: 'Components',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+              '/components/button'
+            ]
+          },
+        ],
+      },
+      '/zh/': {
+        selectText: '选择语言',
+        label: '简体中文',
+        editLinkText: '在 GitHub 上编辑此页',
+        lastUpdated: '上次更新',
+        serviceWorker: {
+          updatePopup: {
+            message: "发现新内容可用.",
+            buttonText: "刷新"
+          }
+        },
+        algolia: {},
+        nav: [
+          { text: '首页', link: '/zh/' },
+          { text: '文档', link: '/zh/guide/' },
+          { text: 'GitHub', link: 'https://github.com/cyberpunk-ui/cyberpunk-vue' },
+        ],
+        sidebar: [
+          {
+            title: '文档',   // 必要的
+            collapsable: false, // 可选的, 默认值是 true,
+            sidebarDepth: 1,    // 可选的, 默认值是 1
+            children: [
+              '/zh/guide/',
+              '/zh/guide/get-started',
+            ]
+          },
+          {
+            title: '组件',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+              '/zh/components/button'
+            ]
+          },
+        ],
+      }
     }
   },
   plugins: [
     ['@vuepress/nprogress'],
     ['@vuepress/back-to-top'],
     ['@vuepress/active-header-links'],
-    [
-      '@vuepress/last-updated', {
-        transformer: (timestamp, lang) => {
-          const moment = require('moment')
-          moment.locale(lang)
-          return moment(timestamp).fromNow()
-        }
-      }
-    ],
+    ['@vuepress/last-updated'],
     [
       '@vuepress/google-analytics',
       {
-        'ga': 'UA-91622737-2' // UA-00000000-0
+        'ga': 'UA-91622737-2'
       }
     ],
     ['@vuepress/search', {
