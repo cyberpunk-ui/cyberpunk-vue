@@ -42,7 +42,7 @@ export default {
     },
     total: {
       type: Number,
-      required: true,
+      default: 1,
     },
     pageSize: {
       type: Number,
@@ -64,7 +64,6 @@ export default {
   },
   created() {
     this.calcPageTotal();
-    console.log(this.pageTotal)
   },
   computed: {
     pages() {

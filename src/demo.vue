@@ -4,8 +4,15 @@
       <h4>Table 表格</h4>
       <div class="block table">
         <c-table
-          :column="column"
+          :columns="columns"
           :dataSource="tableDataSource"
+          stripe
+          bordered
+          :pagination="{
+            current: currentPage,
+            total: tableDataSource.length * 100,
+            pageSize: pageSize,
+          }"
         ></c-table>
       </div>
     </section>
@@ -365,8 +372,25 @@
         selectedMenu2: ['home'],
         isAccordion: true,
         selectedCascader: [],
-        column: [],
-        tableDataSource: [],
+        columns: [
+          {title: 'Name', field: 'name',},
+          {title: 'Age', field: 'age',},
+          {title: 'Address', field: 'address',},
+        ],
+        tableDataSource: [
+          {id: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park',},
+          {id: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park',},
+          {id: '3', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park',},
+          {id: '4', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '5', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '6', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '7', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '8', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '9', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '10', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '11', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          {id: '12', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+        ],
         currentPage: 1,
         total: 1101,
         pageSize: 10,
