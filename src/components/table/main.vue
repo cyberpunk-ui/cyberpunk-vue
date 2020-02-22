@@ -7,6 +7,7 @@
             <input
               type="checkbox"
               @change="onChangeAllItems"
+              :checked="dataSource.length === selectedItems.length"
               ref="allCheckInput"
             />
           </th>
