@@ -1,19 +1,28 @@
 <template>
   <div>
     <section>
-      <h4>Pagination 分页组件</h4>
-      <div class="block pagination">
-        <c-pagination
-          :current.sync="currentPage"
-          :total="total"
-          :page-size="pageSize"
-          :hide-on-single-page="hideOnSinglePage"
-          @change="onPaginationChange"
-        ></c-pagination>
+      <h4>Table 表格</h4>
+      <div class="block table">
+        <c-table
+          :column="column"
+          :dataSource="tableDataSource"
+        ></c-table>
       </div>
     </section>
 <!--    <section>-->
-<!--      <h4>Menu 导航组件</h4>-->
+<!--      <h4>Pagination 分页</h4>-->
+<!--      <div class="block pagination">-->
+<!--        <c-pagination-->
+<!--          :current.sync="currentPage"-->
+<!--          :total="total"-->
+<!--          :page-size="pageSize"-->
+<!--          :hide-on-single-page="hideOnSinglePage"-->
+<!--          @change="onPaginationChange"-->
+<!--        ></c-pagination>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <section>-->
+<!--      <h4>Menu 导航</h4>-->
 <!--      <div class="block menu">-->
 <!--        <c-menu-->
 <!--          :selected.sync="selectedMenu"-->
@@ -58,7 +67,7 @@
 <!--      </div>-->
 <!--    </section>-->
 <!--    <section>-->
-<!--      <h4>Carousel 轮播组件</h4>-->
+<!--      <h4>Carousel 轮播</h4>-->
 <!--      <div class="block carousel">-->
 <!--        <c-carousel :selected.sync="selectedCarousel" autoplay >-->
 <!--          <c-carousel-item :name="index" v-for="index in 6" :key="index">-->
@@ -356,6 +365,8 @@
         selectedMenu2: ['home'],
         isAccordion: true,
         selectedCascader: [],
+        column: [],
+        tableDataSource: [],
         currentPage: 1,
         total: 1101,
         pageSize: 10,
