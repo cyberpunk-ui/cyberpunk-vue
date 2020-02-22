@@ -11,11 +11,11 @@
               ref="allCheckInput"
             />
           </th>
-          <th v-for="item in columns" :key="item.title">{{item.title}}</th>
+          <th v-for="item in columns" :key="item.field">{{item.title}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in dataSource" :key="item.id">
+        <tr v-for="(item, index) in dataSource" :key="item[rowKey]">
           <td v-if="selectedItems">
             <input
               type="checkbox"
@@ -23,8 +23,8 @@
               @change="onChangeItem(item, index, $event)"
             />
           </td>
-          <template v-for="column in columns" >
-            <td :key="column.id">{{item[column.field]}}</td>
+          <template v-for="column in columns">
+            <td :key="column.field">{{item[column.field]}}</td>
           </template>
         </tr>
       </tbody>
@@ -47,11 +47,15 @@
       },
       stripe: {
         type: Boolean,
-        required: false,
+        default: false,
       },
       bordered: {
         type: Boolean,
-        required: false,
+        default: false,
+      },
+      rowKey: {
+        type: String,
+        default: 'id',
       },
       selectedItems: {
         type: Array,
@@ -88,15 +92,17 @@
     },
     methods: {
       inCheckedItems(item) {
-        return this.selectedItems.filter(i => i.id === item.id).length > 0
+        return this.selectedItems.filter(i => i[this.rowKey] === item[this.rowKey]).length > 0
       },
       onChangeItem(item, index, e){
         const { checked } = e.target
-        const copy = JSON.parse(JSON.stringify(this.selectedItems))
+        let copy = JSON.parse(JSON.stringify(this.selectedItems))
         if (checked) {
           copy.push(item);
         } else {
-          copy.splice(copy.indexOf(item), 1);
+          // const index = copy.map(v => v[this.rowKey]).indexOf(item[this.rowKey])
+          // copy.splice(index, 1);
+          copy = copy.filter(v => v.id !== item.id)
         }
         this.$emit('update:selectedItems', copy)
       },
