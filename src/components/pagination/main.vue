@@ -99,7 +99,7 @@ export default {
     onPageChange(item) {
       if (item >= 1 && item <= this.pageTotal) {
         this.$emit('update:current', item)
-        this.$emit('change', item, this.pageSize)
+        this.$emit('onchange', item, this.pageSize)
       }
     },
     onClickEllipsis(item) {
