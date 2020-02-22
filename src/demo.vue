@@ -3,17 +3,23 @@
     <section>
       <h4>Table 表格</h4>
       <div class="block table">
+<!--        <span style="color: white">{{selectedTable}}</span>-->
         <c-table
-          :columns="columns"
-          :dataSource="tableDataSource"
           stripe
           bordered
-          :pagination="{
-            current: currentPage,
-            total: tableDataSource.length * 100,
-            pageSize: pageSize,
-          }"
+          :columns="columns"
+          :dataSource="tableDataSource"
+          :selected-items.sync="selectedTable"
         ></c-table>
+        <div class="pagination">
+          <c-pagination
+            :current.sync="currentPage"
+            :total="total"
+            :page-size="pageSize"
+            :hide-on-single-page="hideOnSinglePage"
+            @onchange="onPaginationChange"
+            ></c-pagination>
+        </div>
       </div>
     </section>
 <!--    <section>-->
@@ -372,6 +378,8 @@
         selectedMenu2: ['home'],
         isAccordion: true,
         selectedCascader: [],
+        rowSelection: [],
+        selectedTable: [],
         columns: [
           {title: 'Name', field: 'name',},
           {title: 'Age', field: 'age',},
@@ -384,12 +392,12 @@
           {id: '4', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
           {id: '5', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
           {id: '6', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '7', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '8', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '9', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '10', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '11', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
-          {id: '12', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '7', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '8', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '9', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '10', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '11', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
+          // {id: '12', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
         ],
         currentPage: 1,
         total: 1101,
@@ -550,5 +558,10 @@ section .carousel .carousel-item {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+section .table .pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
 }
 </style>
