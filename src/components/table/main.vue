@@ -3,7 +3,7 @@
     <table class="c-table" :class="classes">
       <thead>
         <tr>
-          <th v-if="selectedItems">
+          <th v-if="selectedItems" class="th-checkbox">
             <input
               type="checkbox"
               @change="onChangeAllItems"
@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in dataSource" :key="item[rowKey]">
-          <td v-if="selectedItems">
+          <td v-if="selectedItems" class="th-checkbox">
             <input
               type="checkbox"
               :checked="inCheckedItems(item)"
@@ -201,6 +201,9 @@
     }
     tbody tr:hover {
       background-color: lighten($grey-color, 8%)!important;
+    }
+    .th-checkbox {
+      width: 40px;
     }
     &-footer {
       background-color: darken($grey-color, 6%);
