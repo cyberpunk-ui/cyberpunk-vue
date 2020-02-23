@@ -7,7 +7,7 @@
             <input
               type="checkbox"
               @change="onChangeAllItems"
-              :checked="dataSource.length === selectedItems.length"
+              :checked="areAllItemsChecked"
               ref="allCheckInput"
             />
           </th>
@@ -83,6 +83,19 @@
           stripe: this.stripe,
           bordered: this.bordered,
         }
+      },
+      areAllItemsChecked() {
+        const dataSource = this.dataSource.map(item => item[this.rowKey]).sort();
+        const selectedItems = this.selectedItems.map(item => item[this.rowKey]).sort();
+        if (dataSource.length !== selectedItems.length) {return false}
+        let flag = true
+        for (let i = 0; i< dataSource.length; i++){
+          if (dataSource[i] !== selectedItems[i]) {
+            flag = false
+            break
+          }
+        }
+        return flag
       }
     },
     data(){
