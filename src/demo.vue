@@ -10,6 +10,9 @@
           :columns="columns"
           :dataSource="tableDataSource"
           :selected-items.sync="selectedTable"
+          :order-by.sync="orderBy"
+          :loading="tableLoading"
+          @update:orderBy="onOrderChange"
         ></c-table>
         <div class="pagination">
           <c-pagination
@@ -380,10 +383,11 @@
         selectedCascader: [],
         rowSelection: [],
         selectedTable: [],
+        orderBy: {age: 'desc'},
         columns: [
-          {title: 'Name', field: 'name',},
-          {title: 'Age', field: 'age',},
-          {title: 'Address', field: 'address',},
+          {title: 'Name', field: 'name'},
+          {title: 'Age', field: 'age'},
+          {title: 'Address', field: 'address'},
         ],
         tableDataSource: [
           {id: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park',},
@@ -402,6 +406,7 @@
         currentPage: 1,
         total: 1101,
         pageSize: 10,
+        tableLoading: false,
         hideOnSinglePage: false,
         areaSource: [
           {
@@ -489,11 +494,23 @@
           }
         });
       },
-      loadCascaderData(node, updateSource){
-        const { id } = node;
-        ajax(id).then((result)=>{
-          updateSource(result);
-        })
+      // loadCascaderData(node, updateSource){
+      //   const { id } = node;
+      //   ajax(id).then((result)=>{
+      //     updateSource(result);
+      //   })
+      // },
+      onOrderChange(value){
+        const field = Object.keys(value)[0]
+        this.tableLoading = true
+        setTimeout(() => {
+          this.tableLoading = false
+          if (value[field] === 'desc') {
+            this.tableDataSource.sort((a, b) => a[field]-b[field])
+          } else {
+            this.tableDataSource.sort((a, b) => b[field]-a[field])
+          }
+        }, 500)
       }
     }
   };

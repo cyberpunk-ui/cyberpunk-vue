@@ -11,7 +11,15 @@
               ref="allCheckInput"
             />
           </th>
-          <th v-for="item in columns" :key="item.field">{{item.title}}</th>
+          <th v-for="column in columns" :key="column.field">
+            <div class="c-table-header">
+              {{column.title}}
+              <span class="c-table-sorter" v-if="column.field in orderBy" @click="changeOrderBy(column.field)">
+                <c-icon :class="{active: orderBy[column.field] === 'asc'}" type="arrow-up"></c-icon>
+                <c-icon :class="{active: orderBy[column.field] === 'desc'}" type="arrow-down"></c-icon>
+              </span>
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -23,19 +31,22 @@
               @change="onChangeItem(item, index, $event)"
             />
           </td>
-          <template v-for="column in columns">
-            <td :key="column.field">{{item[column.field]}}</td>
-          </template>
+          <td v-for="column in columns" :key="column.field">{{item[column.field]}}</td>
         </tr>
       </tbody>
     </table>
+    <div class="c-table-loading" v-if="loading">
+      <c-icon type="loading"></c-icon>
+    </div>
   </div>
 </template>
 
 <script>
+  import CIcon from "@/components/icon/icon";
+
   export default {
     name: "CTable",
-    components: {  },
+    components: { CIcon },
     props: {
       columns: {
         type: Array,
@@ -45,11 +56,19 @@
         type: Array,
         required: true,
       },
+      orderBy: {
+        type: Object,
+        default: () => ({}),
+      },
       stripe: {
         type: Boolean,
         default: false,
       },
       bordered: {
+        type: Boolean,
+        default: false,
+      },
+      loading: {
         type: Boolean,
         default: false,
       },
@@ -122,6 +141,29 @@
       onChangeAllItems(e){
         const { checked } = e.target
         this.$emit('update:selectedItems', checked ? this.dataSource : [])
+      },
+      changeOrderBy (key) {
+        const copy = JSON.parse(JSON.stringify(this.orderBy))
+        let oldValue = copy[key]
+        if (oldValue === 'asc') {
+          copy[key] = 'desc'
+        } else if (oldValue === 'desc') {
+          copy[key] = true
+        } else {
+          copy[key] = 'asc'
+        }
+        this.$emit('update:orderBy', copy)
+      },
+      getSortClasses(type) {
+        let classes = {}
+        if (type === 'descend') {
+          classes = {descend: true}
+        } else if (type === 'ascend') {
+          classes = {ascend: true}
+        } else {
+          console.warn('[Warning]: sortDirections field only support "descend" or "ascend"')
+        }
+        return classes
       }
     }
   }
@@ -129,7 +171,10 @@
 
 <style lang="scss" scoped>
   @import "../../style/var";
-
+  @import "../../style/animation";
+  .c-table-wrapper {
+    position: relative;
+  }
   .c-table {
     color: $white-color;
     width: 100%;
@@ -179,6 +224,45 @@
       }
       th {
         border-bottom: 1px solid lighten($grey-color, 40%);
+      }
+    }
+    &-header {
+      display: flex;
+      align-items: center;
+    }
+    &-sorter {
+      display: inline-flex;
+      flex-direction: column;
+      margin-left: 0.2em;
+      cursor: pointer;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+      svg:first-child {
+        margin-bottom: -4px;
+      }
+      svg:last-child {
+        margin-top: -4px;
+      }
+      & .active {
+        fill: $secondary-color;
+      }
+    }
+    &-loading {
+      color: $secondary-color;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0,0,0,.6);
+      .icon {
+        font-size: 18px;
+        animation: spin 1.2s infinite linear;
       }
     }
   }
