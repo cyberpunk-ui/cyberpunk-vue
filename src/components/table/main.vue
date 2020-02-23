@@ -3,6 +3,7 @@
     <table class="c-table" :class="classes">
       <thead>
         <tr>
+          <th class="th-expend" v-if="expendKey"></th>
           <th v-if="selectedItems" class="th-checkbox">
             <input
               type="checkbox"
@@ -23,16 +24,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in dataSource" :key="item[rowKey]">
-          <td v-if="selectedItems" class="th-checkbox">
-            <input
-              type="checkbox"
-              :checked="inCheckedItems(item)"
-              @change="onChangeItem(item, index, $event)"
-            />
-          </td>
-          <td v-for="column in columns" :key="column.field">{{item[column.field]}}</td>
-        </tr>
+        <template v-for="(item, index) in dataSource">
+          <tr :key="item[rowKey]" class="tr-data">
+            <td class="th-expend" v-if="expendKey">
+              <c-icon
+                @click="expands.filter(v => v[rowKey] === item[rowKey])[0].expand = !(expands.filter(v => v[rowKey] === item[rowKey])[0].expand)"
+                :type="expands.filter(v => v[rowKey] === item[rowKey])[0].expand ? 'sami-select' : 'add-select'"
+              ></c-icon>
+            </td>
+            <td v-if="selectedItems" class="th-checkbox">
+              <input
+                type="checkbox"
+                :checked="inCheckedItems(item)"
+                @change="onChangeItem(item, index, $event)"
+              />
+            </td>
+            <td v-for="column in columns" :key="column.field">{{item[column.field]}}</td>
+          </tr>
+          <tr :key="`expend-${item[rowKey]}`" v-if="item[expendKey] && expands.filter(v => v[rowKey] === item[rowKey])[0].expand" class="tr-expend">
+            <td></td>
+            <td :colspan="columns.length + 1" >{{item[expendKey]}}</td>
+          </tr>
+        </template>
       </tbody>
     </table>
     <div class="c-table-loading" v-if="loading">
@@ -76,6 +89,9 @@
         type: String,
         default: 'id',
       },
+      expendKey: {
+        type: String,
+      },
       selectedItems: {
         type: Array,
         default: () => [],
@@ -83,6 +99,11 @@
       selectionChange: {
         type: Function,
       },
+    },
+    data(){
+      return {
+        expands: [],
+      }
     },
     watch:{
       selectedItems(item){
@@ -117,10 +138,8 @@
         return flag
       }
     },
-    data(){
-      return {
-
-      }
+    created() {
+      this.expands = this.dataSource.map(item => {return {[this.rowKey]: item[this.rowKey], expand: false}})
     },
     methods: {
       inCheckedItems(item) {
@@ -199,11 +218,22 @@
       background-color: $grey-color;
       transition: all .3s;
     }
-    tbody tr:hover {
+    tbody tr:not(.tr-expend):hover {
       background-color: lighten($grey-color, 8%)!important;
     }
+    .th-expend,
     .th-checkbox {
-      width: 40px;
+      width: 45px;
+      text-align: center;
+    }
+
+    .th-expend {
+      .icon {
+        border: 1px solid fade_out($white-color, 0.8);
+        cursor: pointer;
+      }
+    }
+    .tr-expend {
     }
     &-footer {
       background-color: darken($grey-color, 6%);
@@ -217,7 +247,7 @@
       }
     }
     &.stripe {
-      tbody tr:nth-child(even) {
+      tbody .tr-data:not(.tr-expend):nth-child(even) {
         background-color: darken($grey-color, 3%);
       }
     }

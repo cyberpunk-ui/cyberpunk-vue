@@ -5,13 +5,13 @@
       <div class="block table">
 <!--        <span style="color: white">{{selectedTable}}</span>-->
         <c-table
-          stripe
           bordered
           :columns="columns"
           :dataSource="tableDataSource"
           :selected-items.sync="selectedTable"
           :order-by.sync="orderBy"
           :loading="tableLoading"
+          expend-key="description"
           @update:orderBy="onOrderChange"
         ></c-table>
         <div class="pagination">
@@ -390,9 +390,9 @@
           {title: 'Address', field: 'address'},
         ],
         tableDataSource: [
-          {id: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park',},
-          {id: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park',},
-          {id: '3', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park',},
+          {id: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park',description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'},
+          {id: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park',description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'},
+          {id: '3', name: 'Joe Black', age: 32, address: 'Sidney No. 1 Lake Park',description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'},
           {id: '4', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
           {id: '5', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
           {id: '6', name: 'Disabled User', age: 99, address: 'Sidney No. 1 Lake Park',},
