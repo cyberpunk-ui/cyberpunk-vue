@@ -1,30 +1,38 @@
 <template>
   <div>
     <section>
-      <h4>Table 表格</h4>
-      <div class="block table">
-<!--        <span style="color: white">{{selectedTable}}</span>-->
-        <c-table
-          bordered
-          :columns="columns"
-          :dataSource="tableDataSource"
-          :selected-items.sync="selectedTable"
-          :order-by.sync="orderBy"
-          :loading="tableLoading"
-          expend-key="description"
-          @update:orderBy="onOrderChange"
-        ></c-table>
-        <div class="pagination">
-          <c-pagination
-            :current.sync="currentPage"
-            :total="total"
-            :page-size="pageSize"
-            :hide-on-single-page="hideOnSinglePage"
-            @onchange="onPaginationChange"
-            ></c-pagination>
-        </div>
+      <h4>Upload 上传</h4>
+      <div class="block">
+        <c-upload>
+          <c-button icon="upload">上传文件</c-button>
+          <div slot="tips">请上传不大于300k的jpg或png文件</div>
+        </c-upload>
       </div>
     </section>
+<!--    <section>-->
+<!--      <h4>Table 表格</h4>-->
+<!--      <div class="block table">-->
+<!--        <c-table-->
+<!--          bordered-->
+<!--          :columns="columns"-->
+<!--          :dataSource="tableDataSource"-->
+<!--          :selected-items.sync="selectedTable"-->
+<!--          :order-by.sync="orderBy"-->
+<!--          :loading="tableLoading"-->
+<!--          expend-key="description"-->
+<!--          @update:orderBy="onOrderChange"-->
+<!--        ></c-table>-->
+<!--        <div class="pagination">-->
+<!--          <c-pagination-->
+<!--            :current.sync="currentPage"-->
+<!--            :total="total"-->
+<!--            :page-size="pageSize"-->
+<!--            :hide-on-single-page="hideOnSinglePage"-->
+<!--            @onchange="onPaginationChange"-->
+<!--            ></c-pagination>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
 <!--    <section>-->
 <!--      <h4>Pagination 分页</h4>-->
 <!--      <div class="block pagination">-->

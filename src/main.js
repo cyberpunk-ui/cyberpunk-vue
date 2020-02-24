@@ -29,6 +29,7 @@ import CMenuItem from "./components/menu-item";
 import CSubMenu from "./components/sub-menu";
 import CPagination from "./components/pagination";
 import CTable from "./components/table";
+import CUpload from "./components/upload";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -58,6 +59,7 @@ Vue.use(CMenuItem);
 Vue.use(CSubMenu);
 Vue.use(CPagination);
 Vue.use(CTable);
+Vue.use(CUpload);
 
 Vue.config.productionTip = false;
 
