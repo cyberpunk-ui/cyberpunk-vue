@@ -2,7 +2,8 @@
 cyberpunk-ui base vue.js
 
 [![Build Status](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue.svg?branch=master)](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue)
-
+[![NPM Download](https://img.shields.io/npm/dt/cyberpunk-vue)](https://www.npmjs.com/package/cyberpunk-vue)
+[![NPM Version](https://img.shields.io/npm/v/cyberpunk-vue.svg?style=flat)](https://www.npmjs.com/package/cyberpunk-vue)
 
 ## Documents
 
