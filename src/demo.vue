@@ -2,20 +2,21 @@
   <div>
     <section>
       <h4>Upload 上传</h4>
-      <div class="block">
+      <div class="block upload">
         <c-upload
           name="file"
           method="POST"
           accept="image/*"
           action="https://file-upload-simple-server.herokuapp.com/upload"
+          :file-list.sync="uploadFileList"
           @onchange="onUploadChange"
         >
           <c-button icon="upload">上传文件</c-button>
           <div slot="tips">请上传不大于300k的jpg或png文件</div>
         </c-upload>
-        <div>
-          <img :src="uploadPreviewUrl">
-        </div>
+<!--        <div>-->
+<!--          <img :src="uploadPreviewUrl">-->
+<!--        </div>-->
       </div>
     </section>
 <!--    <section>-->
@@ -399,6 +400,7 @@
         selectedMenu2: ['home'],
         isAccordion: true,
         selectedCascader: [],
+        uploadFileList: [],
         rowSelection: [],
         selectedTable: [],
         orderBy: {age: 'desc'},
@@ -602,5 +604,8 @@ section .table .pagination {
   display: flex;
   justify-content: flex-end;
   margin: 12px 0;
+}
+section .upload {
+  width: 300px;
 }
 </style>
