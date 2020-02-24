@@ -54,13 +54,10 @@
         input.click()
       },
       onRemoveFile(file){
-        const answer = window.confirm('You sure want to delete it?')
-        if (answer) {
-          const copy = [...this.fileList]
-          const index = copy.indexOf(file)
-          copy.splice(index, 1)
-          this.$emit('update:fileList', copy)
-        }
+        const copy = [...this.fileList]
+        const index = copy.indexOf(file)
+        copy.splice(index, 1)
+        this.$emit('update:fileList', copy)
       },
       createInput(){
         const inputElement = document.createElement('input')
