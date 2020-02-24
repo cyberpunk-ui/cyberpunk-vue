@@ -23,13 +23,13 @@ cyberpunk-ui base vue.js
     * [x] Carousel
     * [x] Menu
     * [x] Pagination
-    * [ ] Table(dev...)
-    * [ ] Upload
+    * [x] Table
+    * [ ] Upload(dev...)
     * [ ] Sticky
     * [ ] Datepicker
     * [ ] Scroll
     * [ ] Form 
-* [ ] Complete unit test case coverage 100%.
+* [ ] Complete unit test case coverage 90%+.
 * [ ] Release first version of NPM and Github Package.
 * [ ] Docs
     * [x] Multi-language support for documentation.
