@@ -3,10 +3,19 @@
     <section>
       <h4>Upload 上传</h4>
       <div class="block">
-        <c-upload>
+        <c-upload
+          name="file"
+          method="POST"
+          accept="image/*"
+          action="https://file-upload-simple-server.herokuapp.com/upload"
+          @onchange="onUploadChange"
+        >
           <c-button icon="upload">上传文件</c-button>
           <div slot="tips">请上传不大于300k的jpg或png文件</div>
         </c-upload>
+        <div>
+          <img :src="uploadPreviewUrl">
+        </div>
       </div>
     </section>
 <!--    <section>-->
@@ -382,6 +391,7 @@
     data() {
       return {
         vModelValue: "",
+        uploadPreviewUrl: "",
         selectedTab: "tabs1",
         selectedCollapse: ["1", "2"],
         selectedCarousel: '1',
@@ -519,7 +529,11 @@
             this.tableDataSource.sort((a, b) => b[field]-a[field])
           }
         }, 500)
-      }
+      },
+      onUploadChange(response){
+        const { key } = JSON.parse(response)
+        this.uploadPreviewUrl = `https://file-upload-simple-server.herokuapp.com/preview/${key}`
+      },
     }
   };
 </script>
