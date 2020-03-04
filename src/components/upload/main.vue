@@ -73,6 +73,7 @@
         const copy = [...this.fileList]
         const index = copy.indexOf(file)
         copy.splice(index, 1)
+        this.tempFileList.splice(index, 1)
         this.$emit('update:fileList', copy)
       },
       createInput(){
