@@ -55,6 +55,8 @@
     data() {
       return {
         uploadStatus: {},
+        tempFileList: [],
+        idCount: 0,
       }
     },
     methods: {
@@ -83,26 +85,33 @@
       },
       beforeUploadFiles(files){
         const rawFiles = Array.from(files)
-        let file = rawFiles.map((rawFile, index) => {
-          let {name, type, size} = rawFile
-          let id = this.fileList.map(v => v.id).indexOf(index) >= 0 ? this.fileList.length : index
+        this.idCount = 0
+        let objList = rawFiles.map((rawFile, index) => {
+          const {name, type, size} = rawFile
+          let id = index
+          this.tempFileList.push(rawFile)
+          if (this.fileList.map(v => v.id).indexOf(index) >= 0) {
+            id = this.fileList.length + this.idCount++
+          }
           return {id, name, type, size, status: 'pending'}
         })
-        this.$emit('update:fileList', [...this.fileList, ...file])
+        this.$emit('update:fileList', [...this.fileList, ...objList])
       },
       uploadFiles(rawFiles) {
         this.beforeUploadFiles(rawFiles)
-        for (let i = 0; i < rawFiles.length; i++) {
-          const formData = new FormData()
-          formData.append(this.name, rawFiles[i])
-          const id = this.fileList.map(v => v.id).indexOf(i) >= 0 ? this.fileList.length : i
-          this.ajax(formData, (response) => {
-            this.$emit('onchange', response)
-            this.updateFileStatus(id, 'success')
-          },() => {
-            this.updateFileStatus(id,'error')
-          })
-        }
+        this.$nextTick(() => {
+          for (let i = 0; i < this.tempFileList.length; i++) {
+            if (this.fileList[i].status !== 'pending') continue;
+            const formData = new FormData()
+            formData.append(this.name, this.tempFileList[i])
+            this.ajax(formData, (response) => {
+              this.$emit('onchange', response)
+              this.updateFileStatus(i, 'success')
+            },() => {
+              this.updateFileStatus(i,'error')
+            })
+          }
+        })
       },
       updateFileStatus(id, status){
         const file = this.fileList.filter(item => item.id === id)[0]
