@@ -25,9 +25,8 @@ describe("[Button]", () => {
         loading: true
       }
     });
-    const useElements = wrapper.vm.$el.querySelectorAll("use");
+    const useElements = wrapper.vm.$el.querySelectorAll("path");
     expect(useElements.length).to.equal(1);
-    expect(useElements[0].getAttribute("xlink:href")).to.equal("#icon-loading");
   });
   xit("icon in left", () => {
     const wrapper = mount(Button, {
