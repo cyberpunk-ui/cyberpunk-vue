@@ -30,7 +30,6 @@
 
 <script>
   import CIcon from '../icon/icon'
-  import index from "@/components/message"
   export default {
     name: "CUpload",
     components: {CIcon},
@@ -51,19 +50,25 @@
         type: Array,
         default: () => []
       },
+      multiple: {
+        type: Boolean,
+        default: false
+      },
+      accept: {
+        type: String,
+      },
     },
     data() {
       return {
         uploadStatus: {},
-        idCounter: 0,
       }
     },
     methods: {
       onClickUpload(){
         const input = this.createInput()
         input.addEventListener('change', (e)=> {
-          const file = input.files[0]
-          this.uploadFile(file)
+          const files = input.files
+          this.uploadFiles(files)
           input.remove()
         })
         input.click()
@@ -76,26 +81,32 @@
       },
       createInput(){
         const inputElement = document.createElement('input')
+        if (this.accept) inputElement.accept = this.accept;
+        inputElement.multiple = this.multiple
         inputElement.type = 'file'
         this.$refs.uploadInput.appendChild(inputElement)
         return inputElement
       },
-      beforeUploadFile(file, id){
-        const {name, size, type} = file;
-        const fileList = [...this.fileList, {id, name, size, type, status: 'pending'}]
-        this.$emit('update:fileList', fileList)
-      },
-      uploadFile(rawFile) {
-        const id = this.idCounter++
-        this.beforeUploadFile(rawFile, id)
-        const formData = new FormData()
-        formData.append(this.name, rawFile)
-        this.ajax(formData, (response) => {
-          this.$emit('onchange', response)
-          this.updateFileStatus(id, 'success')
-        },() => {
-          this.updateFileStatus(id,'error')
+      beforeUploadFiles(files){
+        const rawFiles = Array.from(files)
+        let file = rawFiles.map((rawFile, index) => {
+          let {name, type, size} = rawFile
+          return {id: index, name, type, size, status: 'pending'}
         })
+        this.$emit('update:fileList', [...this.fileList, ...file])
+      },
+      uploadFiles(rawFiles) {
+        this.beforeUploadFiles(rawFiles)
+        for (let i = 0; i < rawFiles.length; i++) {
+          const formData = new FormData()
+          formData.append(this.name, rawFiles[i])
+          this.ajax(formData, (response) => {
+            this.$emit('onchange', response)
+            this.updateFileStatus(i, 'success')
+          },() => {
+            this.updateFileStatus(i,'error')
+          })
+        }
       },
       updateFileStatus(id, status){
         const file = this.fileList.filter(item => item.id === id)[0]

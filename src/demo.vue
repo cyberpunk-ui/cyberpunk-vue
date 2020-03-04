@@ -4,6 +4,7 @@
       <h4>Upload 上传</h4>
       <div class="block upload">
         <c-upload
+          multiple
           name="file"
           method="POST"
           accept="image/*"
