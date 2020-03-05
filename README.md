@@ -65,6 +65,14 @@ import {
 Vue.component(Select.name, Select);
 Vue.component(Button.name, Button);
 ```
+## Test Coverage
+
+```shell script
+Statements   : 60.53% ( 23/38 )
+Branches     : 42.31% ( 11/26 )
+Functions    : 66.67% ( 8/12 )
+Lines        : 62.86% ( 22/35 )
+```
 
 ## Thanks
 * [Shehab Eltawel](https://codepen.io/shehab-eltawel)
