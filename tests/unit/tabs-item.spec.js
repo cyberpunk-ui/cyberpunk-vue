@@ -1,34 +1,44 @@
-import { expect } from "chai";
+import chai, { expect } from "chai";
+import sinon from "sinon"
 import { mount } from "@vue/test-utils";
-import Vue from "vue";
 import TabsItem from "@/components/tabs-item/main";
-import Popover from "@/components/popover/main";
+import sinonChai from "sinon-chai"
 
-describe("TabsItem", () => {
-  it("should tabs-item.", () => {
+chai.use(sinonChai);
+
+describe("[TabsItem]", () => {
+  it("create tabs-item component.", () => {
     expect(TabsItem).to.exist;
   });
 
-  xit("should name attr.", () => {
+  it("set name attribute.", () => {
     const wrapper = mount(TabsItem, {
+      attachToDocument: true,
+      provide: {
+        eventBus: null
+      },
       propsData: {
-        name: "xxx"
+        name: "xxx",
       }
     });
     expect(wrapper.attributes('data-name')).to.eq('xxx');
   });
 
-  xit("should disabled attr.", () => {
-    const Constructor = Vue.extend(TabsItem);
-    const vm = new Constructor({
-      propsData: {
-        disabled: true
-      }
-    }).$mount();
-    expect(vm.$el.classList.contains("disabled")).to.be.true;
+  it("set disabled attribute.", () => {
     const callback = sinon.fake();
-    vm.$on("click", callback);
-    vm.$el.click();
+    const wrapper = mount(TabsItem, {
+      attachToDocument: true,
+      provide: {
+        eventBus: null
+      },
+      propsData: {
+        name: 'xxx',
+        disabled: true,
+      }
+    });
+    expect(wrapper.classes()).to.include('disabled')
+    wrapper.vm.$on("click", callback);
+    wrapper.trigger('click')
     expect(callback).to.have.not.been.called;
   });
 });
