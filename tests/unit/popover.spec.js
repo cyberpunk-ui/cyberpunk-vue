@@ -4,40 +4,43 @@ import Popover from '@/components/popover/main'
 
 
 describe('[Popover]', () => {
-
-  it('存在.', () => {
+  it('create popover component.', () => {
     expect(Popover).to.exist
   })
-
-  xit('可以设置position.', () => {
+  it('set position attribute.', (done) => {
     const wrapper = mount(Popover, {
       slots: {
-        default: {template: `<button>点我</button>`},
-        content: '<div>弹出内容</div>'
+        default: {template: `<button>click me</button>`},
+        content: '<div>popover</div>'
       },
       propsData: {
         position: 'bottom'
       }
     })
     wrapper.find('button').trigger('click')
-    let classes = wrapper.find('.content-wrapper').classes()
-    expect(classes).to.include('position-bottom')
+    setTimeout(()=> {
+      let classes = wrapper.find('.content-wrapper').classes()
+      expect(classes).to.include('position-bottom')
+      done()
+    })
   })
-  xit('可以设置 trigger', () => {
+  it('set hover trigger attribute.', (done) => {
     const wrapper = mount(Popover, {
       slots: {
-        default: {template: `<button>点我</button>`},
-        content: '<div>弹出内容</div>'
+        default: {template: `<button>click me</button>`},
+        content: '<div>popover</div>'
       },
       propsData: {
         position: 'bottom',
         trigger: 'hover'
       }
     })
-    expect(wrapper.find('.content-wrapper').element).to.not.exist
-    wrapper.find('.popover').trigger('mouseenter')
-    expect(wrapper.find('.content-wrapper').element).to.exist
-
+    expect(wrapper.find('.content-wrapper').exists()).to.eq(false);
+    wrapper.find('.c-popover').trigger('mouseenter')
+    setTimeout(()=> {
+      expect(wrapper.find('.content-wrapper').exists()).to.eq(true);
+      done()
+    })
   })
 
 })
