@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div class="c-upload-input" ref="uploadInput"></div>
-    <div class="c-upload-tips">
+    <div class="c-upload-tips" v-if="$slots.tips">
       <c-icon type="prompt"></c-icon>
       <slot name="tips"></slot>
     </div>
@@ -24,6 +24,7 @@
 
 <script>
   import CIcon from '../icon/icon'
+  import http from "@/utils/http"
   export default {
     name: "CUpload",
     components: {CIcon},
@@ -102,7 +103,7 @@
         this.beforeUploadFiles(rawFiles)
         this.$nextTick(() => {
           for (let i = 0; i < this.tempFileList.length; i++) {
-            if (this.fileList[i].status !== 'pending') continue;
+            if (this.fileList && this.fileList[i].status !== 'pending') continue;
             const formData = new FormData()
             formData.append(this.name, this.tempFileList[i])
             this.ajax(formData, (response) => {
@@ -117,6 +118,7 @@
       updateFileStatus(id, status){
         const file = this.fileList.filter(item => item.id === id)[0]
         const index = this.fileList.indexOf(file)
+        if (!file) return;
         const copy = JSON.parse(JSON.stringify(file))
         copy.status = status
         const fileListCopy = [...this.fileList]
@@ -124,11 +126,7 @@
         this.$emit('update:fileList', fileListCopy)
       },
       ajax(formData, success, error){
-        const xhr = new XMLHttpRequest()
-        xhr.open(this.method, this.action)
-        xhr.onload = () => success(xhr.response)
-        xhr.onerror = () => error(xhr)
-        xhr.send(formData)
+        http[this.method.toLowerCase()](this.action, {success, error, data:formData})
       }
     }
   }
