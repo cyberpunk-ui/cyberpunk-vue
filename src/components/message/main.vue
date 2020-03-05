@@ -3,7 +3,7 @@
     <div class="c-message">
       <template>
         <slot v-if="!enableHtml"></slot>
-        <div v-else v-html="$slots.default[0]"></div>
+        <div v-else v-html="$slots.default ? $slots.default[0] : ''"></div>
       </template>
       <span class="close" @click="onCloseMessage">
         <span v-if="closeButton.text">{{ closeButton.text }}</span>
@@ -45,6 +45,7 @@ export default {
       }
     }
   },
+
   mounted() {
     this.execAutoClose();
   },

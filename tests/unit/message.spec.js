@@ -47,17 +47,15 @@ describe("[Message]", () => {
     expect(callback).to.have.been.called;
   });
 
-  xit("set enableHtml attribute.", () => {
+  it("set enableHtml attribute.", () => {
     const wrapper = mount(Message, {
-      slots: {
-        default: ['<strong id="test">hi</strong>']
-      },
+      attachToDocument: true,
       propsData: {
         enableHtml: true
-      }
+      },
     });
-    // wrapper.vm.$slots.default = ['<strong id="test">hi</strong>']
-
-    // expect(wrapper.find("i").vm).to.exist;
+    wrapper.vm.$slots.default = [`<i id="test">hi</i>`]
+    wrapper.vm.$mount()
+    expect(wrapper.find('#test').exists()).to.be.true;
   });
 });
