@@ -37,6 +37,7 @@ export default {
 @import "../../style/animation";
 
 .c-button {
+  display: inline-flex;
   position: relative;
   cursor: pointer;
   margin: 0;
@@ -60,19 +61,19 @@ export default {
   &.left {
     .c-button-loading-icon,
     .c-button-icon {
-      float: left;
+      order: 1;
     }
     .c-button-content {
-      float: right;
+      order: 2;
     }
   }
   &.right {
     .c-button-loading-icon,
     .c-button-icon {
-      float: right;
+      order: 2;
     }
     .c-button-content {
-      float: left;
+      order: 1;
     }
   }
 

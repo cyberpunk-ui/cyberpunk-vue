@@ -28,29 +28,27 @@ describe("[Button]", () => {
     const useElements = wrapper.vm.$el.querySelectorAll("path");
     expect(useElements.length).to.equal(1);
   });
-  xit("icon in left", () => {
+  it("set iconPosition to left", () => {
     const wrapper = mount(Button, {
+      attachToDocument: true,
       propsData: {
-        icon: "set"
+        icon: "set",
+        iconPosition: "left"
       }
     });
-    const icon = wrapper.find("use");
-    expect(getComputedStyle(icon).float).to.eq("left");
+    const icon = wrapper.find('.c-button-icon').element;
+    expect(getComputedStyle(icon).order).to.eq('1');
   });
-  xit("set iconPosition attribute", () => {
-    const div = document.createElement("div");
-    document.body.appendChild(div);
-    const vm = mount(Button, {
+  it("set iconPosition to right", () => {
+    const wrapper = mount(Button, {
+      attachToDocument: true,
       propsData: {
         icon: "set",
         iconPosition: "right"
       }
-    }).vm;
-    vm.$mount(div);
-    const icon = vm.$el.querySelector("svg");
-    expect(getComputedStyle(icon).float).to.eq("right");
-    vm.$el.remove();
-    vm.$destroy();
+    });
+    const icon = wrapper.find(".c-button-icon").element;
+    expect(getComputedStyle(icon).order).to.eq('2');
   });
   it("test click event", () => {
     const callback = sinon.fake();
