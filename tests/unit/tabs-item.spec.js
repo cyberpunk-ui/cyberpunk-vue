@@ -41,4 +41,20 @@ describe("[TabsItem]", () => {
     wrapper.trigger('click')
     expect(callback).to.have.not.been.called;
   });
+
+  it("test click event.", () => {
+    const callback = sinon.fake();
+    const wrapper = mount(TabsItem, {
+      attachToDocument: true,
+      provide: {
+        eventBus: null
+      },
+      propsData: {
+        name: 'xxx',
+      }
+    });
+    wrapper.vm.$on("click", callback);
+    wrapper.trigger('click')
+    expect(callback).to.have.been.called;
+  });
 });
