@@ -28,13 +28,13 @@ Vue.use(cyberpunk);
 ```
 ```js
 import {
-  Select,
-  Button
+  Button,
+  Input
   // ...
 } from 'cyberpunk-vue';
 
-Vue.use(Select);
 Vue.use(Button);
+Vue.use(Input);
 ```
 
 ## Test Coverage
@@ -48,6 +48,7 @@ Lines        : 95.39% ( 207/217 )
 
 ## TodoList
 * [ ] Components
+    * [x] Icon
     * [x] Button
     * [x] Input
     * [x] Grid
