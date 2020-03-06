@@ -7,36 +7,7 @@ cyberpunk-ui base vue.js
 
 ## Documents
 
-* [Docs] https://cyber.punkui.com/
-* [Blog] https://ylzon.com
-
-## TodoList
-* [ ] Components
-    * [x] Button
-    * [x] Input
-    * [x] Grid
-    * [x] Layout
-    * [x] Message
-    * [x] Tabs
-    * [x] Popover
-    * [x] Collapse
-    * [x] Cascader
-    * [x] Carousel
-    * [x] Menu
-    * [x] Pagination
-    * [x] Table
-    * [x] Upload
-    * [ ] Sticky(dev...)
-    * [ ] Datepicker
-    * [ ] Scroll
-* [x] Complete unit test case coverage 90%+.
-* [ ] Release first version of NPM and Github Package.
-* [ ] Docs
-    * [x] Multi-language support for documentation.
-    * [ ] Complete Chinese and English README.
-    * [ ] Complete documentation for all components.
-    * [ ] Optimize the style of the document site.
-   
+* [https://cyber.punkui.com/](https://cyber.punkui.com/)
 
 ## Install
 
@@ -64,6 +35,7 @@ import {
 Vue.component(Select.name, Select);
 Vue.component(Button.name, Button);
 ```
+
 ## Test Coverage
 
 ```shell script
@@ -72,6 +44,33 @@ Branches     : 84.16% ( 85/101 )
 Functions    : 96.23% ( 102/106 )
 Lines        : 95.39% ( 207/217 )
 ```
+
+## TodoList
+* [ ] Components
+    * [x] Button
+    * [x] Input
+    * [x] Grid
+    * [x] Layout
+    * [x] Message
+    * [x] Tabs
+    * [x] Popover
+    * [x] Collapse
+    * [x] Cascader
+    * [x] Carousel
+    * [x] Menu
+    * [x] Pagination
+    * [x] Table
+    * [x] Upload
+    * [ ] Sticky(dev...)
+    * [ ] Datepicker
+    * [ ] Scroll
+* [x] Complete unit test case coverage 90%+.
+* [x] Release first version of NPM
+* [ ] Docs
+    * [x] Multi-language support for documentation.
+    * [ ] Complete Chinese and English README.
+    * [ ] Complete documentation for all components.
+    * [ ] Optimize the style of the document site.
 
 ## Thanks
 * [Shehab Eltawel](https://codepen.io/shehab-eltawel)

@@ -1,22 +1,35 @@
 {
   "name": "cyberpunk-vue",
-  "version": "0.1.0",
-  "description": "cyberpunk-ui base vue.js",
+  "version": "0.1.1",
+  "description": "A Dark-Style Component Library for Vue.js.",
+  "license": "MIT",
+  "keywords": ["vue", "components", "ui", "cyberpunk"],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cyberpunk-ui/cyberpunk-vue.git"
+  },
+  "homepage": "https://cyber.punkui.com",
+  "style": "dist/cyberpunk-vue.css",
+  "bugs": {
+    "url": "https://github.com/cyberpunk-ui/cyberpunk-vue/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "start": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name cyberpunk-vue index.js",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
+    "docs:deploy": "./deploy.sh",
     "test": "cross-env BABEL_ENV=test karma start --single-run",
-    "test:dev": "cross-env BABEL_ENV=test karma start",
-    "deploy": "./deploy.sh"
+    "test:dev": "cross-env BABEL_ENV=test karma start"
   },
-  "main": "index.js",
+  "main": "dist/cyberpunk-vue.common.js",
   "dependencies": {
-    "core-js": "^3.6.4",
-    "vue": "^2.6.11",
-    "vuepress-theme-default-prefers-color-scheme": "^1.0.5"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
@@ -30,6 +43,7 @@
     "@vuepress/plugin-google-analytics": "^1.3.0",
     "@vuepress/plugin-nprogress": "^1.3.0",
     "babel-plugin-istanbul": "^5.2.0",
+    "core-js": "^3.6.4",
     "chai": "^4.1.2",
     "cross-env": "^7.0.1",
     "eslint": "^6.7.2",
@@ -51,7 +65,8 @@
     "sinon": "^8.1.1",
     "sinon-chai": "^3.4.0",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.3.0"
+    "vuepress": "^1.3.0",
+    "vuepress-theme-default-prefers-color-scheme": "^1.0.5"
   },
   "eslintConfig": {
     "root": true,
