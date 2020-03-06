@@ -134,6 +134,41 @@ describe("[Upload]", () => {
       expect(wrapper.find('ol').element.children.length).to.eq(0)
     },110)
   });
+  it("test upload error.", (done) => {
+    http.post = (url, options) => {
+      setTimeout(()=>{
+        options.error()
+        done()
+      }, 100)
+    }
+    const wrapper = mount(Upload, {
+      propsData: {
+        name: 'file',
+        action: '/xxx',
+        fileList: [],
+      },
+      slots: {
+        default: `<button id="test">upload</button>`
+      },
+      listeners: {
+        'update:fileList': (fileList)=> {
+          wrapper.setProps({fileList})
+        },
+      }
+    })
+    wrapper.find('#test').trigger('click')
+
+    const inputWrapper = wrapper.find('input[type="file"]')
+    const input = inputWrapper.element
+    let file = new File(['test'], 'xxx.txt')
+    const data = new DataTransfer()
+    data.items.add(file)
+    input.files = data.files
+    inputWrapper.trigger('change')
+    setTimeout(()=> {
+      expect(wrapper.find('.content').classes()).to.include('error')
+    },110)
+  });
   it("set accept attribute.", (done) => {
     http.post = (url, options) => {
       setTimeout(()=>{
@@ -158,7 +193,6 @@ describe("[Upload]", () => {
       }
     })
     wrapper.find('#test').trigger('click')
-
     const inputWrapper = wrapper.find('input[type="file"]')
     const input = inputWrapper.element
     let file = new File(['test'], 'xxx.txt', {type: 'text/plain'})

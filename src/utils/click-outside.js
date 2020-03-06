@@ -15,8 +15,4 @@ export default {
   bind: (el, binding) => {
     callbacks.push({el, callback: binding.value})
   },
-  unbind: () => {
-    /* istanbul ignore next */
-    document.removeEventListener('click', onClickDocument)
-  }
 }
