@@ -42,5 +42,23 @@ describe('[Popover]', () => {
       done()
     })
   })
-
+  it('test close.', (done) => {
+    const wrapper = mount(Popover, {
+      slots: {
+        default: {template: `<button>click me</button>`},
+        content: '<div>popover</div>'
+      },
+      propsData: {
+        position: 'bottom',
+      }
+    })
+    expect(wrapper.find('.content-wrapper').exists()).to.eq(false);
+    wrapper.find('.c-popover').trigger('click')
+    setTimeout(()=> {
+      wrapper.find('.c-popover').trigger('click')
+      expect(wrapper.find('.content-wrapper').exists()).to.eq(false);
+      wrapper.destroy()
+      done()
+    })
+  })
 })
