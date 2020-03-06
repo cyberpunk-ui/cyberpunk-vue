@@ -67,10 +67,10 @@ Vue.component(Button.name, Button);
 ## Test Coverage
 
 ```shell script
-Statements   : 60.53% ( 23/38 )
-Branches     : 42.31% ( 11/26 )
-Functions    : 66.67% ( 8/12 )
-Lines        : 62.86% ( 22/35 )
+Statements   : 90.61% ( 222/245 )
+Branches     : 78.45% ( 91/116 )
+Functions    : 93.58% ( 102/109 )
+Lines        : 91.77% ( 212/231 )
 ```
 
 ## Thanks
