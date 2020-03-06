@@ -6390,6 +6390,11 @@ karma-mocha@^1.3.0:
   dependencies:
     minimist "1.2.0"
 
+karma-sinon-chai@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/karma-sinon-chai/download/karma-sinon-chai-2.0.2.tgz#e28c109b989973abafc28a7c9f09ef24a05e07c2"
+  integrity sha1-4owQm5iZc6uvwop8nwnvJKBeB8I=
+
 karma-sourcemap-loader@^0.3.7:
   version "0.3.7"
   resolved "https://registry.npm.taobao.org/karma-sourcemap-loader/download/karma-sourcemap-loader-0.3.7.tgz#91322c77f8f13d46fed062b042e1009d4c4505d8"
