@@ -38,6 +38,7 @@ export default {
   methods: {
     onClick(){
       this.root.namePath = []
+      /* istanbul ignore next */
       this.$parent.updateNamePath && this.$parent.updateNamePath()
       this.$emit('add:selected', this.name)
       this.root.closeAllPopover()

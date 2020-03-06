@@ -43,6 +43,7 @@
       },
       fileList: {
         type: Array,
+        /* istanbul ignore next */
         default: () => []
       },
       multiple: {
@@ -118,6 +119,7 @@
       updateFileStatus(id, status){
         const file = this.fileList.filter(item => item.id === id)[0]
         const index = this.fileList.indexOf(file)
+        /* istanbul ignore next */
         if (!file) return;
         const copy = JSON.parse(JSON.stringify(file))
         copy.status = status

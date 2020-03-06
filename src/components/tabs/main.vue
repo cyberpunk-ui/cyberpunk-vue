@@ -26,6 +26,7 @@ export default {
   },
   mounted() {
     if (this.$children.length === 0) {
+      /* istanbul ignore next */
       console &&
         console.warn &&
         console.warn(

@@ -48,6 +48,7 @@
       this.updateChildren()
       this.listenToChildren()
     },
+    /* istanbul ignore next */
     updated() {
       this.updateChildren()
     },
@@ -71,6 +72,7 @@
       listenToChildren(){
         this.items.forEach(vm => {
           vm.$on('add:selected', name => {
+            /* istanbul ignore next */
             if (this.multiple) {
               let copySelected = JSON.parse(JSON.stringify(this.selected))
               copySelected.push(name)

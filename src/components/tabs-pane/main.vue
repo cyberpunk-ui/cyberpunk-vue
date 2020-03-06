@@ -27,6 +27,7 @@ export default {
     }
   },
   created() {
+    /* istanbul ignore next */
     if (this.eventBus) {
       this.eventBus.$on("update:selected", name => {
         this.active = name === this.name;

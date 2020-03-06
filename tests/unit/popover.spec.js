@@ -39,6 +39,7 @@ describe('[Popover]', () => {
     wrapper.find('.c-popover').trigger('mouseenter')
     setTimeout(()=> {
       expect(wrapper.find('.content-wrapper').exists()).to.eq(true);
+      wrapper.destroy()
       done()
     })
   })
