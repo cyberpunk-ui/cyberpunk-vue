@@ -77,6 +77,7 @@
           this.$parent.updateNamePath()
         }
       },
+      /* istanbul ignore next */
       enter(el, done){
         const { height } = el.getBoundingClientRect()
         el.style.height = 0
@@ -84,9 +85,11 @@
         el.style.height = `${height}px`
         el.addEventListener('transitionend', done)
       },
+      /* istanbul ignore next */
       afterEnter(el){
         el.style.height = 'auto'
       },
+      /* istanbul ignore next */
       leave(el, done){
         const { height } = el.getBoundingClientRect()
         el.style.height = `${height}px`
@@ -94,6 +97,7 @@
         el.style.height = 0
         el.addEventListener('transitionend', done)
       },
+      /* istanbul ignore next */
       afterLeave(el){
         el.style.height = 'auto'
       },

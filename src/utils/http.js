@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 function core(method, url, options) {
   const xhr = new XMLHttpRequest()
   xhr.open(method, url)
@@ -11,11 +12,8 @@ function core(method, url, options) {
 }
 
 export default {
+  /* istanbul ignore next */
   post(url, options){
     core('post', url, options)
   },
-  get(){},
-  put(){},
-  delete(){},
-  patch(){},
 };

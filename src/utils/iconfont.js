@@ -1,4 +1,4 @@
-
+/* istanbul ignore next */
 !function (i) {
   var script = function () {
     var scripts = document.getElementsByTagName("script");

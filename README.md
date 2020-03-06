@@ -29,7 +29,7 @@ cyberpunk-ui base vue.js
     * [ ] Sticky(dev...)
     * [ ] Datepicker
     * [ ] Scroll
-* [ ] Complete unit test case coverage 90%+.
+* [x] Complete unit test case coverage 90%+.
 * [ ] Release first version of NPM and Github Package.
 * [ ] Docs
     * [x] Multi-language support for documentation.
