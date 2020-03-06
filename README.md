@@ -1,5 +1,5 @@
 # cyberpunk-vue
-cyberpunk-ui base vue.js
+A Dark Style Component Library for Vue.js.
 
 [![Build Status](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue.svg?branch=master)](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue)
 [![NPM Download](https://img.shields.io/npm/dt/cyberpunk-vue)](https://www.npmjs.com/package/cyberpunk-vue)
@@ -22,18 +22,19 @@ yarn add cyberpunk-vue
 ```js
 import Vue from 'vue';
 import cyberpunk from 'cyberpunk-vue';
+import 'cyberpunk-vue/dist/cyberpunk-vue.css';
 
 Vue.use(cyberpunk);
-
-// or
+```
+```js
 import {
   Select,
   Button
   // ...
 } from 'cyberpunk-vue';
 
-Vue.component(Select.name, Select);
-Vue.component(Button.name, Button);
+Vue.use(Select);
+Vue.use(Button);
 ```
 
 ## Test Coverage

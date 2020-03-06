@@ -1,6 +1,6 @@
 {
   "name": "cyberpunk-vue",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "A Dark-Style Component Library for Vue.js.",
   "license": "MIT",
   "keywords": ["vue", "components", "ui", "cyberpunk"],
@@ -27,7 +27,7 @@
     "test": "cross-env BABEL_ENV=test karma start --single-run",
     "test:dev": "cross-env BABEL_ENV=test karma start"
   },
-  "main": "dist/cyberpunk-vue.common.js",
+  "main": "dist/cyberpunk-vue.umd.js",
   "dependencies": {
     "vue": "^2.6.11"
   },
