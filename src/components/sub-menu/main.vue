@@ -71,6 +71,7 @@
       onTrigger(){
         this.popoverVisible = !this.popoverVisible
       },
+      /* istanbul ignore next */
       updateNamePath() {
         this.root.namePath.unshift(this.name)
         if (this.$parent.updateNamePath){

@@ -83,6 +83,7 @@ describe("[Menu]", () => {
         'update:selected': callback
       }
     })
+    wrapper.find('.c-sub-menu-title').trigger('click')
     wrapper.find('[data-name="hire"]').trigger('click')
     expect(callback).to.have.been.calledWith(['hire'])
     done()
