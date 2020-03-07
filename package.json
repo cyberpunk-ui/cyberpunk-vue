@@ -1,6 +1,6 @@
 {
   "name": "cyberpunk-vue",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "A Dark-Style Component Library for Vue.js.",
   "license": "MIT",
   "keywords": ["vue", "components", "ui", "cyberpunk"],
@@ -14,12 +14,12 @@
     "url": "https://github.com/cyberpunk-ui/cyberpunk-vue/issues"
   },
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
   "scripts": {
     "start": "vue-cli-service serve --open",
-    "build": "vue-cli-service build --target lib --name cyberpunk-vue index.js",
+    "build": "vue-cli-service build --target lib --dest lib --name cyberpunk-vue index.js",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",

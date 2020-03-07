@@ -28,6 +28,7 @@ import SubMenu from "./src/components/sub-menu";
 import Pagination from "./src/components/pagination";
 import Table from "./src/components/table";
 import Upload from "./src/components/upload";
+import Sticky from "./src/components/sticky";
 
 const components = [
   Button,
@@ -59,6 +60,7 @@ const components = [
   Pagination,
   Table,
   Upload,
+  Sticky,
 ];
 
 const install = function(Vue) {
@@ -105,6 +107,7 @@ export {
   Pagination,
   Table,
   Upload,
+  Sticky,
 };
 
 export default {
