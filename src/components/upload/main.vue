@@ -44,7 +44,8 @@
       fileList: {
         type: Array,
         /* istanbul ignore next */
-        default: () => []
+        default: () => [],
+        required: true,
       },
       multiple: {
         type: Boolean,
