@@ -25,8 +25,8 @@ import cyberpunk from 'cyberpunk-vue';
 import 'cyberpunk-vue/dist/cyberpunk-vue.css';
 
 Vue.use(cyberpunk);
-```
-```js
+
+// or
 import {
   Button,
   Input
@@ -63,8 +63,8 @@ Lines        : 95.39% ( 207/217 )
     * [x] Pagination
     * [x] Table
     * [x] Upload
-    * [ ] Sticky(dev...)
-    * [ ] Datepicker
+    * [x] Sticky
+    * [ ] Datepicker(dev...)
     * [ ] Scroll
 * [x] Complete unit test case coverage 90%+.
 * [x] Release first version of NPM
