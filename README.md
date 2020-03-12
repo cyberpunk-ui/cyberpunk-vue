@@ -4,7 +4,8 @@ A Dark Style Component Library for Vue.js.
 [![Build Status](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue.svg?branch=master)](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue)
 [![NPM Download](https://img.shields.io/npm/dt/cyberpunk-vue)](https://www.npmjs.com/package/cyberpunk-vue)
 [![NPM Version](https://img.shields.io/npm/v/cyberpunk-vue.svg?style=flat)](https://www.npmjs.com/package/cyberpunk-vue)
-[![Github Star](https://img.shields.io/github/stars/cyberpunk-ui/cyberpunk-vue?style=social)](https://github.com/cyberpunk-ui/cyberpunk-vue)
+[![license](https://img.shields.io/github/license/cyberpunk-ui/cyberpunk-vue)](https://github.com/cyberpunk-ui/cyberpunk-vue)
+[![Github Star](https://img.shields.io/github/stars/cyberpunk-ui/cyberpunk-vue?style=social)](https://github.com/cyberpunk-ui/cyberpunk-vue/blob/master/LICENSE)
 
 ## Documents
 
