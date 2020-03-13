@@ -24,7 +24,7 @@ yarn add cyberpunk-vue
 ```js
 import Vue from 'vue';
 import cyberpunk from 'cyberpunk-vue';
-import 'cyberpunk-vue/dist/cyberpunk-vue.css';
+import 'cyberpunk-vue/lib/cyberpunk-vue.css';
 
 Vue.use(cyberpunk);
 
