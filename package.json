@@ -17,7 +17,7 @@
     "lib",
     "src"
   ],
-  "scripts": {
+  "scripts": { 
     "start": "vue-cli-service serve --open",
     "build": "vue-cli-service build --target lib --dest lib --name cyberpunk-vue index.js",
     "lint": "vue-cli-service lint",

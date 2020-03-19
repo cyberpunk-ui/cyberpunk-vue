@@ -1,6 +1,5 @@
 <h1 align="center">Cyberpunk Vue</h1>
 <div align="center">
-A Dark Style Component Library for Vue.js.
 
 [![Build Status](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue.svg?branch=master)](https://travis-ci.org/cyberpunk-ui/cyberpunk-vue)
 [![NPM Download](https://img.shields.io/npm/dt/cyberpunk-vue)](https://www.npmjs.com/package/cyberpunk-vue)
