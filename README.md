@@ -8,7 +8,7 @@ A Dark Style Component Library for Vue.js.
 [![license](https://img.shields.io/github/license/cyberpunk-ui/cyberpunk-vue)](https://github.com/cyberpunk-ui/cyberpunk-vue/blob/master/LICENSE)
 [![Github Star](https://img.shields.io/github/stars/cyberpunk-ui/cyberpunk-vue?style=social)](https://github.com/cyberpunk-ui/cyberpunk-vue)
 
-![](http://static.ylzon.com/upload/logo.jpg)
+![](https://github.com/cyberpunk-ui/cyberpunk-vue/blob/master/public/logo.jpg?raw=true)
 </div>
 
 
