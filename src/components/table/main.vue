@@ -14,7 +14,7 @@
           </th>
           <th v-for="column in columns" :key="column.field">
             <div class="c-table-header">
-              {{column.title}}
+              {{column.text}}
               <span class="c-table-sorter" v-if="column.field in orderBy" @click="changeOrderBy(column.field)">
                 <c-icon :class="{active: orderBy[column.field] === 'asc'}" type="arrow-up"></c-icon>
                 <c-icon :class="{active: orderBy[column.field] === 'desc'}" type="arrow-down"></c-icon>
@@ -39,7 +39,16 @@
                 @change="onChangeItem(item, index, $event)"
               />
             </td>
-            <td v-for="column in columns" :key="column.field">{{item[column.field]}}</td>
+            <template v-for="column in columns">
+              <td :key="column.field" :style="{width: column.width + 'px'}">
+                <template v-if="column.render">
+                  <vnodes :vnodes="column.render({value: item[column.field]})"></vnodes>
+                </template>
+                <template v-else>
+                  {{item[column.field]}}
+                </template>
+              </td>
+            </template>
           </tr>
           <tr :key="`expend-${item[rowKey]}`" v-if="item[expendKey] && expands.filter(v => v[rowKey] === item[rowKey])[0].expand" class="tr-expend">
             <td></td>
@@ -59,12 +68,14 @@
 
   export default {
     name: "CTable",
-    components: { CIcon },
+    components: {
+      CIcon,
+      vnodes: {
+        functional: true,
+        render: (h, context) => context.props.vnodes
+      }
+    },
     props: {
-      columns: {
-        type: Array,
-        required: true,
-      },
       dataSource: {
         type: Array,
         required: true,
@@ -103,6 +114,7 @@
     data(){
       return {
         expands: [],
+        columns: []
       }
     },
     watch:{
@@ -116,6 +128,13 @@
           allCheckInput.indeterminate = true
         }
       }
+    },
+    mounted() {
+      this.columns = this.$slots.default.map(node => {
+        let {text, field, width} = node.componentOptions.propsData
+        let render = node.data.scopedSlots && node.data.scopedSlots.default
+        return {text, field, width, render}
+      })
     },
     computed:{
       classes(){

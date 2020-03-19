@@ -22,14 +22,23 @@
       <div class="block table">
         <c-table
           bordered
-          :columns="columns"
           :dataSource="tableDataSource"
           :selected-items.sync="selectedTable"
           :order-by.sync="orderBy"
           :loading="tableLoading"
           expend-key="description"
           @update:orderBy="onOrderChange"
-        ></c-table>
+        >
+          <c-table-column text="Name" field="name" ></c-table-column>
+          <c-table-column text="Age" field="age"></c-table-column>
+          <c-table-column text="Address" field="address"></c-table-column>
+          <c-table-column text="Options" field="options" :width="150">
+            <template  slot-scope="props">
+              <c-button>{{props.name}}编辑</c-button>
+              <c-button>{{props.name}}删除</c-button>
+            </template>
+          </c-table-column>
+        </c-table>
         <div class="pagination">
           <c-pagination
             :current.sync="currentPage"
@@ -410,11 +419,11 @@
         rowSelection: [],
         selectedTable: [],
         orderBy: {age: 'desc'},
-        columns: [
-          {title: 'Name', field: 'name'},
-          {title: 'Age', field: 'age'},
-          {title: 'Address', field: 'address'},
-        ],
+        // columns: [
+        //   {title: 'Name', field: 'name'},
+        //   {title: 'Age', field: 'age'},
+        //   {title: 'Address', field: 'address'},
+        // ],
         tableDataSource: [
           {id: '1', name: 'John Brown', age: 32, address: 'New York No. 1 Lake Park',description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'},
           {id: '2', name: 'Jim Green', age: 42, address: 'London No. 1 Lake Park',description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'},

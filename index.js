@@ -27,6 +27,7 @@ import MenuItem from "./src/components/menu-item";
 import SubMenu from "./src/components/sub-menu";
 import Pagination from "./src/components/pagination";
 import Table from "./src/components/table";
+import TableColumn from "./src/components/table-column";
 import Upload from "./src/components/upload";
 import Sticky from "./src/components/sticky";
 
@@ -59,6 +60,7 @@ const components = [
   SubMenu,
   Pagination,
   Table,
+  TableColumn,
   Upload,
   Sticky,
 ];
@@ -106,6 +108,7 @@ export {
   SubMenu,
   Pagination,
   Table,
+  TableColumn,
   Upload,
   Sticky,
 };
