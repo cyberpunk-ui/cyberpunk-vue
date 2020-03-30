@@ -30,6 +30,7 @@ import Table from "./src/components/table";
 import TableColumn from "./src/components/table-column";
 import Upload from "./src/components/upload";
 import Sticky from "./src/components/sticky";
+import DatePicker from "./src/components/date-picker";
 
 const components = [
   Button,
@@ -63,6 +64,7 @@ const components = [
   TableColumn,
   Upload,
   Sticky,
+  DatePicker,
 ];
 
 const install = function(Vue) {
@@ -111,6 +113,7 @@ export {
   TableColumn,
   Upload,
   Sticky,
+  DatePicker,
 };
 
 export default {

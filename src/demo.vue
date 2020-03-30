@@ -1,6 +1,12 @@
 <template>
   <div>
     <section>
+      <h4>DatePicker 日期选择</h4>
+      <div class="block">
+        <c-date-picker></c-date-picker>
+      </div>
+    </section>
+    <section>,
       <h4>Upload 上传</h4>
       <div class="block upload">
         <c-upload

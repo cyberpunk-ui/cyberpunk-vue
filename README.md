@@ -81,6 +81,7 @@ Lines        : 95.39% ( 207/217 )
     * [ ] Optimize the style of the document site.
 
 ## Thanks
+* [Frank Fang](https://github.com/FrankFang)
 * [Shehab Eltawel](https://codepen.io/shehab-eltawel)
 * [Hamish Williams](https://codepen.io/HamishMW)
 * [Ru Work](https://codepen.io/ru_work)
