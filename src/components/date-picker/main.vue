@@ -7,17 +7,28 @@
             <span :class="c('icon')"><c-icon type="double-arrow-left"></c-icon></span>
             <span :class="c('icon')"><c-icon type="arrow-lift"></c-icon></span>
             <span :class="c('yearAndMouth')">
-              <span>2020年 </span>
-              <span>12月</span>
+              <span @click="onClickYear">{{value.getFullYear()}}年 </span>
+              <span @click="onClickMonth">{{value.getMonth()}}月</span>
             </span>
             <span :class="c('icon')"><c-icon type="arrow-right"></c-icon></span>
             <span :class="c('icon')"><c-icon type="double-arro-right"></c-icon></span>
           </div>
           <div :class="c('content')">
-            <div :class="c('row')" v-for="week in 6" :key="week">
-            <span :class="c('cell')" v-for="day in 7" :key="day">
-              {{ day }}
-            </span>
+            <div v-if="mode === 'month'">月</div>
+            <div v-else-if="mode === 'year'">年</div>
+            <div v-else>
+              <div>
+                <span
+                  v-for="weekDay in weekDays"
+                  :key="weekDay"
+                  :class="c('weekDay')"
+                >{{ weekDay }}</span>
+              </div>
+              <div :class="c('row')" v-for="row in 6" :key="row">
+                <span :class="c('cell')" v-for="cell in 7" :key="cell">
+                  {{ getVisibleDay(row, cell).getDate() }}
+                </span>
+              </div>
             </div>
           </div>
           <div :class="c('button')">
@@ -34,20 +45,45 @@
   import CInput from '../input'
   import CPopover from '../popover'
   import CIcon from '../icon'
+  import dateHelper from '@/utils/date-helper'
 
   export default {
     name: "CDatePicker",
     comments: {CInput, CPopover, CIcon},
     data() {
       return {
-        value: new Date()
+        mode: 'day', // day / month / year
+        value: new Date(),
+        weekDays: ['一', '二', '三', '四', '五', '六', '日']
       }
+    },
+    computed: {
+      visibleDays(){
+        let date = new Date(this.value.getFullYear(), this.value.getMonth(), 1)
+        let first = dateHelper.firstDayOfMonth(date);
+        let n = first.getDay();
+        let array = [];
+        let x = first - (n === 0 ? 6 : n - 1) * 3600 * 24 * 1000;
+        for (let i = 0; i < 42; i++) {
+          array.push(new Date(x + i * 3600 * 24 * 1000));
+        }
+        return array;
+      },
     },
     methods: {
       c(...names) {
         return names.map(name => `c-data-picker-${name}`);
       },
-    }
+      getVisibleDay(row, cell){
+        return this.visibleDays[(row - 1) * 7 + cell - 1];
+      },
+      onClickYear(){
+        this.mode = 'year'
+      },
+      onClickMonth(){
+        this.mode = 'month'
+      },
+    },
   };
 </script>
 
@@ -56,13 +92,19 @@
 
   .c-data-picker {
     &-calendar {
-      margin: -0.5em -1em;
+      margin: -0.6em -1.1em;
+      user-select: none;
+      font-size: 14px;
     }
+
+    /* header */
     &-nav {
       display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid $primary-dark-color;
-      padding: 0.5em 1em;
+      justify-content: space-around;
+      border-bottom: 1px solid $grey-light-color;
+      padding: 0.6em 1em;
+      font-size: 14px;
+      font-weight: 600;
     }
     &-icon {
       cursor: pointer;
@@ -73,11 +115,41 @@
         color: $white-color;
       }
     }
+
+    /* content */
+    &-content{
+      margin: 0.8em;
+      height: 224px;
+      width: 224px;
+    }
+    &-weekDay,
+    &-cell {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &-cell:hover {
+      background-color: $grey-light-color;
+    }
+    &-yearAndMouth {
+      span {
+        transition: all .3s;
+        cursor: pointer;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
+    /* footer */
     &-button {
-      border-top: 1px solid $primary-dark-color;
+      border-top: 1px solid $grey-light-color;
       padding: 0.5em 1em;
       font-size: 14px;
       text-align: center;
+      font-weight: 600;
     }
     &-link{
       color: $white-color;
@@ -86,18 +158,6 @@
     &-link:hover {
       color: $primary-color;
       cursor: pointer;
-    }
-
-    &-navItem,
-    &-cell {
-      width: 32px;
-      height: 32px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      &:hover {
-        background-color: $grey-light-color;
-      }
     }
   }
 </style>
