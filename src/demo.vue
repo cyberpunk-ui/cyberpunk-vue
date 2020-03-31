@@ -3,7 +3,7 @@
     <section>
       <h4>DatePicker 日期选择</h4>
       <div class="block">
-        <c-date-picker></c-date-picker>
+        <c-date-picker :value.sync="datePickerValue"></c-date-picker>
       </div>
     </section>
     <section>,
@@ -424,6 +424,7 @@
         uploadFileList: [],
         rowSelection: [],
         selectedTable: [],
+        datePickerValue: new Date(),
         orderBy: {age: 'desc'},
         // columns: [
         //   {title: 'Name', field: 'name'},
