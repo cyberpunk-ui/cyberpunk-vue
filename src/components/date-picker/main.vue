@@ -5,20 +5,36 @@
         <div :class="c('calendar')">
           <div :class="c('nav')">
             <span @click="onClickPrevYear" :class="c('icon')"><c-icon type="double-arrow-left"></c-icon></span>
-            <span @click="onClickPrevMonth" :class="c('icon')"><c-icon type="arrow-lift"></c-icon></span>
+            <span v-if="mode === 'day'" @click="onClickPrevMonth" :class="c('icon')"><c-icon type="arrow-lift"></c-icon></span>
             <span :class="c('yearAndMouth')">
-              <span @click="onClickYear">{{displayDate.year}}年 </span>
-              <span @click="onClickMonth" v-show="mode === 'day'">{{displayDate.month + 1}}月</span>
+              <span @click.stop="onClickYear">{{displayDate.year}}年 </span>
+              <span @click.stop="onClickMonth" v-show="mode === 'day'">{{displayDate.month + 1}}月</span>
             </span>
-            <span  @click="onClickNextMonth"  :class="c('icon')"><c-icon type="arrow-right"></c-icon></span>
-            <span  @click="onClickNextYear" :class="c('icon')"><c-icon type="double-arro-right"></c-icon></span>
+            <span v-if="mode === 'day'" @click="onClickNextMonth"  :class="c('icon')"><c-icon type="arrow-right"></c-icon></span>
+            <span @click="onClickNextYear" :class="c('icon')"><c-icon type="double-arro-right"></c-icon></span>
           </div>
           <div :class="c('content')">
-            <div v-if="mode === 'month'" :class="c('months')">
-              <div :class="c('row', 'monthRow')" v-for="row in 4" :key="row">
+            <div v-if="mode === 'year'">
+              <div :class="c('row', 'maxRow')" v-for="row in 4" :key="row">
                 <span
                   v-for="cell in 3"
-                  :class="[c('cell', 'month'), {
+                  :class="[c('cell', 'maxCell'), {
+                    disabled: isDisabledYear(getVisibleYear(row, cell)),
+                    active: isActiveYear(getVisibleYear(row, cell)),
+                    today: isTodayYear(getVisibleYear(row, cell)),
+                  }]"
+                  :key="cell"
+                  @click.stop="onSelectYear(getVisibleYear(row, cell).getFullYear())"
+                >
+                  {{ getVisibleYear(row, cell).getFullYear() }}
+                </span>
+              </div>
+            </div>
+            <div v-else-if="mode === 'month'" :class="c('months')">
+              <div :class="c('row', 'maxRow')" v-for="row in 4" :key="row">
+                <span
+                  v-for="cell in 3"
+                  :class="[c('cell', 'maxCell'), {
                     active: isActiveMonth(getVisibleMonth(row, cell)),
                     today: isTodayMonth(getVisibleMonth(row, cell)),
                   }]"
@@ -29,7 +45,6 @@
                 </span>
               </div>
             </div>
-            <div v-else-if="mode === 'year'">年</div>
             <div v-else>
               <div>
                 <span
@@ -41,7 +56,7 @@
               <div :class="c('row')" v-for="row in 6" :key="row">
                 <span
                   :class="[c('cell'), {
-                    disabled: !isCurrentMouth(getVisibleDay(row, cell)),
+                    disabled: !isDisabledMouth(getVisibleDay(row, cell)),
                     active: isActiveDay(getVisibleDay(row, cell)),
                     today: isToday(getVisibleDay(row, cell)),
                   }]"
@@ -100,9 +115,10 @@
         displayDate: {year, month},
         dateHelper,
         weekDays: ['一', '二', '三', '四', '五', '六', '日'],
-        monthDays: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
+        yearRange: [year-1, year+10],
       }
     },
+
     computed: {
       visibleDays(){
         let date = new Date(this.displayDate.year,this.displayDate.month, 1)
@@ -112,6 +128,13 @@
         let x = first - (n === 0 ? 6 : n - 1) * 3600 * 24 * 1000;
         for (let i = 0; i < 42; i++) {
           array.push(new Date(x + i * 3600 * 24 * 1000));
+        }
+        return array;
+      },
+      visibleYears(){
+        let array = [];
+        for (let i = this.yearRange[0]; i <= this.yearRange[1]; i++) {
+          array.push(new Date(i, 0, 1));
         }
         return array;
       },
@@ -131,6 +154,9 @@
       getVisibleMonth(row, cell){
         return (row - 1) * 3 + cell - 1;
       },
+      getVisibleYear(row, cell){
+        return this.visibleYears[(row - 1) * 3 + cell - 1];
+      },
       onClickYear(){
         this.mode = 'year'
       },
@@ -139,6 +165,36 @@
       },
       onClickClear(){
         this.$emit('update:value', undefined)
+      },
+      onClickPrevYear(){
+        if (this.mode === 'year') {
+          return this.yearRange = this.yearRange.map(item => item - 10)
+        }
+        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
+        const newDate = dateHelper.addYear(oldDate, -1);
+        const [year, month] = dateHelper.getYearMonthDate(newDate);
+        this.displayDate = { year, month };
+      },
+      onClickNextYear(){
+        if (this.mode === 'year') {
+          return this.yearRange = this.yearRange.map(item => item + 10)
+        }
+        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
+        const newDate = dateHelper.addYear(oldDate, 1);
+        const [year, month] = dateHelper.getYearMonthDate(newDate);
+        this.displayDate = { year, month };
+      },
+      onClickPrevMonth(){
+        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
+        const newDate = dateHelper.addMonth(oldDate, -1);
+        const [year, month] = dateHelper.getYearMonthDate(newDate);
+        this.displayDate = { year, month };
+      },
+      onClickNextMonth(){
+        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
+        const newDate = dateHelper.addMonth(oldDate, 1);
+        const [year, month] = dateHelper.getYearMonthDate(newDate);
+        this.displayDate = { year, month };
       },
       onClose(){
         this.mode = 'day'
@@ -154,11 +210,34 @@
       },
       onSelectMonth(month){
         this.mode = 'day'
-        const date = new Date(this.displayDate.year, month, this.value.getDate());
+        const date = new Date(this.displayDate.year, month);
         const [year, month2] = dateHelper.getYearMonthDate(date)
         this.displayDate = {year, month: month2}
       },
-      isCurrentMouth(date){
+      onSelectYear(year){
+        this.mode = 'day'
+        const date = new Date(year, this.displayDate.month);
+        const [_, month] = dateHelper.getYearMonthDate(date)
+        this.displayDate = {year, month}
+      },
+      isDisabledYear(date){
+        const [ year ] = dateHelper.getYearMonthDate(date)
+        const [fistYear, lastYear] = this.yearRange
+         // true 灰色 false 白色
+        return year === fistYear || year === lastYear
+      },
+      isActiveYear(date){
+        if (!this.value) return false;
+        const [year1] = dateHelper.getYearMonthDate(date)
+        const [year2] = dateHelper.getYearMonthDate(this.value)
+        return year1 === year2
+      },
+      isTodayYear(date){
+        const [year1] = dateHelper.getYearMonthDate(date)
+        const [year2] = dateHelper.getYearMonthDate(new Date())
+        return year1 === year2
+      },
+      isDisabledMouth(date){
         const [year, month] = dateHelper.getYearMonthDate(date)
         return year === this.displayDate.year && month === this.displayDate.month
       },
@@ -181,30 +260,6 @@
         const [year, month2] = dateHelper.getYearMonthDate(new Date())
         return this.displayDate.year === year && month === month2
       },
-      onClickPrevYear(){
-        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
-        const newDate = dateHelper.addYear(oldDate, -1);
-        const [year, month] = dateHelper.getYearMonthDate(newDate);
-        this.displayDate = { year, month };
-      },
-      onClickPrevMonth(){
-        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
-        const newDate = dateHelper.addMonth(oldDate, -1);
-        const [year, month] = dateHelper.getYearMonthDate(newDate);
-        this.displayDate = { year, month };
-      },
-      onClickNextMonth(){
-        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
-        const newDate = dateHelper.addMonth(oldDate, 1);
-        const [year, month] = dateHelper.getYearMonthDate(newDate);
-        this.displayDate = { year, month };
-      },
-      onClickNextYear(){
-        const oldDate = new Date(this.displayDate.year, this.displayDate.month);
-        const newDate = dateHelper.addYear(oldDate, 1);
-        const [year, month] = dateHelper.getYearMonthDate(newDate);
-        this.displayDate = { year, month };
-      },
     },
   };
 </script>
@@ -224,7 +279,6 @@
       transform: translateY(-50%);
       color: $grey-light-color;
       border-radius: 50%;
-      transition: all .3s;
       cursor: pointer;
     }
 
@@ -247,7 +301,7 @@
     &-icon {
       cursor: pointer;
       color: darken($white-color, 50%);
-      transition: all .3s;
+      transition: color .3s;
       font-size: 16px;
       &:hover {
         color: $white-color;
@@ -268,7 +322,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      transition: all .3s;
+      transition: color .3s;
       box-sizing: border-box;
       &.active {
         color: $grey-color;
@@ -287,7 +341,7 @@
 
     &-yearAndMouth {
       span {
-        transition: all .3s;
+        transition: color .3s;
         cursor: pointer;
         &:hover {
           color: $primary-color;
@@ -295,12 +349,12 @@
       }
     }
 
-    &-monthRow {
+    &-maxRow {
       display: flex;
       justify-content: space-around;
       align-items: center;
     }
-    &-month {
+    &-maxCell {
       width: 100%;
       margin: 11px 0;
     }
@@ -315,7 +369,7 @@
     }
     &-link{
       color: $white-color;
-      transition: all .3s;
+      transition: color .3s;
     }
     &-link:hover {
       color: $primary-color;
