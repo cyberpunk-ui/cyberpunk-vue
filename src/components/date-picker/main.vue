@@ -165,9 +165,13 @@
         this.mode = 'month'
       },
       onClickClear(){
-        const currentYear = new Date().getFullYear()
-        this.yearRange = [currentYear]
+        const year = new Date().getFullYear()
+        const month = new Date().getMonth()
+        const currentYear = year - year % 10
+        this.yearRange = [currentYear-1, currentYear + 10]
+        this.mode = 'day'
         this.$refs.popover.visible = false
+        this.displayDate = {year, month}
         this.$emit('update:value', undefined)
       },
       onClickPrevYear(){
