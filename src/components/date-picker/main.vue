@@ -164,6 +164,7 @@
         this.mode = 'month'
       },
       onClickClear(){
+        this.$refs.popover.visible = false
         this.$emit('update:value', undefined)
       },
       onClickPrevYear(){
