@@ -1,6 +1,6 @@
 <template>
   <div class="c-data-picker">
-    <c-popover position="bottom" @close="onClose">
+    <c-popover position="bottom" @close="onClose" ref="popover">
       <template slot="content">
         <div :class="c('calendar')">
           <div :class="c('nav')">
@@ -206,6 +206,7 @@
         this.$emit('update:value', new Date())
       },
       onSelectedDay(date){
+        this.$refs.popover.visible = false
         this.$emit('update:value', date)
       },
       onSelectMonth(month){
