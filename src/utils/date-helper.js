@@ -38,7 +38,9 @@ export default {
   }
 };
 
-function getYearMonthDate(date) {
+function getYearMonthDate(propDate) {
+  let date = propDate
+  if (!propDate) date = new Date()
   let year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();

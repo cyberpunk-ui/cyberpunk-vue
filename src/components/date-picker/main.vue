@@ -28,7 +28,8 @@
                 <span
                   :class="[c('cell'), {
                     disabled: !isCurrentMouth(getVisibleDay(row, cell)),
-                    active: isActiveDay(getVisibleDay(row, cell))
+                    active: isActiveDay(getVisibleDay(row, cell)),
+                    today: isToday(getVisibleDay(row, cell)),
                   }]"
                   v-for="cell in 7"
                   :key="cell"
@@ -39,12 +40,15 @@
               </div>
             </div>
           </div>
-          <div :class="c('button')">
+          <div :class="c('button')" v-if="showToday">
             <span @click="setCurrentDay" :class="c('link')">今天</span>
           </div>
         </div>
       </template>
-      <c-input :value.sync="currentDate"></c-input>
+      <div :class="c('input')">
+        <c-input :value.sync="currentDate" :placeholder="placeholder"></c-input>
+        <span @click.stop="onClickClear" v-if="value && allowClear" :class="c('clear')"><c-icon type="reeor"></c-icon></span>
+      </div>
     </c-popover>
   </div>
 </template>
@@ -61,11 +65,21 @@
     props: {
       value: {
         type: Date,
-        default: () => new Date()
-      }
+      },
+      showToday: {
+        type: Boolean,
+        default: true
+      },
+      placeholder: {
+        type: String,
+        default: '请选择日期'
+      },
+      allowClear: {
+        type: Boolean,
+        default: true
+      },
     },
     data() {
-      console.log(this.value)
       const [year, month] = dateHelper.getYearMonthDate(this.value)
       return {
         mode: 'day', // day / month / year
@@ -87,9 +101,7 @@
         return array;
       },
       currentDate(){
-        if (!this.value) {
-          return "";
-        }
+        if (!this.value) return '';
         const [year, month, day] = dateHelper.getYearMonthDate(this.value);
         return `${year}-${dateHelper.pad2(month + 1)}-${dateHelper.pad2(day)}`;
       }
@@ -99,6 +111,8 @@
         return names.map(name => `c-data-picker-${name}`);
       },
       setCurrentDay(){
+        const [year, month] = dateHelper.getYearMonthDate(new Date())
+        this.displayDate = {year, month}
         this.$emit('update:value', new Date())
       },
       getVisibleDay(row, cell){
@@ -110,19 +124,25 @@
       onClickMonth(){
         this.mode = 'month'
       },
+      onClickClear(){
+        this.$emit('update:value', undefined)
+      },
       onChangeValue(date){
-        if (this.isCurrentMouth(date)) {
-          // this.value = date
-          this.$emit('update:value', date)
-        }
+        this.$emit('update:value', date)
       },
       isCurrentMouth(date){
         const [year, month] = dateHelper.getYearMonthDate(date)
         return year === this.displayDate.year && month === this.displayDate.month
       },
       isActiveDay(date){
+        if (!this.value) return false;
         const [year1, month1, day1] = dateHelper.getYearMonthDate(date)
         const [year2, month2, day2] = dateHelper.getYearMonthDate(this.value)
+        return year1 === year2 && month1 === month2 && day1 === day2
+      },
+      isToday(date){
+        const [year1, month1, day1] = dateHelper.getYearMonthDate(date)
+        const [year2, month2, day2] = dateHelper.getYearMonthDate(new Date())
         return year1 === year2 && month1 === month2 && day1 === day2
       },
       onClickPrevYear(){
@@ -157,6 +177,22 @@
   @import "../../style/var";
 
   .c-data-picker {
+    /* input */
+    &-input {
+      position: relative;
+    }
+    &-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $grey-light-color;
+      border-radius: 50%;
+      transition: all .3s;
+      cursor: pointer;
+    }
+
+    /* calendar */
     &-calendar {
       margin: -0.6em -1.1em;
       user-select: none;
@@ -197,13 +233,16 @@
       align-items: center;
       cursor: pointer;
       transition: all .3s;
+      box-sizing: border-box;
       &.active {
         color: $grey-color;
         background-color: $primary-color;
       }
       &.disabled {
-        cursor: not-allowed;
         color: darken(white, 60%);
+      }
+      &.today {
+        border: 1px solid $primary-color;
       }
       &:not(.disabled):not(.active):hover {
         background-color: $grey-light-color;
