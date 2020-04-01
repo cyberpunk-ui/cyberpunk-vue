@@ -70,8 +70,8 @@ Lines        : 95.39% ( 207/217 )
     * [x] Table
     * [x] Upload
     * [x] Sticky
-    * [ ] Datepicker(dev...)
-    * [ ] Scroll
+    * [x] Datepicker
+    * [ ] Scroll(dev...)
 * [x] Complete unit test case coverage 90%+.
 * [x] Release first version of NPM
 * [ ] Docs
