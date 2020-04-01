@@ -208,6 +208,8 @@
       },
       onSelectedDay(date){
         this.$refs.popover.visible = false
+        const [year, month] = dateHelper.getYearMonthDate(date)
+        this.displayDate = {year, month}
         this.$emit('update:value', date)
       },
       onSelectMonth(month){
@@ -336,7 +338,7 @@
       &.today {
         border: 1px solid $primary-color;
       }
-      &:not(.disabled):not(.active):hover {
+      &:not(.active):hover {
         background-color: $grey-light-color;
       }
     }
