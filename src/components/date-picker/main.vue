@@ -110,12 +110,13 @@
     },
     data() {
       const [year, month] = dateHelper.getYearMonthDate(this.value)
+      const currentYear = year - year % 10
       return {
         mode: 'day', // day / month / year
         displayDate: {year, month},
         dateHelper,
         weekDays: ['一', '二', '三', '四', '五', '六', '日'],
-        yearRange: [year-1, year+10],
+        yearRange: [currentYear - 1, currentYear + 10],
       }
     },
 
@@ -164,6 +165,8 @@
         this.mode = 'month'
       },
       onClickClear(){
+        const currentYear = new Date().getFullYear()
+        this.yearRange = [currentYear]
         this.$refs.popover.visible = false
         this.$emit('update:value', undefined)
       },
@@ -217,17 +220,18 @@
         const date = new Date(this.displayDate.year, month);
         const [year, month2] = dateHelper.getYearMonthDate(date)
         this.displayDate = {year, month: month2}
+        this.$emit('update:value', date)
       },
       onSelectYear(year){
         this.mode = 'day'
         const date = new Date(year, this.displayDate.month);
         const [_, month] = dateHelper.getYearMonthDate(date)
         this.displayDate = {year, month}
+        this.$emit('update:value', date)
       },
       isDisabledYear(date){
         const [ year ] = dateHelper.getYearMonthDate(date)
         const [fistYear, lastYear] = this.yearRange
-         // true 灰色 false 白色
         return year === fistYear || year === lastYear
       },
       isActiveYear(date){
