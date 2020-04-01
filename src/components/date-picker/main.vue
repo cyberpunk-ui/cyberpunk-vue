@@ -1,6 +1,6 @@
 <template>
   <div class="c-data-picker">
-    <c-popover position="bottom">
+    <c-popover position="bottom" @close="onClose">
       <template slot="content">
         <div :class="c('calendar')">
           <div :class="c('nav')">
@@ -8,13 +8,27 @@
             <span @click="onClickPrevMonth" :class="c('icon')"><c-icon type="arrow-lift"></c-icon></span>
             <span :class="c('yearAndMouth')">
               <span @click="onClickYear">{{displayDate.year}}年 </span>
-              <span @click="onClickMonth">{{displayDate.month + 1}}月</span>
+              <span @click="onClickMonth" v-show="mode === 'day'">{{displayDate.month + 1}}月</span>
             </span>
             <span  @click="onClickNextMonth"  :class="c('icon')"><c-icon type="arrow-right"></c-icon></span>
             <span  @click="onClickNextYear" :class="c('icon')"><c-icon type="double-arro-right"></c-icon></span>
           </div>
           <div :class="c('content')">
-            <div v-if="mode === 'month'">月</div>
+            <div v-if="mode === 'month'" :class="c('months')">
+              <div :class="c('row', 'monthRow')" v-for="row in 4" :key="row">
+                <span
+                  v-for="cell in 3"
+                  :class="[c('cell', 'month'), {
+                    active: isActiveMonth(getVisibleMonth(row, cell)),
+                    today: isTodayMonth(getVisibleMonth(row, cell)),
+                  }]"
+                  :key="cell"
+                  @click.stop="onSelectMonth(getVisibleMonth(row, cell))"
+                >
+                  {{ getVisibleMonth(row, cell) + 1 }}月
+                </span>
+              </div>
+            </div>
             <div v-else-if="mode === 'year'">年</div>
             <div v-else>
               <div>
@@ -33,7 +47,7 @@
                   }]"
                   v-for="cell in 7"
                   :key="cell"
-                  @click="onChangeValue(getVisibleDay(row, cell))"
+                  @click="onSelectedDay(getVisibleDay(row, cell))"
                 >
                   {{ getVisibleDay(row, cell).getDate() }}
                 </span>
@@ -41,7 +55,7 @@
             </div>
           </div>
           <div :class="c('button')" v-if="showToday">
-            <span @click="setCurrentDay" :class="c('link')">今天</span>
+            <span @click="onSelectedToday" :class="c('link')">今天</span>
           </div>
         </div>
       </template>
@@ -85,7 +99,8 @@
         mode: 'day', // day / month / year
         displayDate: {year, month},
         dateHelper,
-        weekDays: ['一', '二', '三', '四', '五', '六', '日']
+        weekDays: ['一', '二', '三', '四', '五', '六', '日'],
+        monthDays: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
       }
     },
     computed: {
@@ -110,13 +125,11 @@
       c(...names) {
         return names.map(name => `c-data-picker-${name}`);
       },
-      setCurrentDay(){
-        const [year, month] = dateHelper.getYearMonthDate(new Date())
-        this.displayDate = {year, month}
-        this.$emit('update:value', new Date())
-      },
       getVisibleDay(row, cell){
         return this.visibleDays[(row - 1) * 7 + cell - 1];
+      },
+      getVisibleMonth(row, cell){
+        return (row - 1) * 3 + cell - 1;
       },
       onClickYear(){
         this.mode = 'year'
@@ -127,8 +140,23 @@
       onClickClear(){
         this.$emit('update:value', undefined)
       },
-      onChangeValue(date){
+      onClose(){
+        this.mode = 'day'
+      },
+      onSelectedToday(){
+        const [year, month] = dateHelper.getYearMonthDate(new Date())
+        this.mode = 'day'
+        this.displayDate = {year, month}
+        this.$emit('update:value', new Date())
+      },
+      onSelectedDay(date){
         this.$emit('update:value', date)
+      },
+      onSelectMonth(month){
+        this.mode = 'day'
+        const date = new Date(this.displayDate.year, month, this.value.getDate());
+        const [year, month2] = dateHelper.getYearMonthDate(date)
+        this.displayDate = {year, month: month2}
       },
       isCurrentMouth(date){
         const [year, month] = dateHelper.getYearMonthDate(date)
@@ -144,6 +172,14 @@
         const [year1, month1, day1] = dateHelper.getYearMonthDate(date)
         const [year2, month2, day2] = dateHelper.getYearMonthDate(new Date())
         return year1 === year2 && month1 === month2 && day1 === day2
+      },
+      isActiveMonth(month){
+        if (!this.value) return false;
+        return this.displayDate.month === month
+      },
+      isTodayMonth(month){
+        const [year, month2] = dateHelper.getYearMonthDate(new Date())
+        return this.displayDate.year === year && month === month2
       },
       onClickPrevYear(){
         const oldDate = new Date(this.displayDate.year, this.displayDate.month);
@@ -257,6 +293,16 @@
           color: $primary-color;
         }
       }
+    }
+
+    &-monthRow {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    &-month {
+      width: 100%;
+      margin: 11px 0;
     }
 
     /* footer */

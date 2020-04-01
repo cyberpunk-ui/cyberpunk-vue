@@ -104,11 +104,13 @@
         this.visible = true;
         this.$nextTick(() => {
           this.positionContent();
+          this.$emit('open');
           document.addEventListener("click", this.onClickDocument);
         });
       },
       close() {
         this.visible = false;
+        this.$emit('close');
         document.removeEventListener("click", this.onClickDocument);
       },
       onClick(event) {
