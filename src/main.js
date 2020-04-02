@@ -33,6 +33,7 @@ import CTableColumn from "./components/table-column";
 import CUpload from "./components/upload";
 import CSticky from "./components/sticky";
 import CDatePicker from "./components/date-picker";
+import CScroll from "./components/scroll";
 
 Vue.use(CButton);
 Vue.use(CIcon);
@@ -66,6 +67,7 @@ Vue.use(CTableColumn);
 Vue.use(CUpload);
 Vue.use(CSticky);
 Vue.use(CDatePicker);
+Vue.use(CScroll);
 
 Vue.config.productionTip = false;
 

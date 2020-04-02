@@ -1,6 +1,14 @@
 <template>
   <div>
     <section>
+      <h4>Scroll 滚动</h4>
+      <div class="block">
+        <c-scroll class="scroll-demo">
+          <p v-for="index in 100" :key="index">{{index}}</p>
+        </c-scroll>
+      </div>
+    </section>
+    <section>
       <h4>DatePicker 日期选择</h4>
       <div class="block">
         <c-date-picker :value.sync="datePickerValue"></c-date-picker>
@@ -563,71 +571,92 @@
 </script>
 
 <style scoped>
-section {
-  padding: 0 20px 0;
-}
-section h4 {
-  color: white;
-  margin: 20px 0;
-  border-bottom: 1px solid white;
-  padding: 12px 0;
-  text-shadow: 0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,
+  section {
+    padding: 0 20px 0;
+  }
+
+  section h4 {
+    color: white;
+    margin: 20px 0;
+    border-bottom: 1px solid white;
+    padding: 12px 0;
+    text-shadow: 0px 0px 8px #fff, 0px 0px 42px #f72, 0px 0px 72px #f84,
     0px 0px 150px #fa5;
-}
-section .block {
-  margin-bottom: 22px;
-}
-section .grid {
-  background: rgba(255, 255, 255, 0.2);
-  min-height: 50px;
-}
-section .grid .grid-content {
-  width: 100%;
-  text-align: center;
-  height: 50px;
-  color: white;
-}
-section .grid .grid-content.bg-color {
-  background-color: #99a9bf;
-}
-section .grid .grid-content.bg-color-light {
-  background-color: #d3dce6;
-}
-section .layout header,
-footer {
-  background-color: #99a9bf;
-  line-height: 40px;
-  text-align: center;
-}
-section .layout main,
-aside {
-  background-color: #d3dce6;
-  line-height: 70px;
-  text-align: center;
-}
-section .layout aside {
-  background-color: #80889c;
-}
-section .tabs {
-  color: white;
-}
-section .collapse {
-  color: white;
-}
-section .carousel .carousel-item {
-  color: white;
-  height: 300px;
-  background-color: #333333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-section .table .pagination {
-  display: flex;
-  justify-content: flex-end;
-  margin: 12px 0;
-}
-section .upload {
-  width: 300px;
-}
+  }
+
+  section .block {
+    margin-bottom: 22px;
+  }
+
+  section .grid {
+    background: rgba(255, 255, 255, 0.2);
+    min-height: 50px;
+  }
+
+  section .grid .grid-content {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    color: white;
+  }
+
+  section .grid .grid-content.bg-color {
+    background-color: #99a9bf;
+  }
+
+  section .grid .grid-content.bg-color-light {
+    background-color: #d3dce6;
+  }
+
+  section .layout header,
+  footer {
+    background-color: #99a9bf;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  section .layout main,
+  aside {
+    background-color: #d3dce6;
+    line-height: 70px;
+    text-align: center;
+  }
+
+  section .layout aside {
+    background-color: #80889c;
+  }
+
+  section .tabs {
+    color: white;
+  }
+
+  section .collapse {
+    color: white;
+  }
+
+  section .carousel .carousel-item {
+    color: white;
+    height: 300px;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section .table .pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0;
+  }
+
+  section .upload {
+    width: 300px;
+  }
+  .scroll-demo {
+    height: 300px;
+    width: 400px;
+    border: 1px solid #F2F950;
+    font-size: 16px;
+    color: white;
+  }
 </style>
