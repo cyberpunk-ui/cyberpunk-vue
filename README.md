@@ -53,7 +53,7 @@ Lines        : 95.39% ( 207/217 )
 ```
 
 ## TodoList
-* [ ] Components
+* [x] Components
     * [x] Icon
     * [x] Button
     * [x] Input
@@ -71,7 +71,7 @@ Lines        : 95.39% ( 207/217 )
     * [x] Upload
     * [x] Sticky
     * [x] Datepicker
-    * [ ] Scroll(dev...)
+    * [x] Scroll
 * [x] Complete unit test case coverage 90%+.
 * [x] Release first version of NPM
 * [ ] Docs
