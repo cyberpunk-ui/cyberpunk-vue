@@ -60,7 +60,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-              '/components/button'
+              '/components/button',
             ]
           },
         ],
@@ -98,7 +98,24 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-              '/zh/components/button'
+              '/zh/components/button',
+              // '/zh/components/tabs',
+              // '/zh/components/input',
+              // '/zh/components/grid',
+              // '/zh/components/layout',
+              // '/zh/components/message',
+              // '/zh/components/popover',
+              // '/zh/components/collapse',
+              // '/zh/components/slides',
+              // '/zh/components/cascader',
+              // '/zh/components/date-picker',
+              // '/zh/components/sticky',
+              // '/zh/components/pager',
+              // '/zh/components/nav',
+              // '/zh/components/uploader',
+              // '/zh/components/validate',
+              // '/zh/components/scroll',
+              // '/zh/components/table',
             ]
           },
         ],
