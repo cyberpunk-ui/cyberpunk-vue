@@ -75,7 +75,6 @@
   import CIcon from '../../../src/components/icon/icon'
   import mixin from '../scripts/mixin'
 
-
   export default {
     name: 'ButtonDemo',
     mixins: [mixin],
