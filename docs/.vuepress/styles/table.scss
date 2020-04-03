@@ -61,10 +61,11 @@
 .base section table {
   border-collapse: collapse;
   line-height: 1.8em;
-  width: 100%
+  width: 100%;
 }
 
 .base section table tr {
+  width: 100%;
   border: none;
   background-color: #1E1E1E;
   border-bottom: 1px solid rgba(0, 0, 0, .15);
