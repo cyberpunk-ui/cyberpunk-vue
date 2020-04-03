@@ -30,6 +30,10 @@ export default {
         this.isShow.push(false)
       }
     },
+    // 自动去除代码中的字符串
+    parseCode (code) {
+      return code.replace(/^ {8}/gm, '').trim()
+    }
   },
   mounted () {
     //异步获取当前组件内部 code区域的高度 以便于给点击的时候使用
