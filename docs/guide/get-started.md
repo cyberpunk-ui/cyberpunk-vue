@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: 快速上手
 ---
 
-# Getting Started
+# 快速上手

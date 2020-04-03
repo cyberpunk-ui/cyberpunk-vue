@@ -1,0 +1,97 @@
+.base section {
+  padding-bottom: 40px;
+}
+
+.base section a {
+  color: #1890ff;
+  padding: 0 8px;
+  background: rgba(0, 0, 0, .04);
+  border-radius: 4px
+}
+
+.base section a:hover {
+  text-decoration: underline
+}
+
+.base section .key {
+  color: #df24f8;
+  font-size: inherit;
+  font-weight: 600
+}
+
+.base section .str {
+  color: #42b983;
+  font-size: inherit;
+  font-weight: 600
+}
+
+.base section .tag {
+  color: #3e76f6;
+  font-size: inherit;
+  font-weight: 600
+}
+
+.base section .code {
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+  padding: 0 6px;
+  background: rgba(0, 0, 0, .04);
+  color: rgba(0, 0, 0, .65);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600
+}
+
+.base section pre.code {
+  padding: 10px
+}
+
+.base section .container {
+  border: 1px solid rgba(0, 0, 0, .15);
+  padding: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .05);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .05);
+  margin: 10px 0
+}
+
+.base section .example {
+  margin-bottom: 10px
+}
+
+.base section table {
+  border-collapse: collapse;
+  line-height: 1.8em;
+  width: 100%
+}
+
+.base section table tr {
+  border: none;
+  background-color: #1E1E1E;
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
+  transition: background-color .3s;
+  &:hover {
+    background-color: #242424;
+  }
+}
+
+.base section table td,
+.base section table th {
+  min-width: 80px;
+  max-width: 250px;
+  text-align: center;
+  padding: 15px 10px;
+  border: none
+}
+
+.base section table th {
+  background-color: #242424;
+}
+
+.base section table td.des,
+.base section table td.type,
+.base section table th.des,
+.base section table th.type {
+  text-align: start;
+  min-width: 100px;
+  max-width: 300px
+}
