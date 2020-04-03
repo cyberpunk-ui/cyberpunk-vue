@@ -1,5 +1,9 @@
 <template>
-  <button class="c-button" :class="[iconPosition]" @click="$emit('click')">
+  <button
+    class="c-button"
+    :class="[iconPosition, {disabled}, size]"
+    @click="$emit('click')"
+  >
     <c-icon v-if="icon && !loading" :type="icon" class="c-button-icon"></c-icon>
     <c-icon
       v-if="loading"
@@ -27,7 +31,17 @@ export default {
     },
     loading: {
       type: Boolean
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      validator: value => {
+        return ['mini', 'small', 'large'].indexOf(value) >= 0
+      }
+    },
   }
 };
 </script>
@@ -51,7 +65,7 @@ export default {
   letter-spacing: $button-text-space;
   vertical-align: middle;
   /*clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);*/
-  &:focus {
+  &:not(.disabled):focus {
     z-index: 1;
     outline: 1px solid $secondary-color;
   }
@@ -90,9 +104,27 @@ export default {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  &:hover:before {
+  &:not(.disabled):hover:before {
     transform-origin: left center;
     transform: scaleX(1);
+  }
+  &.large{
+    padding: $button-large-padding;
+    font-size: 16px;
+  }
+  &.small{
+    padding: $button-small-padding;
+  }
+  &.mini{
+    padding: $button-mini-padding;
+    font-size: 12px;
+  }
+
+
+  &.disabled {
+    background-color: $primary-dark-color;
+    cursor: not-allowed;
+    outline: none;
   }
 
   .c-button-loading-icon {
