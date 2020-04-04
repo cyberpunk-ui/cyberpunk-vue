@@ -5,7 +5,7 @@ title: Button
 # Button
 
 <ClientOnly>
-  <button-demos></button-demos>
+  <button-demo></button-demo>
 </ClientOnly>
 
 <button-attributes>
