@@ -23,8 +23,8 @@ export default {
     // 根据语言、类型显示对应内容和icon
     isShowCode (index, type, lang) {
       const language = lang || 'en'
-      const showCode = language === 'en' ? 'Show Code' : '显示代码'
-      const hideCode = language === 'en' ? 'Hide Code' : '隐藏代码'
+      const showCode = language === 'en' ? 'Expand' : '显示代码'
+      const hideCode = language === 'en' ? 'Hide' : '隐藏代码'
       return type === 'icon'
         ? this.isShow[index] === false ? 'arrow-down' : 'arrow-up'
         :this.isShow[index] === false ? showCode : hideCode;
