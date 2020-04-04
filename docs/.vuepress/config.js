@@ -58,7 +58,7 @@ module.exports = {
           {
             title: 'Components',
             collapsable: false,
-            sidebarDepth: 1,
+            sidebarDepth: 0,
             children: [
               '/components/button',
             ]
@@ -96,7 +96,7 @@ module.exports = {
           {
             title: '组件',
             collapsable: false,
-            sidebarDepth: 1,
+            sidebarDepth: 0,
             children: [
               '/zh/components/button',
               // '/zh/components/tabs',

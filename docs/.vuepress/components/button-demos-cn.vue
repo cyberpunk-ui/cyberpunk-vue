@@ -1,13 +1,13 @@
 <template>
   <div class="demo">
-    <h2>Basic usage</h2>
-    <p>Basic button usage, such as whether to bring icon icon, whether to load, whether to disable.</p>
+    <h2>基础用法</h2>
+    <p>基础的按钮用法, 如是否带icon图标，是否加载中，是否禁用。</p>
     <div class="component-wrapper">
       <div class="component-wrapper-demo">
-        <c-button>Default</c-button>
-        <c-button icon="editor">Edit</c-button>
-        <c-button :loading="true">Loading</c-button>
-        <c-button disabled>Disabled</c-button>
+        <c-button>默认按钮</c-button>
+        <c-button icon="editor">带 icon 按钮</c-button>
+        <c-button :loading="true">加载按钮</c-button>
+        <c-button disabled>禁用按钮</c-button>
       </div>
       <div class="code-content" v-highlight style="height: 0;">
         <div class="code-content-height">
@@ -15,19 +15,19 @@
         </div>
       </div>
       <div class="lock-code" @click="showCode(0)">
-        <c-icon class="icon-down" :type="isShowCode(0, 'icon')"></c-icon>
-        <span class="lock-code-word">{{isShowCode(0, 'text')}}</span>
+        <c-icon class="icon-down" :type="isShowCode(0, 'icon', 'cn')"></c-icon>
+        <span class="lock-code-word">{{isShowCode(0, 'text', 'cn')}}</span>
       </div>
     </div>
 
-    <h2>Sizes</h2>
-    <p>Besides default size, Button component provides three additional sizes for you to choose among different scenarios.</p>
+    <h2>不同尺寸</h2>
+    <p>Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。</p>
     <div class="component-wrapper">
       <div class="component-wrapper-demo">
-        <c-button size="large">Large</c-button>
-        <c-button>Default</c-button>
-        <c-button size="small">Small</c-button>
-        <c-button size="mini">Mini</c-button>
+        <c-button size="large">大型按钮</c-button>
+        <c-button>默认按钮</c-button>
+        <c-button size="small">小型按钮</c-button>
+        <c-button size="mini">迷你按钮</c-button>
       </div>
       <div class="code-content" v-highlight style="height: 0;">
         <div class="code-content-height">
@@ -35,24 +35,24 @@
         </div>
       </div>
       <div class="lock-code" @click="showCode(1)">
-        <c-icon class="icon-down" :type="isShowCode(1, 'icon')"></c-icon>
-        <span class="lock-code-word">{{isShowCode(1, 'text')}}</span>
+        <c-icon class="icon-down" :type="isShowCode(1, 'icon', 'cn')"></c-icon>
+        <span class="lock-code-word">{{isShowCode(1, 'text', 'cn')}}</span>
       </div>
     </div>
 
-    <h2>Button Group</h2>
-    <p>Displayed as a button group, can be used to group a series of similar operations.</p>
+    <h2>按钮组</h2>
+    <p>以按钮组的方式出现，常用于多项类似操作。</p>
     <div class="component-wrapper">
       <div class="component-wrapper-demo">
         <c-button-group>
           <c-button icon="arrow-lift">
-            Prev
+            上一页
           </c-button>
           <c-button>
-            More
+            更多
           </c-button>
           <c-button icon="arrow-right" icon-position="right">
-            Next
+            下一页
           </c-button>
         </c-button-group>
       </div>
@@ -62,8 +62,8 @@
         </div>
       </div>
       <div class="lock-code" @click="showCode(2)">
-        <c-icon class="icon-down" :type="isShowCode(2, 'icon')"></c-icon>
-        <span class="lock-code-word">{{isShowCode(2, 'text')}}</span>
+        <c-icon class="icon-down" :type="isShowCode(2, 'icon', 'cn')"></c-icon>
+        <span class="lock-code-word">{{isShowCode(2, 'text', 'cn')}}</span>
       </div>
     </div>
   </div>
@@ -86,27 +86,27 @@
     data() {
       return {
         codeStr: `
-          <c-button>Default</c-button>
-          <c-button icon="editor">Edit</c-button>
-          <c-button :loading="true">Loading</c-button>
-          <c-button disabled>Disabled</c-button>
+          <c-button>超大按钮</c-button>
+          <c-button icon="editor">默认按钮</c-button>
+          <c-button :loading="true">默认按钮</c-button>
+          <c-button disabled>默认按钮</c-button>
         `,
         codeStr2: `
-          <c-button size="large">Large</c-button>
-          <c-button>Default</c-button>
-          <c-button size="small">Small</c-button>
-          <c-button size="mini">Mini</c-button>
+          <c-button size="large">超小按钮</c-button>
+          <c-button>默认按钮</c-button>
+          <c-button size="small">中等按钮</c-button>
+          <c-button size="mini">小型按钮</c-button>
           `,
         codeStr3: `
           <c-button-group>
             <c-button icon="arrow-lift">
-              Prev
+              上一页
             </c-button>
             <c-button>
-              More
+              更多
             </c-button>
             <c-button icon="arrow-right" icon-position="right">
-              Next
+              下一页
             </c-button>
           </c-button-group>
           `,

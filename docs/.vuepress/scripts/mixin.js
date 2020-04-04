@@ -1,15 +1,15 @@
 export default {
   data () {
     return {
-      //每一个区域的高度
+      // 每一个区域的高度
       codeParent: [],
       codeHeightArr: [],
-      //每个区域的显示状态
+      // 每个区域的显示状态
       isShow: [],
     }
   },
   methods: {
-    //根据子元素的高度 设置代码区域父元素的高度
+    // 根据子元素的高度 设置代码区域父元素的高度
     showCode (index) {
       this.$set(this.isShow, index, !this.isShow[index])
       this.$nextTick(() => {
@@ -20,7 +20,16 @@ export default {
         }
       })
     },
-    //得到所有代码区域的高度
+    // 根据语言、类型显示对应内容和icon
+    isShowCode (index, type, lang) {
+      const language = lang || 'en'
+      const showCode = language === 'en' ? 'Show Code' : '显示代码'
+      const hideCode = language === 'en' ? 'Hide Code' : '隐藏代码'
+      return type === 'icon'
+        ? this.isShow[index] === false ? 'arrow-down' : 'arrow-up'
+        :this.isShow[index] === false ? showCode : hideCode;
+    },
+    // 得到所有代码区域的高度
     getCodesHeight () {
       const arr = document.getElementsByClassName('code-content-height')
       this.codeParent = document.getElementsByClassName('code-content')
@@ -36,7 +45,7 @@ export default {
     }
   },
   mounted () {
-    //异步获取当前组件内部 code区域的高度 以便于给点击的时候使用
+    // 异步获取当前组件内部 code区域的高度 以便于给点击的时候使用
     this.$nextTick(() => {
       this.getCodesHeight()
     })

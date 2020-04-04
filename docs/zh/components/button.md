@@ -5,8 +5,8 @@ title: Button 按钮
 # Button 按钮
 
 <ClientOnly>
-  <button-demos></button-demos>
+  <button-demos-cn></button-demos-cn>
 </ClientOnly>
 
-<button-attributes>
-</button-attributes>
+<button-attributes-cn>
+</button-attributes-cn>
