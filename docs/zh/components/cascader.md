@@ -4,7 +4,7 @@ title: Cascader 级联选择器
 # Cascader 级联选择器 
 
 <ClientOnly>
-  <cascader-demo></cascader-demo>
+  <cascader-demo-cn></cascader-demo-cn>
 </ClientOnly>
 
-<cascader-attributes></cascader-attributes>
+<cascader-attributes-cn></cascader-attributes-cn>
