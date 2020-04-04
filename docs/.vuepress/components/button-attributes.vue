@@ -40,7 +40,7 @@
               <td class="des">按钮尺寸</td>
               <td class="type">Boolean</td>
               <td>large / small / mini</td>
-              <td>false</td>
+              <td>——</td>
             </tr>
             <tr>
               <td>loading</td>
