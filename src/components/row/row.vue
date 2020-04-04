@@ -44,7 +44,7 @@ export default {
 
 .c-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   &.align-left {
     justify-content: flex-start;
   }
