@@ -32,7 +32,7 @@
 
 <script>
   import CIcon from '../icon/icon';
-  import ClickOutside from "@/utils/click-outside"
+  import ClickOutside from "../../utils/click-outside"
   export default {
     name: "CSubMenu",
     inject: ['root', 'direction'],
@@ -111,7 +111,6 @@
 
   .c-sub-menu {
     position: relative;
-
     &-title {
       display: inline-block;
       vertical-align: top;

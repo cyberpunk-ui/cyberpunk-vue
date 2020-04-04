@@ -122,7 +122,7 @@ module.exports = {
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
-                  '/zh/components/nav',
+                  '/zh/components/menu',
                   '/zh/components/pager',
                 ]
               },
