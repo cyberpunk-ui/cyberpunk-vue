@@ -86,11 +86,11 @@
   import CInput from '../input'
   import CPopover from '../popover'
   import CIcon from '../icon'
-  import dateHelper from '@/utils/date-helper'
+  import dateHelper from '../../utils/date-helper'
 
   export default {
     name: "CDatePicker",
-    comments: {CInput, CPopover, CIcon},
+    components: {CInput, CPopover, CIcon},
     props: {
       value: {
         type: Date,
