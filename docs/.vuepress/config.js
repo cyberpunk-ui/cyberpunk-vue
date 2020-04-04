@@ -123,7 +123,7 @@ module.exports = {
                 sidebarDepth: 0,
                 children: [
                   '/zh/components/menu',
-                  '/zh/components/pager',
+                  '/zh/components/pagination',
                 ]
               },
               {

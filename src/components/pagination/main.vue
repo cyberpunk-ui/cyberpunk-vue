@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import CIcon from "@/components/icon/icon"
-import { unique } from '@/utils/tools'
+import CIcon from "../icon/icon"
+import { unique } from '../../utils/tools'
 
 export default {
   name: "CPagination",
