@@ -4,7 +4,7 @@ title: Input 输入框
 # Input 输入框
 
 <ClientOnly>
-  <input-demo></input-demo>
+  <input-demo-cn></input-demo-cn>
 </ClientOnly>
 
-<input-attributes></input-attributes>
+<input-attributes-cn></input-attributes-cn>
