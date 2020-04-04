@@ -1,7 +1,7 @@
 ---
 title: Grid 网格
 ---
-# Grid 网格 <Badge text="pass" type="success"/> <Badge text="0.0.3+"/>
+# Grid 网格 
 
 <ClientOnly>
   <grid-demo></grid-demo>

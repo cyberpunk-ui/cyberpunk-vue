@@ -1,10 +1,10 @@
 ---
 title: Sticky 粘滞
 ---
-# Sticky 粘滞 <Badge text="pass" type="success"/> <Badge text="0.0.3+"/>
+# Sticky 粘滞 
 
 <ClientOnly>
-  <sticky-demo></sticky-demo>
+  <sticky-demo-cn></sticky-demo-cn>
 </ClientOnly>
 
-<sticky-attributes></sticky-attributes>
+<sticky-attributes-cn></sticky-attributes-cn>
