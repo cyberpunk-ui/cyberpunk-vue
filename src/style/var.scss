@@ -18,10 +18,16 @@ $base-font-size: 14px;
 $base-text-space: 0.05em;
 
 /* Button style */
-$button-padding: 0.4em 1em;
-$button-large-padding: 0.6em 1em;
-$button-small-padding: 0.2em 0.6em;
-$button-mini-padding: 0.1em 0.4em;
+$button-height: 32px;
+$button-large-height: 40px;
+$button-small-height: 26px;
+$button-mini-height: 22px;
+
+$button-padding: 0 1em;
+$button-large-padding: 0 1em;
+$button-small-padding: 0 0.6em;
+$button-mini-padding: 0 0.4em;
+
 $button-text-space: 0.1em;
 $button-font-weight: 500;
 

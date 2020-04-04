@@ -56,6 +56,7 @@ export default {
   cursor: pointer;
   margin: 0;
   border: none;
+  height: $button-height;
   padding: $button-padding;
   font-size: $base-font-size;
   font-weight: $button-font-weight;
@@ -109,13 +110,16 @@ export default {
     transform: scaleX(1);
   }
   &.large{
+    height: $button-large-height;
     padding: $button-large-padding;
     font-size: 16px;
   }
   &.small{
+    height: $button-small-height;
     padding: $button-small-padding;
   }
   &.mini{
+    height: $button-mini-height;
     padding: $button-mini-padding;
     font-size: 12px;
   }
