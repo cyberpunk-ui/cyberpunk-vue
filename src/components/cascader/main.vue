@@ -129,7 +129,7 @@ export default {
     position: relative;
     display: inline-block;
     color: $black-color;
-    padding: $button-padding;
+    padding: 0.5em 1em;
     font-size: $base-font-size;
     font-weight: $button-font-weight;
     background-color: $primary-color;
