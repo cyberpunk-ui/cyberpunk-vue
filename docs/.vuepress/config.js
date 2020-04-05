@@ -33,6 +33,10 @@ module.exports = {
         ariaLabel: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
+        algolia: {
+          apiKey: '11b03ff97f0d7bb7be5d6e34e49d5d7c',
+          indexName: 'cyber_punkui'
+        },
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
@@ -76,7 +80,10 @@ module.exports = {
             buttonText: "刷新"
           }
         },
-        algolia: {},
+        algolia: {
+          apiKey: '11b03ff97f0d7bb7be5d6e34e49d5d7c',
+          indexName: 'cyber_punkui'
+        },
         nav: [
           { text: '首页', link: '/zh/' },
           { text: '文档', link: '/zh/guide/' },
