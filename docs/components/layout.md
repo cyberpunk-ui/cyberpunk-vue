@@ -1,7 +1,7 @@
 ---
-title: Layout 布局
+title: Layout
 ---
-# Layout 布局 
+# Layout 
 
 * `<c-layout>`：wrapper container.
 * `<c-header>`：container for headers.

@@ -1,8 +1,8 @@
 ---
-title: Menu 导航菜单
+title: Menu
 ---
 
-# Menu 导航菜单 
+# Menu 
 
 <ClientOnly>
   <menu-demo></menu-demo>

@@ -1,7 +1,7 @@
 ---
-title: Sticky 粘滞
+title: Sticky
 ---
-# Sticky 粘滞 
+# Sticky 
 
 <ClientOnly>
   <sticky-demo></sticky-demo>

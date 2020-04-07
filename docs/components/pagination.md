@@ -1,8 +1,8 @@
 ---
-title: Pagination 分页
+title: Pagination
 ---
 
-# Pagination 分页 
+# Pagination 
 
 <ClientOnly>
   <pagination-demo></pagination-demo>
