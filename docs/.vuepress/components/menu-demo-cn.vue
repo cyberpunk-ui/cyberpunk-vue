@@ -85,7 +85,7 @@
   import mixin from '../scripts/mixin'
 
   export default {
-    name: 'ButtonDemo',
+    name: 'Demo',
     mixins: [mixin],
     components: {
       CMenu,
