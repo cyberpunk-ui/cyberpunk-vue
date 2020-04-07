@@ -86,6 +86,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   $animation-duration: 300ms;
+  z-index: 100;
   &.position-top {
     top: 0;
     .c-message {

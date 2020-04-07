@@ -1,11 +1,12 @@
 ---
-title: Toast 提示
+title: Message 全局提示
 ---
 
-# Toast 提示 
+# Message 全局提示 
 
 <ClientOnly>
-  <message-demo></message-demo>
+  <message-demo-cn></message-demo-cn>
 </ClientOnly>
 
-<message-attributes></message-attributes>
+<message-attributes-cn>
+</message-attributes-cn>

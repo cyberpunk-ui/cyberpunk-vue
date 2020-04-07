@@ -68,8 +68,8 @@
         </div>
       </div>
       <div class="lock-code" @click="showCode(0)">
-        <c-icon class="icon-down" :type="isShowCode(0, 'icon', 'cn')"></c-icon>
-        <span class="lock-code-word">{{isShowCode(0, 'text', 'cn')}}</span>
+        <c-icon class="icon-down" :type="isShowCode(0, 'icon')"></c-icon>
+        <span class="lock-code-word">{{isShowCode(0, 'text')}}</span>
       </div>
     </div>
   </div>
