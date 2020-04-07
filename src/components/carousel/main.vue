@@ -203,7 +203,7 @@
       transform: translateY(-50%);
       display: flex;
       justify-content: space-between;
-      padding: 0 16px;
+      /*padding: 0 16px;*/
       .button {
         display: inline-block;
         width: 44px;
@@ -216,6 +216,7 @@
         transition: all .3s;
         cursor: pointer;
         user-select: none;
+        margin: 16px;
         &:hover {
           color: rgba(255,255,255,.8);
           background-color: rgba(0,0,0,.1);
