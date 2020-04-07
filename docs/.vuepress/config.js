@@ -33,17 +33,16 @@ module.exports = {
         ariaLabel: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
-        algolia: {
-          apiKey: '11b03ff97f0d7bb7be5d6e34e49d5d7c',
-          indexName: 'cyber_punkui'
-        },
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
             buttonText: "Refresh"
           }
         },
-        algolia: {},
+        algolia: {
+          apiKey: '11b03ff97f0d7bb7be5d6e34e49d5d7c',
+          indexName: 'cyber_punkui'
+        },
         nav: [
           { text: 'Home', link: '/' },
           { text: 'Guide', link: '/guide/' },
@@ -149,7 +148,7 @@ module.exports = {
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
-                  '/zh/components/slides',
+                  '/zh/components/carousel',
                   '/zh/components/collapse',
                   '/zh/components/tabs',
                   '/zh/components/message',

@@ -1,8 +1,8 @@
 ---
-title: Uploader 上传
+title: Uploader
 ---
 
-# Uploader 上传 
+# Uploader
 
 <ClientOnly>
   <upload-demo></upload-demo>
