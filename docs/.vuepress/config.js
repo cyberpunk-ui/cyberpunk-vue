@@ -109,6 +109,7 @@ module.exports = {
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
+                  '/zh/components/icon',
                   '/zh/components/button',
                   '/zh/components/sticky',
                   '/zh/components/scroll',
