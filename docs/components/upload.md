@@ -5,7 +5,7 @@ title: Uploader 上传
 # Uploader 上传 
 
 <ClientOnly>
-  <uploader-demo></uploader-demo>
+  <upload-demo></upload-demo>
 </ClientOnly>
 
-<uploader-attributes></uploader-attributes>
+<upload-attributes></upload-attributes>

@@ -141,7 +141,7 @@ module.exports = {
                   '/zh/components/cascader',
                   '/zh/components/date-picker',
                   '/zh/components/input',
-                  '/zh/components/uploader',
+                  '/zh/components/upload',
                 ]
               },
               {

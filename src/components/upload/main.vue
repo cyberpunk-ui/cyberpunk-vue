@@ -24,7 +24,7 @@
 
 <script>
   import CIcon from '../icon/icon'
-  import http from "@/utils/http"
+  import http from "../../utils/http"
   export default {
     name: "CUpload",
     components: {CIcon},
