@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <section>
-      <h2>Aside Attributes</h2>
+      <h2>Attributes</h2>
       <div class="attr">
         <table>
           <thead>
