@@ -64,7 +64,7 @@
 </template>
 
 <script>
-  import CIcon from "@/components/icon/icon";
+  import CIcon from "../../components/icon/icon";
 
   export default {
     name: "CTable",
@@ -131,10 +131,12 @@
     },
     mounted() {
       this.columns = this.$slots.default.map(node => {
-        let {text, field, width} = node.componentOptions.propsData
-        let render = node.data.scopedSlots && node.data.scopedSlots.default
-        return {text, field, width, render}
-      })
+        if (node && node.componentOptions) {
+          let {text, field, width} = JSON.parse(JSON.stringify(node.componentOptions.propsData))
+          let render = node.data.scopedSlots && node.data.scopedSlots.default
+          return {text, field, width, render}
+        }
+      }).filter(item => item)
     },
     computed:{
       classes(){

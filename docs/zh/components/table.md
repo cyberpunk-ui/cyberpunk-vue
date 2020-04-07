@@ -4,8 +4,10 @@ title: Table 表格
 # Table 表格 
 
 <ClientOnly>
-  <table-demo></table-demo>
+  <table-demo-cn></table-demo-cn>
 </ClientOnly>
 
-<table-attributes></table-attributes>
-<table-column-attributes></table-column-attributes>
+<table-attributes-cn>
+</table-attributes-cn>
+<table-column-attributes-cn>
+</table-column-attributes-cn>
