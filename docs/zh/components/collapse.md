@@ -5,8 +5,8 @@ title: Collapse 折叠面板
 # Collapse 折叠面板
 
 <ClientOnly>
-  <collapse-demo></collapse-demo>
+  <collapse-demo-cn></collapse-demo-cn>
 </ClientOnly>
 
-<collapse-attributes></collapse-attributes>
-<collapse-item-attributes></collapse-item-attributes>
+<collapse-attributes-cn></collapse-attributes-cn>
+<collapse-item-attributes-cn></collapse-item-attributes-cn>
