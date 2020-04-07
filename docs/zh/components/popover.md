@@ -5,8 +5,9 @@ title: Popover 弹出层
 # Popover 弹出层 
 
 <ClientOnly>
-  <popover-demo>
-  </popover-demo>
+  <popover-demo-cn>
+  </popover-demo-cn>
 </ClientOnly>
 
-<popover-attributes></popover-attributes>
+<popover-attributes-cn>
+</popover-attributes-cn>
