@@ -63,7 +63,59 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 0,
             children: [
-              '/components/button',
+              {
+                title: 'General',
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                  '/components/icon',
+                  '/components/button',
+                  '/components/sticky',
+                  '/components/scroll',
+                ]
+              },
+              {
+                title: 'Layout',
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                  '/components/grid',
+                  '/components/layout',
+                ]
+              },
+              {
+                title: 'Navigation',
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                  '/components/menu',
+                  '/components/pagination',
+                ]
+              },
+              {
+                title: 'Data Entry',
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                  '/components/cascader',
+                  '/components/date-picker',
+                  '/components/input',
+                  '/components/upload',
+                ]
+              },
+              {
+                title: 'Data Display',
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                  '/components/carousel',
+                  '/components/collapse',
+                  '/components/tabs',
+                  '/components/message',
+                  '/components/popover',
+                  '/components/table',
+                ]
+              },
             ]
           },
         ],
@@ -155,7 +207,6 @@ module.exports = {
                   '/zh/components/message',
                   '/zh/components/popover',
                   '/zh/components/table',
-                  '/zh/components/validate',
                 ]
               },
             ]
