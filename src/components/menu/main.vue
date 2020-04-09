@@ -96,6 +96,7 @@
     background-color: $grey-color;
     &.vertical {
       flex-direction: column;
+      overflow: hidden;
     }
   }
 </style>
