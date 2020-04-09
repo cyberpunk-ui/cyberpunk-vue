@@ -1,4 +1,4 @@
-English | [简体中文](./README-zh_CN.md)
+[English](./README.md) | 简体中文
 <h1 align="center">Cyberpunk Vue</h1>
 <div align="center">
 
@@ -11,19 +11,18 @@ English | [简体中文](./README-zh_CN.md)
 ![](https://github.com/cyberpunk-ui/cyberpunk-vue/blob/master/public/logo.jpg?raw=true)
 </div>
 
-> This project is under development, the API may be upgraded and changed, please do not apply it to production projects for the time being
-
-## Documents
+> 本项目正在开发中，可能会对API进行升级和改动，请暂时不要应用在生产项目中
+## 文档
 
 * [https://cyber.punkui.com/](https://cyber.punkui.com/)
 
-## Features
+## 特性
 
-* Complete dark style UI control color matching to help you quickly build pages
-* Enjoy Vue Webpack development experience and use it on mobile phones and PCs
-* Use Chai mocha as a unit testing tool, with 90% test coverage
+* 完整的黑暗风格UI控件配色，帮助你快速搭建页面
+* 享受Vue + Webpack的开发经验，并在手机和PC上使用
+* 使用Chai + mocha作为单元测试工具,具备90%+测试覆盖率
 
-## Install
+## 安装
 
 ```shell
 npm install cyberpunk-vue
@@ -32,7 +31,7 @@ npm install cyberpunk-vue
 yarn add cyberpunk-vue
 ```
 
-## Quick Start
+## 快速上手
 ```js
 import Vue from 'vue';
 import cyberpunk from 'cyberpunk-vue';
@@ -51,20 +50,19 @@ Vue.use(Button);
 Vue.use(Input);
 ```
 
-
-## Support environment
+## 支持环境
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
 | --- | --- | --- | --- | --- |
 | IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
-## Version
+## 版本
 
 * ![NPM Version](https://img.shields.io/npm/v/cyberpunk-vue.svg?style=flat)
 * ![GitHub package.json version](https://img.shields.io/github/package-json/v/cyberpunk-ui/cyberpunk-vue?label=GitHub)
 
 
-## Test Coverage
+## 测试覆盖率
 
 ```shell script
 Statements   : 94.35% ( 217/230 )
@@ -73,8 +71,8 @@ Functions    : 96.23% ( 102/106 )
 Lines        : 95.39% ( 207/217 )
 ```
 
-## TodoList
-* [x] Components
+## 开发计划
+* [x] 组件
     * [x] Icon
     * [x] Button
     * [x] Input
@@ -93,15 +91,15 @@ Lines        : 95.39% ( 207/217 )
     * [x] Sticky
     * [x] Datepicker
     * [x] Scroll
-* [x] Complete unit test case coverage 90%+.
-* [x] Release first version of NPM
-* [ ] Docs
-    * [x] Multi-language support for documentation.
-    * [ ] Complete Chinese and English README.
-    * [ ] Complete documentation for all components.
-    * [ ] Optimize the style of the document site.
+* [x] 单元测试用例覆盖率90％+
+* [x] 发布第一个NPM版本
+* [x] 文档
+    * [x] 文档支持多语言
+    * [x] 完成Github中英文版本README.
+    * [x] 完成所有组件的中英文版本文档和示例.
+    * [x] 优化文档样式.
 
-## Thanks
+## 感谢
 * [Frank Fang](https://github.com/FrankFang)
 * [Shehab Eltawel](https://codepen.io/shehab-eltawel)
 * [Hamish Williams](https://codepen.io/HamishMW)
@@ -110,5 +108,5 @@ Lines        : 95.39% ( 207/217 )
 * [Ant Design Vue](https://github.com/vueComponent/ant-design-vue)
 * [Cyberpunk 2077](https://www.cyberpunk.net/us/zh-cn/pre-order)
 
-## LICENSE
+## 开源协议
 [MIT](LICENSE)
