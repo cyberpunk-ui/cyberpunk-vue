@@ -95,11 +95,11 @@ Lines        : 95.39% ( 207/217 )
     * [x] Scroll
 * [x] Complete unit test case coverage 90%+.
 * [x] Release first version of NPM
-* [ ] Docs
+* [x] Docs
     * [x] Multi-language support for documentation.
-    * [ ] Complete Chinese and English README.
-    * [ ] Complete documentation for all components.
-    * [ ] Optimize the style of the document site.
+    * [x] Complete Chinese and English README.
+    * [x] Complete documentation for all components.
+    * [x] Optimize the style of the document site.
 
 ## Thanks
 * [Frank Fang](https://github.com/FrankFang)

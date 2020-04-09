@@ -147,7 +147,6 @@ module.exports = {
             sidebarDepth: 1,    // 可选的, 默认值是 1
             children: [
               '/zh/guide/',
-              '/zh/guide/install',
               '/zh/guide/get-started',
             ]
           },
