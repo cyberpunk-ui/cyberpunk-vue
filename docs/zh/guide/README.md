@@ -60,6 +60,10 @@ Lines        : 95.39% ( 207/217 )
     * [x] Sticky
     * [x] Datepicker
     * [x] Scroll
+    * [ ] Switch
+    * [ ] CheckBox
+    * [ ] Radio
+    * [ ] Form
 * [x] 单元测试用例覆盖率90％+
 * [x] 发布第一个NPM版本
 * [x] 文档
@@ -67,6 +71,7 @@ Lines        : 95.39% ( 207/217 )
     * [x] 完成Github中英文版本README.
     * [x] 完成所有组件的中英文版本文档和示例.
     * [x] 优化文档样式.
+* [ ] 升级组件库至Vue 3.0
 
 ## 感谢
 * [Frank Fang](https://github.com/FrankFang)
