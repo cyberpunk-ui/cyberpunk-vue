@@ -93,6 +93,10 @@ Lines        : 95.39% ( 207/217 )
     * [x] Sticky
     * [x] Datepicker
     * [x] Scroll
+    * [ ] Switch
+    * [ ] CheckBox
+    * [ ] Radio
+    * [ ] Form
 * [x] Complete unit test case coverage 90%+.
 * [x] Release first version of NPM
 * [x] Docs
@@ -100,6 +104,7 @@ Lines        : 95.39% ( 207/217 )
     * [x] Complete Chinese and English README.
     * [x] Complete documentation for all components.
     * [x] Optimize the style of the document site.
+* [ ] Upgrade Component Library to Vue 3.0
 
 ## Thanks
 * [Frank Fang](https://github.com/FrankFang)
