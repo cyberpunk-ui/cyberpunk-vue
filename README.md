@@ -104,7 +104,7 @@ Lines        : 95.39% ( 207/217 )
     * [x] Complete Chinese and English README.
     * [x] Complete documentation for all components.
     * [x] Optimize the style of the document site.
-* [ ] Upgrade Component Library to Vue 3.0
+* [ ] Upgrade Component Library to Vue 3.0 & TypeScript
 
 ## Thanks
 * [Frank Fang](https://github.com/FrankFang)
