@@ -57,6 +57,7 @@ export default {
   margin: 0;
   border: none;
   height: $button-height;
+  line-height: $button-height;
   padding: $button-padding;
   font-size: $base-font-size;
   font-weight: $button-font-weight;
