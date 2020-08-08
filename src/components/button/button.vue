@@ -113,15 +113,18 @@ export default {
   &.large{
     height: $button-large-height;
     padding: $button-large-padding;
+    line-height: $button-large-height;
     font-size: 16px;
   }
   &.small{
     height: $button-small-height;
     padding: $button-small-padding;
+    line-height: $button-small-height;
   }
   &.mini{
     height: $button-mini-height;
     padding: $button-mini-padding;
+    line-height: $button-mini-height;
     font-size: 12px;
   }
 
